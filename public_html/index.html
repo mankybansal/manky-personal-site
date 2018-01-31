@@ -1,121 +1,120 @@
-<html><head><style>
-html {
+<html>
+<head>
 
-		background: url('IMG_2681.JPG') no-repeat;
-		background-size: 120% auto;
-		background-position: 0px -200px;
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/segoe-fonts/segoe-fonts.css">
 
-text-align: center;  height: 100%; width: 100%; overflow: hidden;
+    <title>Manky's Sandbox</title>
 
+    <style>
+        html, body {
 
-		-webkit-touch-callout: none;
-    -webkit-user-select:
-none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+            background: url('images/IMG_2681.JPG') no-repeat;
+            background-size: 120% auto;
+            background-position: 0px -200px;
 
-@font-face {
-		font-family: source;
-		src:	url('seguisb.ttf');
-	}
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            outline: 0;
+            border: 0;
+            margin: 0;
 
-@font-face {
-		font-family: source2;
-		src:	url('segoeuil.ttf');
-	}
-</style>
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
+        #canvas {
+            position: absolute;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
 
+        #front {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
 
+        .fa {
+            font-size: 30px;
+            margin-left: 5px;
+            color: #333;
+            margin-right: 5px;
+            margin-top: 15px;
+            transition: all ease .5s;
+            cursor: pointer;
+        }
 
+        .fa:hover {
+            color: #666;
+        }
 
-<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    </style>
 
-<title>Manky's Sandbox</title>
+</head>
+<body>
+<canvas id="canvas" width="1366" height="667"></canvas>
 
-	<style>
-		#canvas {
-		position: absolute;
-		left: 0;
-		z-index: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	#front {
-		width: 100%;
-		position: relative;
-		z-index: 1;
-	}
-
-	div.spacer {
-		width: 100%;
-		height: 0px;
-	}
-
-	.fa {
-		font-size: 30px;
-		margin-left: 5px;
-		color: #333;
-		margin-right: 5px;
-		margin-top: 15px;
-		transition: all ease .5s;
-		cursor: pointer;
-	}
-
-	.fa:hover {
-		color: #666;
-	}
-
-	</style>
-
-	</head><body><canvas id="canvas" width="1366" height="667"></canvas>
-
-	<script type="text/javascript" src="jquery.min.js"></script>
-	<script type="text/javascript" src="background.js"></script>
-<!-- <script type="text/javascript" src="bower_components/instafeed.js/instafeed.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/background.js"></script>
+<script type="text/javascript" src="bower_components/instafeed.js/instafeed.min.js"></script>
 
 <script type="text/javascript">
     var feed = new Instafeed({
         get: 'user',
-        userId: 'virat.kohli',
-        clientId: 'e2f40c42738b4f1281f1bf31b7d022cd'
+        userId: '236501479',
+        clientId: 'e2f40c42738b4f1281f1bf31b7d022cd',
+        accessToken: '236501479.e2f40c4.9bfb402940d3498398587634b1bc4078',
+        template: '<a href="{{link}}"><img style="width: 240px; margin: 10px;" src="{{image}}" /></a>'
     });
     feed.run();
-</script> -->
+</script>
 
 
-	<div id="front" class="animated fadeInUp" style="display: inline-block; min-width: 200px; float: left;  padding: 150px 250px 250px; margin-left: -480px;">
+<div style="width: 100%; height: 100%; overflow: hidden">
+    <div id="front" class="animated fadeInUp"
+         style="display: inline-block; min-width: 200px; float: left;  padding: 150px 250px 250px; margin-left: -480px;">
 
-		<img src='Layer 1.png' style='margin: 0 auto; width: 270px; height: 200px;'><br>
+        <img src='images/Layer%201.png' style='margin: 0 auto; width: 270px; height: 200px;'><br>
 
-		<text style="font-family: source; font-size: 65px; letter-spacing: -6px; text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ; color: #333;">MANKY'S</text>
-		<text style="font-family: source2; font-size: 65px;  letter-spacing: -4px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #333; ">&nbsp;SANDBOX</text>
-		<br>
-		<div style="display: inline-block;margin-top: -15px; min-width: 10px; min-height: 10px; ">
-		<text style="font-family: source2; font-size: 35px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #333; "><span id="translate2">DREAM . THINK . CREATE</span></text>
-		<br>
-		<text style="font-family: source2; font-size: 20px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #555; "><span id="translate2">Coming Soon</span></text>
-		</div>
+        <text style="font-family: 'Segoe UI Bold'; font-size: 65px; letter-spacing: -6px; text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ; color: #333;">
+            MANKY'S
+        </text>
+        <text style="font-family: 'Segoe UI Light'; font-size: 65px;  letter-spacing: -4px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #333; ">
+            &nbsp;SANDBOX
+        </text>
+        <br>
+        <div style="display: inline-block;margin-top: -15px; min-width: 10px; min-height: 10px; ">
+            <text style="font-family: 'Segoe UI Light'; font-size: 35px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #333; ">
+                <span>DREAM . THINK . CREATE</span></text>
+            <br>
+            <text style="font-family: 'Segoe UI Light'; font-size: 20px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #555; ">
+                <span>Coming Soon</span></text>
+        </div>
 
-		<br><br>
+        <br><br>
 
-					<a href="https://www.facebook.com/MankyBansal" target="_blank"><i class="fa fa-facebook-square"></i></a>
-					<a href="https://www.dribbble.com/MankyBansal" target="_blank"><i class="fa fa-dribbble"></i></a>
-					<a href="https://www.instagram.com/MankyBansal" target="_blank"><i class="fa fa-instagram"></i></a>
-					<a href="https://www.linkedin.com/in/MankyBansal" target="_blank"><i class="fa fa-linkedin-square"></i></a>
-					<a href="https://www.github.com/MankyBansal" target="_blank"><i class="fa fa-github"></i></a>
-					<a href="mailto:manky.bansal@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
-	</div>
+        <a href="https://www.facebook.com/MankyBansal" target="_blank"><i class="fa fa-facebook-square"></i></a>
+        <a href="https://www.dribbble.com/MankyBansal" target="_blank"><i class="fa fa-dribbble"></i></a>
+        <a href="https://www.instagram.com/MankyBansal" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/MankyBansal" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+        <a href="https://www.github.com/MankyBansal" target="_blank"><i class="fa fa-github"></i></a>
+        <a href="mailto:manky.bansal@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+    </div>
+</div>
 
-	 <!-- <div id="instafeed"></div> -->
+<div style="width: 100%; height: 100%; background: white;">
+    <br>
+    <br>
+    <div id="instafeed"></div>
+</div>
 
+</body>
 
-
-
-
-
-</body></html>
+</html>
