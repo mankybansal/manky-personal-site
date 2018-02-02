@@ -1,81 +1,42 @@
 <html>
 <head>
 
+    <title>Manky's Sandbox</title>
+
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/segoe-fonts/segoe-fonts.css">
-
-    <title>Manky's Sandbox</title>
+    <link rel="stylesheet" href="css/default.css">
 
     <style>
         html, body {
-
             background: url('images/IMG_2681.JPG') no-repeat;
             background-size: 120% auto;
             background-position: 0px -200px;
-
-            text-align: center;
-            height: 100%;
-            width: 100%;
-            outline: 0;
-            border: 0;
-            margin: 0;
-
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
-
-        #canvas {
-            position: absolute;
-            left: 0;
-            z-index: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        #front {
-            width: 100%;
-            position: relative;
-            z-index: 1;
-        }
-
-        .fa {
-            font-size: 30px;
-            margin-left: 5px;
-            color: #333;
-            margin-right: 5px;
-            margin-top: 15px;
-            transition: all ease .5s;
-            cursor: pointer;
-        }
-
-        .fa:hover {
-            color: #666;
-        }
-
     </style>
 
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/instafeed.js/instafeed.min.js"></script>
+    <script defer type="text/javascript" src="js/background.js"></script>
+
+    <script type="text/javascript">
+        var feed = new Instafeed({
+            get: 'user',
+            userId: '236501479',
+            clientId: 'e2f40c42738b4f1281f1bf31b7d022cd',
+            accessToken: '236501479.e2f40c4.9bfb402940d3498398587634b1bc4078',
+            template: '<div style="width: 240px; display: inline-block; height: 240px; overflow: hidden;  margin: 10px;"><a href="{{link}}"><img style="height: 240px;" src="{{image}}" /></a></div>',
+            resolution: 'low_resolution'
+        });
+        feed.run();
+    </script>
+
 </head>
+
 <body>
+
 <canvas id="canvas" width="1366" height="667"></canvas>
-
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/background.js"></script>
-<script type="text/javascript" src="bower_components/instafeed.js/instafeed.min.js"></script>
-
-<script type="text/javascript">
-    var feed = new Instafeed({
-        get: 'user',
-        userId: '236501479',
-        clientId: 'e2f40c42738b4f1281f1bf31b7d022cd',
-        accessToken: '236501479.e2f40c4.9bfb402940d3498398587634b1bc4078',
-        template: '<a href="{{link}}"><img style="width: 240px; margin: 10px;" src="{{image}}" /></a>'
-    });
-    feed.run();
-</script>
-
 
 <div style="width: 100%; height: 100%; overflow: hidden">
     <div id="front" class="animated fadeInUp"
@@ -83,19 +44,16 @@
 
         <img src='images/Layer%201.png' style='margin: 0 auto; width: 270px; height: 200px;'><br>
 
-        <text style="font-family: 'Segoe UI Bold'; font-size: 65px; letter-spacing: -6px; text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ; color: #333;">
+        <span style="font-family: 'Segoe UI Bold', sans-serif; font-size: 65px; letter-spacing: -6px; text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ; color: #333;">
             MANKY'S
-        </text>
-        <text style="font-family: 'Segoe UI Light'; font-size: 65px;  letter-spacing: -4px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #333; ">
+        </span>
+        <span style="font-family: 'Segoe UI Light', sans-serif; font-size: 65px;  letter-spacing: -4px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #333; ">
             &nbsp;SANDBOX
-        </text>
+        </span>
         <br>
         <div style="display: inline-block;margin-top: -15px; min-width: 10px; min-height: 10px; ">
-            <text style="font-family: 'Segoe UI Light'; font-size: 35px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #333; ">
-                <span>DREAM . THINK . CREATE</span></text>
-            <br>
-            <text style="font-family: 'Segoe UI Light'; font-size: 20px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #555; ">
-                <span>Coming Soon</span></text>
+            <span style="font-family: 'Segoe UI Light', sans-serif; font-size: 35px;  text-shadow: 0px 0px 50px rgba(0,0,0,0.3) ;  color: #333; ">
+                <span>DREAM . THINK . CREATE</span></span>
         </div>
 
         <br><br>
@@ -106,15 +64,95 @@
         <a href="https://www.linkedin.com/in/MankyBansal" target="_blank"><i class="fa fa-linkedin-square"></i></a>
         <a href="https://www.github.com/MankyBansal" target="_blank"><i class="fa fa-github"></i></a>
         <a href="mailto:manky.bansal@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+
+        <div class="mouse"></div>
     </div>
 </div>
 
-<div style="width: 100%; height: 100%; background: white;">
-    <br>
-    <br>
+<div class="header">
+
+    <div class="header-link" style="letter-spacing: 5px; font-size: 20px; padding: 20px;"><span
+            style="font-family: 'Segoe UI Bold', sans-serif">MAYANK</span> BANSAL
+    </div>
+    <div class="header-link">About Me</div>
+    <div class="header-link">Projects</div>
+    <div class="header-link">Skills</div>
+    <div class="header-link">Resume</div>
+    <div class="header-link">Volunteer Work</div>
+    <div class="header-link">Portfolio</div>
+    <div class="header-link">Contact Me</div>
+</div>
+
+<div style="width: 100%; height: 100%; background: #FAFAFA;">
+    <br><br><br>
+    <div class="section-title">About Me</div>
+
+    <hr class="section-header-dark">
+
+    <img src="images/Logo.png" style="width: 200px; margin-top: 100px;">
+    <div class="about-me-text">
+        Hi, I'm
+        <span style="font-family: 'Segoe UI Medium', sans-serif">Mayank Bansal</span>
+        <i class="fa fa-volume-up pronounce"></i>
+        <div class="pronounce-tooltip">
+            <i class="fa fa-volume-up pronounce2"></i> <b>my-YUNGK BUN-sel</b>
+        </div>
+        , a 21-year old undergraduate student majoring in
+        <span style="font-family: 'Segoe UI Medium', sans-serif">Computer Science</span>.
+        <br>
+        I am constantly learning new skills that
+        can be used to solve challenging problems.
+        <span style="font-family: 'Segoe UI Medium', sans-serif">Automation</span>,
+        <span style="font-family: 'Segoe UI Medium', sans-serif">User Experience</span> design,
+        <span style="font-family: 'Segoe UI Medium', sans-serif">Front-end Development</span>, and
+        problem-solving are my areas of interest.
+        <br><br>
+        I enjoy mentoring, teaching STEM robotics, graphic designing & web technology. I hope to use my
+        interdisciplinary skills to help build a better and sustainable future.
+    </div>
+
+</div>
+
+<div style="width: 100%; height: 100%; background: white; border-top: 1px solid #EEE;">
+    <br><br><br>
+    <div class="section-title">Education</div>
+    <hr class="section-header-dark">
+</div>
+
+<div style="width: 100%; height: 100%; background: #FAFAFA;border-top: 1px solid #EEE;">
+    <br><br><br>
+    <div class="section-title">Projects</div>
+    <hr class="section-header-dark">
+</div>
+
+<div style="width: 100%; height: 100%; background: white;border-top: 1px solid #EEE;">
+    <br><br><br>
+    <div class="section-title"> Skills</div>
+    <hr class="section-header-dark">
+</div>
+
+<div style="width: 100%; min-height: 100%; display: inline-block; background: #FAFAFA;border-top: 1px solid #EEE;">
+    <br><br><br>
+    <div class="section-title">Instagram</div>
+    <hr class="section-header-dark">
+    <br><br>
     <div id="instafeed"></div>
+    <br><br>
+</div>
+
+<div style="width: 100%; background: white;border-top: 1px solid #EEE;">
+    <br><br>
+    <img src="images/Logo.png" style="width: 100px;">
+    <br><br>
+    <span style="font-family: 'Segoe UI Light', sans-serif; font-size: 17px;">
+    Handmade with <i class="fa fa-heart" style="font-size: 17px;"></i> in Chicago
+    <br>
+        <b>© 2018 Mayank Bansal. All Rights Reserved.</b>
+    </span>
+    <br><br><br><br>
 </div>
 
 </body>
 
+<!-- Here are some things I'm working on. Insert Github portfolio here.-->
 </html>

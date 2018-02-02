@@ -1,0 +1,187 @@
+html, body {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    outline: 0;
+    border: 0;
+    margin: 0;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#canvas {
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#front {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.fa {
+    font-size: 30px;
+    margin-left: 5px;
+    color: #333;
+    margin-right: 5px;
+    margin-top: 15px;
+    transition: all ease .5s;
+    cursor: pointer;
+}
+
+.fa:hover {
+    color: #666;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #EEE;
+    background: white;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+}
+
+.header-link {
+    display: inline-block;
+    font-size: 18px;
+    box-sizing: border-box;
+    padding: 21px 20px 21px 20px;
+    font-family: "Segoe UI Light", sans-serif;
+    margin: 0 15px 0 15px;
+}
+
+.section-title {
+    font-family: "Segoe UI Light", sans-serif;
+    font-size: 35px;
+}
+
+.about-me-text {
+    width: 600px;
+    font-family: "Segoe UI Light", sans-serif;
+    font-size: 25px;
+    color: #555;
+    line-height: 35px;
+    text-align: left;
+    margin-top: 80px;
+    float: right;
+    margin-right: 200px;
+}
+
+hr.section-header-dark {
+    border: 0;
+    width: 100px;
+    height: 3px;
+    background: cornflowerblue;
+}
+
+.pronounce {
+    opacity: .5;
+    color: #333;
+    cursor: pointer;
+    transition: all ease .2s;
+    font-size: 20px;
+}
+
+.pronounce2 {
+    color: white !important;
+    cursor: pointer;
+    transition: all ease .2s;
+    font-size: 15px;
+}
+
+.pronounce:hover {
+    opacity: 1;
+}
+
+.pronounce-tooltip {
+    position: absolute;
+    margin-left: 70px;
+    margin-top: -100px;
+    padding: 2px 25px 5px 25px;
+    font-size: 15px;
+    background: cornflowerblue;
+    border-radius: 25px;
+    color: white;
+    opacity: 0;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    transition: all ease-in-out .2s;
+}
+
+.pronounce:hover + .pronounce-tooltip {
+    margin-top: -90px;
+    opacity: 1;
+}
+
+.mouse {
+    border: 2px solid #333;
+    border-radius: 26px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    width: 26px;
+    height: 42px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.mouse::after {
+    background-color: #333;
+    border-radius: 100%;
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -2px;
+    width: 4px;
+    height: 4px;
+    opacity: 1;
+    -webkit-transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+    transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+    -webkit-animation: scroll 1.5s -1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    animation: scroll 1.5s -1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+@-webkit-keyframes scroll {
+    0%, 20% {
+        -webkit-transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+        transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+    }
+    10% {
+        -webkit-transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+        transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+        transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+        opacity: 0.01;
+    }
+}
+
+@keyframes scroll {
+    0%, 20% {
+        -webkit-transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+        transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+    }
+    10% {
+        -webkit-transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+        transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+        transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+        opacity: 0.01;
+    }
+}
