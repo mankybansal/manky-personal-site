@@ -40,12 +40,14 @@
                     'top': 0,
                     'left': 0,
                     'height': "60px",
-                    'padding-top': 0
+                    'padding-top': 0,
+
+                    'box-shadow': '0px 0px 30px rgba(0, 0, 0, 0.2)'
                 });
 
                 $(".header-link").css({
-                    marginLeft: "20px",
-                    marginRight: "20px"
+                    marginLeft: "15px",
+                    marginRight: "15px"
                 });
             }
 
@@ -55,7 +57,10 @@
                     'position': "",
                     'z-index': "",
                     'top': "",
-                    'left': ""
+                    'left': "",
+                    'height': "",
+                    'padding-top': "",
+                    'box-shadow': ''
                 });
 
                 $(".header-link").css({
@@ -64,12 +69,6 @@
                 });
             }
 
-            if (($(window).scrollTop()) < $(".header-container").offset().top + 40) {
-                $(".header").css({
-                    'height': "",
-                    'padding-top': ""
-                })
-            }
         });
     </script>
 
@@ -119,9 +118,10 @@
         <div class="header-link">About Me</div>
         <div class="header-link">Projects</div>
         <div class="header-link">Skills</div>
-        <div class="header-link">Resume</div>
         <div class="header-link">Volunteer Work</div>
+        <div class="header-link">Awards</div>
         <div class="header-link">Portfolio</div>
+        <a href="https://manky.me/resume" target="_blank"><div class="header-link">Resume</div></a>
         <div class="header-link">Contact Me</div>
     </div>
 </div>
@@ -205,7 +205,16 @@
     <br><br>
 </div>
 
-<div style="width: 100%; background: white;border-top: 1px solid #EEE;">
+
+<div style="width: 100%; height: calc(100% - 60px); background: white;border-top: 1px solid #EEE;">
+    <br><br><br>
+    <div class="section-title">Contact Me</div>
+    <hr class="section-header-dark">
+    <span style="font-family: 'Segoe UI Light'">Coming Soon</span>
+</div>
+
+
+<div style="width: 100%; background: #FAFAFA;border-top: 1px solid #EEE;">
     <br><br>
     <img src="images/Logo.png" style="width: 100px;">
     <br><br>
