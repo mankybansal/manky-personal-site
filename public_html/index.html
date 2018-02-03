@@ -16,7 +16,7 @@
     </style>
 
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/instafeed.js/instafeed.min.js"></script>
     <script defer type="text/javascript" src="js/background.js"></script>
 
@@ -30,6 +30,26 @@
             resolution: 'low_resolution'
         });
         feed.run();
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() >= $(".header-container").offset().top) {
+                $(".header").css({
+                    'position': 'fixed',
+                    'z-index': 9999,
+                    'top': 0,
+                    'left': 0
+                })
+            }
+
+            if ($(window).scrollTop() < $(".header-container").offset().top) {
+                $(".header").css({
+                    'position': "",
+                    'z-index': "",
+                    'top': "",
+                    'left': ""
+                })
+            }
+        });
     </script>
 
 </head>
@@ -38,7 +58,7 @@
 
 <canvas id="canvas" width="1366" height="667"></canvas>
 
-<div style="width: 100%; height: 100%; overflow: hidden">
+<div style="width: 100%; height: calc(100% - 60px); overflow: hidden">
     <div id="front" class="animated fadeInUp"
          style="display: inline-block; min-width: 200px; float: left;  padding: 150px 250px 250px; margin-left: -480px;">
 
@@ -69,18 +89,20 @@
     </div>
 </div>
 
-<div class="header">
 
-    <div class="header-link" style="letter-spacing: 5px; font-size: 20px; padding: 20px;"><span
-            style="font-family: 'Segoe UI Bold', sans-serif">MAYANK</span> BANSAL
+<div class="header-container">
+    <div class="header">
+        <div class="header-link" style="letter-spacing: 5px; font-size: 20px;"><span
+                style="font-family: 'Segoe UI Bold', sans-serif">MAYANK</span> BANSAL
+        </div>
+        <div class="header-link">About Me</div>
+        <div class="header-link">Projects</div>
+        <div class="header-link">Skills</div>
+        <div class="header-link">Resume</div>
+        <div class="header-link">Volunteer Work</div>
+        <div class="header-link">Portfolio</div>
+        <div class="header-link">Contact Me</div>
     </div>
-    <div class="header-link">About Me</div>
-    <div class="header-link">Projects</div>
-    <div class="header-link">Skills</div>
-    <div class="header-link">Resume</div>
-    <div class="header-link">Volunteer Work</div>
-    <div class="header-link">Portfolio</div>
-    <div class="header-link">Contact Me</div>
 </div>
 
 <div style="width: 100%; height: 100%; background: #FAFAFA;">
@@ -127,7 +149,19 @@
 
 <div style="width: 100%; height: 100%; background: white;border-top: 1px solid #EEE;">
     <br><br><br>
-    <div class="section-title"> Skills</div>
+    <div class="section-title">Skills</div>
+    <hr class="section-header-dark">
+</div>
+
+<div style="width: 100%; height: 100%; background: #FAFAFA;border-top: 1px solid #EEE;">
+    <br><br><br>
+    <div class="section-title">Volunteer Work</div>
+    <hr class="section-header-dark">
+</div>
+
+<div style="width: 100%; height: 100%; background: white;border-top: 1px solid #EEE;">
+    <br><br><br>
+    <div class="section-title">Portfolio</div>
     <hr class="section-header-dark">
 </div>
 
@@ -135,6 +169,7 @@
     <br><br><br>
     <div class="section-title">Instagram</div>
     <hr class="section-header-dark">
+    <span style="font-family: 'Segoe UI Light'">A peak into my world</span>
     <br><br>
     <div id="instafeed"></div>
     <br><br>
