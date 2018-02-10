@@ -15,7 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "font-awesome": "^4.7.0",
     "instafeed.js": "^1.4.1",
     "segoe-fonts": "^1.0.1",
     "jquery": "^3.3.1"

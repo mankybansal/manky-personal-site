@@ -32,7 +32,7 @@ a:visited, a:hover, a:focus, a:link, a:active {
     z-index: 1;
 }
 
-.fa {
+.social-icons {
     font-size: 30px;
     margin-left: 5px;
     color: #333;
@@ -110,6 +110,13 @@ hr.section-header-dark {
     width: 100px;
     height: 3px;
     background: cornflowerblue;
+}
+
+hr.section-header-black {
+    border: 0;
+    width: 100px;
+    height: 1px;
+    background: black;
 }
 
 .pronounce {
