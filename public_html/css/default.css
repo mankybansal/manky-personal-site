@@ -124,14 +124,16 @@ hr.section-header-black {
     color: #333;
     cursor: pointer;
     transition: all ease .2s;
-    font-size: 20px;
+    font-size: 17px;
+    margin: 0px 5px 0 5px;
 }
 
 .pronounce2 {
     color: white !important;
     cursor: pointer;
     transition: all ease .2s;
-    font-size: 15px;
+    font-size: 12px;
+    margin: 0px 5px 0 5px;
 }
 
 .pronounce:hover {
@@ -142,7 +144,7 @@ hr.section-header-black {
     position: absolute;
     margin-left: 70px;
     margin-top: -100px;
-    padding: 2px 25px 5px 25px;
+    padding: 5px 25px 5px 25px;
     font-size: 15px;
     background: cornflowerblue;
     border-radius: 25px;
