@@ -59,10 +59,20 @@ a:visited, a:hover, a:focus, a:link, a:active {
     padding-top: 10px;
     box-sizing: border-box;
     border-bottom: 1px solid #EEE;
-    background: rgba(255,255,255,0.97);
+    background: rgba(255, 255, 255, 0.97);
     transition: all ease .5s;
     position: absolute;
     z-index: 9999;
+    overflow: hidden;
+}
+
+.cool {
+    transition: all ease .3s;
+    opacity: 0;
+    height: 60px;
+    width: 60px;
+    border-right: 1px solid #000;
+    float: left;
 }
 
 .header-link, .header-link-2 {
@@ -77,6 +87,8 @@ a:visited, a:hover, a:focus, a:link, a:active {
     margin-right: 20px;
     transition: all ease .3s;
     cursor: pointer;
+    float: left;
+
 }
 
 .header-link:hover {
