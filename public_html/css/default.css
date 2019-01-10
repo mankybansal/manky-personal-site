@@ -93,10 +93,10 @@ a:visited, a:hover, a:focus, a:link, a:active {
 
 .header-link:hover {
     font-weight: bold;
-    color: cornflowerblue;
+    color: #EB9A3F;
     padding: 18px 5px 12px 5px;
     height: 48px;
-    border-bottom: 2px solid cornflowerblue;
+    border-bottom: 2px solid #EB9A3F;
 
 }
 
@@ -121,7 +121,7 @@ hr.section-header-dark {
     border: 0;
     width: 100px;
     height: 3px;
-    background: cornflowerblue;
+    background: #EB9A3F;
 }
 
 hr.section-header-black {
@@ -137,7 +137,7 @@ hr.section-header-black {
     cursor: pointer;
     transition: all ease .2s;
     font-size: 17px;
-    margin: 0px 5px 0 5px;
+    margin: 0 5px 0 5px;
 }
 
 .pronounce2 {
@@ -145,7 +145,7 @@ hr.section-header-black {
     cursor: pointer;
     transition: all ease .2s;
     font-size: 12px;
-    margin: 0px 5px 0 5px;
+    margin: 0 5px 0 5px;
 }
 
 .pronounce:hover {
