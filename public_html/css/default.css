@@ -164,16 +164,17 @@ a:visited, a:hover, a:focus, a:link, a:active {
 }
 
 a.resume-button {
-    padding: 10px 25px;
+    padding: 8px 25px 10px 25px;
     line-height: normal;
     font-size: 20px;
     font-family: "Segoe UI Light", sans-serif;
     color: black;
     background: transparent;
-    border-radius: 5px;
+    border-radius: 100px;
     border: 2px solid black;
     transition: all ease .3s;
 }
+
 a.resume-button:hover {
     border: 2px solid transparent;
     color: white;
