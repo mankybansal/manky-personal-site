@@ -11,36 +11,15 @@
             background: url('images/IMG_2681.JPG') no-repeat 0 -200px;
             background-size: 120% auto;
         }
-
-        .section-container {
-            width: 100%;
-            padding: 50px;
-            box-sizing: border-box;
-            height: calc(100% - 60px);
-            background: white;
-            border-top: 1px solid #EEE;
-        }
-
-        .section-container:nth-child(odd) {
-            background: #FAFAFA;
-        }
-
-        .segoe-light-20 {
-            font-family: 'Segoe UI Light', sans-serif;
-            font-size: 20px;
-        }
-
-        .segoe-light-17 {
-            font-family: 'Segoe UI Light', sans-serif;
-            font-size: 17px;
-        }
-
     </style>
 
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="node_modules/instafeed.js/instafeed.min.js"></script>
     <script defer type="text/javascript" src="js/background.js"></script>
-    <script type="text/javascript">
+    <script defer type="text/javascript" src="js/default.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114036075-1"></script>
+
+    <script>
         let feed = new Instafeed({
             get: 'user',
             userId: '236501479',
@@ -51,178 +30,6 @@
         });
         feed.run();
 
-        $(window).scroll(function () {
-            if ($(window).scrollTop() >= $(".header-container").offset().top) {
-
-                $(".header").css({
-                    'position': 'fixed',
-                    'z-index': 9999,
-                    'top': 0,
-                    'left': 0,
-                    'height': "60px",
-                    'padding-top': 0,
-
-                    'box-shadow': '0px 0px 30px rgba(0, 0, 0, 0.2)'
-                });
-
-                $(".cool").css({
-                    'margin-top': 0,
-                    'opacity': 1
-                });
-
-                $(".header-link").css({
-                    marginLeft: "15px",
-                    marginRight: "15px"
-                });
-
-                $(".header-link-2").css({
-                    marginLeft: "80px",
-                    marginRight: "60px"
-                });
-
-            }
-
-
-            if (($(window).scrollTop()) < $(".header-container").offset().top) {
-                $(".header").css({
-                    'position': "",
-                    'z-index': "",
-                    'top': "",
-                    'left': "",
-                    'height': "",
-                    'padding-top': "",
-                    'box-shadow': ''
-                });
-
-                $(".cool").css({
-                    'margin-top': 100,
-                    'opactiy': 0
-                });
-
-                $(".header-link").css({
-                    marginLeft: "",
-                    marginRight: ""
-                });
-
-                $(".header-link-2").css({
-                    marginLeft: "",
-                    marginRight: ""
-                });
-
-            }
-
-        });
-
-        const skills = [
-            {
-                title: "Frontend",
-                items: [
-                    {title: 'REACT + REDUX', level: 4},
-                    {title: 'ANGULAR, RAILS', level: 3},
-                    {title: 'JAVASCRIPT, JQUERY', level: 5},
-                    {title: 'HTML5, CSS3, SASS', level: 5}
-                ]
-            }, {
-                title: "Backend",
-                items: [
-                    {title: 'MYSQL/SQL', level: 5},
-                    {title: 'NODE.JS + EXPRESS', level: 3},
-                    {title: 'MONGODB, FIREBASE', level: 3},
-                    {title: 'PHP', level: 4}
-                ]
-            }, {
-                title: "Programming",
-                items: [
-                    {title: 'C/C++', level: 4},
-                    {title: 'C#, ROBOTC, RUBY', level: 2.5},
-                    {title: 'JAVA', level: 3.5},
-                    {title: 'PYTHON', level: 4}
-                ]
-            }, {
-                title: "Mobile Development",
-                items: [
-                    {title: 'ANDROID', level: 4}
-                ]
-            }, {
-                title: "Design & CAD",
-                items: [
-                    {title: 'ADOBE PHOTOSHOP', level: 3.5},
-                    {title: 'ADOBE ILLUSTRATOR', level: 5},
-                    {title: 'SKETCHUP', level: 3.5}
-                ]
-            }
-        ];
-
-        const awards = [
-            {
-                position: 'HONORS',
-                title: 'CUM LAUDE',
-                awarded_by: 'ILLINOIS TECH',
-                year: 2018
-            }, {
-                position: 'RUNNER UP',
-                title: "ANGELHACK '17",
-                awarded_by: 'BANGALORE',
-                year: 2017
-            }, {
-                position: 'BEST USE OF BACKEND TECH',
-                title: "SCARLETHACKS '17",
-                awarded_by: 'MAJOR LEAGUE HACKING',
-                year: 2017
-            }, {
-                position: 'RUNNER UP',
-                title: 'DESIGNATHON',
-                awarded_by: 'MIT MANIPAL',
-                year: 2016
-            }, {
-                position: 'RUNNER UP',
-                title: "CODE HEAT '16",
-                awarded_by: 'MIT MANIPAL',
-                year: 2016
-            }, {
-                position: 'NATIONAL FINALIST',
-                title: 'MICROSOFT HACKATHON',
-                awarded_by: 'MICROSOFT IDC',
-                year: 2015
-            },
-        ];
-
-        $(document).ready(function () {
-            $(".skill-container").append(`
-                ${skills.map(skill => `
-                     <div class="skill-group">
-                            <div class="skill-group-title">${skill.title}</div>
-                            ${skill.items.map(item => `
-                                <div class="skill">
-                                    <div class="skill-details">
-                                        <div class="skill-title">${item.title}</div>
-                                        <div class="skill-proficiency">
-                                            ${`<div class="skill-circle"></div>`.repeat(Math.ceil(item.level/5 * 7))}
-                                            ${`<div class="skill-circle-o"></div>`.repeat(7 - Math.ceil(item.level/5 * 7))}
-                                        </div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                `).join('')}
-            `);
-
-            $(".award-container").append(`
-                ${awards.map(award => `
-                    <div class="award">
-                        <div class="award-position">${award.position}</div>
-                        <div class="award-title">${award.title}</div>
-                        <div class="award-awarded-by">${award.awarded_by}</div>
-                        <div class="award-year">${award.year}</div>
-                    </div>
-                `).join('')}
-            `);
-        });
-    </script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114036075-1"></script>
-    <script>
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
@@ -240,33 +47,27 @@
 <canvas id="canvas" width="1366" height="667"></canvas>
 
 <div style="width: 100%; height: calc(100% - 80px); overflow: hidden">
-    <div id="front" class="animated fadeInUp"
-         style="display: inline-block; min-width: 200px; float: left;  padding: 150px 250px 250px; margin-left: -480px;">
+    <div id="front" style="display: inline-block; min-width: 200px; float: left;  padding: 150px 250px 250px; margin-left: -480px;">
 
         <img src='images/Layer%201.png' style='margin: 0 auto; width: 270px; height: 200px;'><br>
-
-        <span style="font-family: 'Segoe UI Bold', sans-serif; font-size: 65px; letter-spacing: -6px; text-shadow: 0 0 50px rgba(0,0,0,0.3) ; color: #333;">
-            MAYANK
-        </span>
-        <span style="font-family: 'Segoe UI Light', sans-serif; font-size: 65px;  letter-spacing: -4px;  text-shadow: 0 0 50px rgba(0,0,0,0.3) ;  color: #333; ">
-            &nbsp;BANSAL
-        </span>
+        <span class="landing-name bold">MAYANK</span>
+        <span class="landing-name">&nbsp;BANSAL</span>
         <br>
-        <div style="display: inline-block;margin-top: -15px; min-width: 10px; min-height: 10px; ">
-            <span style="font-family: 'Segoe UI Light', sans-serif; font-size: 35px;  text-shadow: 0 0 50px rgba(0,0,0,0.3) ;  color: #333; ">
-                <span>DREAM . THINK . CREATE</span></span>
-        </div>
+        <div class="landing-title">Full Stack Engineer + Designer</div>
 
         <br><br>
 
         <a href="https://www.facebook.com/MankyBansal" target="_blank">
             <i class="fab fa-facebook social-icons"></i>
         </a>
-        <a href="https://www.dribbble.com/MankyBansal" target="_blank">
-            <i class="fab fa-dribbble social-icons"></i>
-        </a>
         <a href="https://www.instagram.com/MankyBansal" target="_blank">
             <i class="fab fa-instagram social-icons"></i>
+        </a>
+        <a href="https://www.twitter.com/MankyBansal" target="_blank">
+            <i class="fab fa-twitter social-icons"></i>
+        </a>
+        <a href="https://www.dribbble.com/MankyBansal" target="_blank">
+            <i class="fab fa-dribbble social-icons"></i>
         </a>
         <a href="https://www.linkedin.com/in/MankyBansal" target="_blank">
             <i class="fab fa-linkedin social-icons"></i>
@@ -291,152 +92,19 @@
         <div class="header-link-2" style="letter-spacing: 5px; font-size: 20px; padding: 16px 20px 24px 20px;"><span
                 style="font-family: 'Segoe UI Bold', sans-serif">MAYANK</span> BANSAL
         </div>
-        <div class="header-link">About Me</div>
-        <div class="header-link">Projects</div>
-        <div class="header-link">Skills</div>
-        <div class="header-link">Volunteer Work</div>
-        <div class="header-link">Awards</div>
-        <div class="header-link">Portfolio</div>
+        <div class="header-link"><a href="#about">About</a></div>
+        <div class="header-link"><a href="#experience">Experience</a></div>
+        <div class="header-link"><a href="#projects">Projects</a></div>
+        <div class="header-link"><a href="#skills">Skills</a></div>
+        <div class="header-link"><a href="#portfolio">Portfolio</a></div>
         <a href="https://manky.me/resume" target="_blank">
             <div class="header-link">Resume</div>
         </a>
-        <div class="header-link">Contact Me</div>
+        <div class="header-link"><a href="#contact">Contact</a></div>
     </div>
 </div>
 
-
-<style>
-
-    .skill-container {
-        width: 100%;
-        display: inline-block;
-        padding-top: 15px;
-        text-align: center;
-    }
-
-    .skill-group {
-        display: inline-block;
-        width: 350px;
-        box-sizing: border-box;
-        padding: 30px;
-        vertical-align: top;
-        text-align: left;
-    }
-
-    .skill-group-title {
-        font-family: "Segoe UI Semibold", sans-serif;
-        color: #EB9A3F;
-        text-transform: uppercase;
-        font-size: 25px;
-        width: 100%;
-        text-align: left;
-        display: inline-block;
-    }
-
-    .skill {
-        width: 100%;
-        display: inline-block;
-        height: 60px;
-        margin-top: 10px;
-    }
-
-    .skill-details {
-        width: 100%;
-        height: 60px;
-        float: left;
-        text-align: left;
-    }
-
-    .skill-title {
-        float: top;
-        height: 30px;
-        padding: 5px 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI Light", sans-serif;
-        font-size: 17px;
-        text-transform: uppercase;
-
-    }
-
-    .skill-proficiency {
-        height: 30px;
-        box-sizing: border-box;
-        padding: 0 0 10px 0;
-    }
-
-    .skill-circle, .skill-circle-o {
-        border-radius: 50%;
-        margin: 7px 8px 7px 0;
-        float: left;
-    }
-
-    .skill-circle {
-        width: 16px;
-        height: 16px;
-        background: #333;
-    }
-
-    .skill-circle-o {
-        width: 10px;
-        height: 10px;
-        border: 3px solid #333;
-    }
-
-    .award {
-        width: 350px;
-        display: inline-block;
-        padding: 30px;
-        vertical-align: top;
-        text-align: left;
-    }
-
-    .award-position, .award-year {
-        font-family: "Segoe UI Semibold", sans-serif;
-        color: #000;
-        font-size: 17px;
-    }
-
-    .award-title {
-        font-family: "Segoe UI Light", sans-serif;
-        color: #000;
-        font-size: 25px;
-    }
-
-    .award-awarded-by {
-        font-family: "Segoe UI Semibold", sans-serif;
-        color: #EB9A3F;
-        font-size: 25px;
-    }
-
-    .handle-text {
-        font-family: "Segoe UI Semibold", sans-serif;
-        color: #EB9A3F;
-        font-size: 17px;
-        float: left;
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 10px;
-    }
-
-    .contact-icons {
-        float: left;
-        display: inline-block;
-        vertical-align: middle;
-
-        font-size: 30px;
-        color: #333;
-        transition: all ease .5s;
-        cursor: pointer;
-    }
-
-    .contact-links {
-        display: inline-block;
-        height: 50px;
-        margin: 50px 25px 0 25px;
-    }
-</style>
-
-<div class="section-container">
+<div class="section-container" id="about">
     <div class="section-title">About Me</div>
     <hr class="section-header-dark">
 
@@ -467,17 +135,24 @@
     <span class="segoe-light-20">Coming Soon</span>
 </div>
 
-<div class="section-container" style="height: unset;">
+<div class="section-container" id="experience" style="height: unset;">
+    <div class="section-title">Experience</div>
+    <hr class="section-header-dark">
+    <span class="segoe-light-20">Coming Soon</span>
+</div>
+
+<div class="section-container" id="projects" style="height: unset;">
     <div class="section-title">Projects</div>
     <hr class="section-header-dark">
     <span class="segoe-light-20">Coming Soon</span>
 </div>
 
 
-<div class="section-container" style="height: unset;">
+<div class="section-container" id="skills" style="height: unset;">
     <div class="section-title">Skills</div>
     <hr class="section-header-dark">
-    <div class="skill-container"></div>
+    <div class="skill-container">
+    </div>
 </div>
 
 <div class="section-container" style="height: unset;">
@@ -492,7 +167,7 @@
     <div class="award-container"></div>
 </div>
 
-<div class="section-container" style="height: unset;">
+<div class="section-container" id="portfolio" style="height: unset;">
     <div class="section-title">Portfolio</div>
     <hr class="section-header-dark">
     <span class="segoe-light-20">Coming Soon</span>
@@ -507,28 +182,13 @@
     <br><br>
 </div>
 
-<div class="section-container" style="height: unset;">
+<div class="section-container" id="contact" style="height: unset;">
     <div class="section-title">Contact Me</div>
     <hr class="section-header-dark">
     <br>
     <span class="segoe-light-20"><i class="fa fa-mobile-alt"></i>&nbsp; +1 (312) 593 - two four six five</span><br><br>
     <span class="segoe-light-20"><i class="fa fa-envelope"></i>&nbsp; manky.bansal[at]gmail[dot]com</span><br>
-
-    <a href="https://www.facebook.com/MankyBansal" class="contact-links" target="_blank">
-        <i class="fab fa-facebook contact-icons"></i> <div class="handle-text">/mankybansal</div>
-    </a>
-    <a href="https://www.dribbble.com/MankyBansal" class="contact-links" target="_blank">
-        <i class="fab fa-dribbble contact-icons"></i> <div class="handle-text">/mankybansal</div>
-    </a>
-    <a href="https://www.instagram.com/MankyBansal" class="contact-links" target="_blank">
-        <i class="fab fa-instagram contact-icons"></i> <div class="handle-text">/mankybansal</div>
-    </a>
-    <a href="https://www.linkedin.com/in/MankyBansal" class="contact-links" target="_blank">
-        <i class="fab fa-linkedin contact-icons"></i> <div class="handle-text">/mankybansal</div>
-    </a>
-    <a href="https://www.github.com/MankyBansal" class="contact-links" target="_blank">
-        <i class="fab fa-github contact-icons"></i> <div class="handle-text">/mankybansal</div>
-    </a>
+    <div class="social-container"></div>
 </div>
 
 <div class="section-container" style="height: unset;">
