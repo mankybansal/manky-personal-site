@@ -163,6 +163,24 @@ a:visited, a:hover, a:focus, a:link, a:active {
     border-bottom: 2px solid #EB9A3F;
 }
 
+a.resume-button {
+    padding: 10px 25px;
+    line-height: normal;
+    font-size: 20px;
+    font-family: "Segoe UI Light", sans-serif;
+    color: black;
+    background: transparent;
+    border-radius: 5px;
+    border: 2px solid black;
+    transition: all ease .3s;
+}
+a.resume-button:hover {
+    border: 2px solid transparent;
+    color: white;
+    background: #EB9A3F;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
 .section-title {
     font-family: "Segoe UI Light", sans-serif;
     font-size: 35px;

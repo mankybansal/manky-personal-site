@@ -2,26 +2,26 @@ const skills = [
     {
         title: "Frontend",
         items: [
+            {title: 'HTML5, CSS3, SASS', level: 5},
+            {title: 'JAVASCRIPT, JQUERY', level: 5},
             {title: 'REACT + REDUX', level: 4},
             {title: 'ANGULAR, RAILS', level: 3},
-            {title: 'JAVASCRIPT, JQUERY', level: 5},
-            {title: 'HTML5, CSS3, SASS', level: 5}
         ]
     }, {
         title: "Backend",
         items: [
             {title: 'MYSQL/SQL', level: 5},
-            {title: 'NODE.JS + EXPRESS', level: 3},
+            {title: 'NODE.JS + EXPRESS', level: 4},
+            {title: 'PHP + Laravel', level: 4},
             {title: 'MONGODB, FIREBASE', level: 3},
-            {title: 'PHP', level: 4}
         ]
     }, {
         title: "Programming",
         items: [
             {title: 'C/C++', level: 4},
-            {title: 'C#, ROBOTC, RUBY', level: 2.5},
+            {title: 'PYTHON', level: 4},
             {title: 'JAVA', level: 3.5},
-            {title: 'PYTHON', level: 4}
+            {title: 'C#, ROBOTC, RUBY', level: 2.5},
         ]
     }, {
         title: "Mobile Development",
@@ -29,17 +29,17 @@ const skills = [
             {title: 'ANDROID', level: 4}
         ]
     }, {
-        title: "Design & CAD",
+        title: "Design Tools",
         items: [
-            {title: 'ADOBE PHOTOSHOP', level: 3.5},
             {title: 'ADOBE ILLUSTRATOR', level: 5},
-            {title: 'SKETCHUP', level: 3.5}
+            {title: 'SKETCH + Principle + Origami', level: 4},
+            {title: 'ADOBE PHOTOSHOP', level: 3.5},
         ]
     }, {
-        title: "Platforms & Tools",
+        title: "Testing & Tooling",
         items: [
             {title: 'Git, Jira', level: 0},
-            {title: 'Selenium', level: 0},
+            {title: 'Selenium, Cucumber', level: 0},
             {title: 'Webpack', level: 0},
             {title: 'AWS, DigitalOcean, Docker', level: 0},
             {title: 'Jetbrains Tools', level: 0}
