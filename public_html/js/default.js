@@ -3,23 +3,26 @@ const skills = [
         title: "Frontend",
         items: [
             {title: 'HTML5, CSS3, SASS', level: 5},
-            {title: 'JAVASCRIPT, JQUERY', level: 5},
-            {title: 'REACT + REDUX', level: 4},
-            {title: 'ANGULAR, RAILS', level: 3},
+            {title: 'REACT, REACT NATIVE', level: 4},
+            {title: 'SVELTE, ANGULAR', level: 4},
+            {title: 'APOLLO + GRAPHQL', level: 3},
+            {title: 'JAVASCRIPT', level: 5},
+            {title: 'NEXT.JS, RAILS', level: 3},
+            {title: 'MOCHA / JEST,  CYPRESS', level: 3},
+
         ]
     }, {
         title: "Backend",
         items: [
-            {title: 'MYSQL/SQL', level: 5},
             {title: 'NODE.JS + EXPRESS', level: 4},
-            {title: 'PHP + Laravel', level: 4},
+            {title: 'MYSQL/SQL', level: 5},
             {title: 'MONGODB, FIREBASE', level: 3},
         ]
     }, {
         title: "Programming",
         items: [
-            {title: 'C/C++', level: 4},
-            {title: 'PYTHON', level: 4},
+            {title: 'PYTHON, C/C++', level: 4},
+            {title: 'TypeScript', level: 4},
             {title: 'JAVA', level: 3.5},
             {title: 'C#, ROBOTC, RUBY', level: 2.5},
         ]
@@ -34,15 +37,7 @@ const skills = [
             {title: 'ADOBE ILLUSTRATOR', level: 5},
             {title: 'SKETCH + Principle + Origami', level: 4},
             {title: 'ADOBE PHOTOSHOP', level: 3.5},
-        ]
-    }, {
-        title: "Testing & Tooling",
-        items: [
-            {title: 'Git, Jira', level: 0},
-            {title: 'Selenium, Cucumber', level: 0},
-            {title: 'Webpack', level: 0},
-            {title: 'AWS, DigitalOcean, Docker', level: 0},
-            {title: 'Jetbrains Tools', level: 0}
+            {title: 'Figma', level: 3.5},
         ]
     }
 ];
@@ -118,12 +113,6 @@ $(document).ready(() => {
                         <div class="skill">
                             <div class="skill-details">
                                 <div class="skill-title">${item.title}</div>
-                                ${(item.level>0)?`
-                                    <div class="skill-proficiency">
-                                        ${`<div class="skill-circle"></div>`.repeat(Math.ceil(item.level / 5 * 7))}
-                                        ${`<div class="skill-circle-o"></div>`.repeat(7 - Math.ceil(item.level / 5 * 7))}
-                                    </div>
-                                `:``}
                             </div>
                         </div>
                     `).join('')}

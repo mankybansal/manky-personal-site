@@ -39,6 +39,11 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-114036075-1');
+
+        function openInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
     </script>
 </head>
 
@@ -47,7 +52,8 @@
 <canvas id="canvas" width="1366" height="667"></canvas>
 
 <div style="width: 100%; height: calc(100% - 80px); overflow: hidden">
-    <div id="front" style="display: inline-block; min-width: 200px; float: left;  padding: 150px 250px 250px; margin-left: -480px;">
+    <div id="front"
+         style="display: inline-block; min-width: 200px; float: left;  padding: 150px 250px 250px; margin-left: -480px;">
 
         <img src='images/Layer%201.png' style='margin: 0 auto; width: 270px; height: 200px;'><br>
         <span class="landing-name bold">MAYANK</span>
@@ -116,7 +122,7 @@
         <div class="pronounce-tooltip">
             <i class="fas fa-volume-up pronounce2"></i> <b>my-YUNGK BUN-sel</b>
         </div>
-        , a 22 year-old
+        , a 24 year-old
         <span style="font-family: 'Segoe UI Medium', sans-serif">Software Engineer</span>
         and self-taught
         <span style="font-family: 'Segoe UI Medium', sans-serif">Designer</span>
@@ -125,6 +131,9 @@
         <br><br>
         In my free time, you can find me mentoring, teaching, cooking or playing my guitar. I hope to use my
         interdisciplinary skills to help build a better and sustainable future.
+        <br><br>
+        Currently an engineer at <span onclick="openInNewTab('www.convoy.com')" style="cursor: pointer; font-family: 'Segoe UI Medium', sans-serif">Convoy</span>,
+        a freight an logistics company that wants to transport the world with endless capacity and zero waste.
     </div>
 
 </div>
@@ -217,7 +226,7 @@
 
     <br><br><br><br>
     <a href="https://manky.me/resume" class="resume-button" target="_blank">
-       <i class="fa fa-file-download"></i> &nbsp; Download My Resume
+        <i class="fa fa-file-download"></i> &nbsp; Download My Resume
     </a>
     <br><br>
 
@@ -230,7 +239,7 @@
     <span class="segoe-light-17">
         Handmade with <i class="fa fa-heart"></i> in Seattle, WA
         <br><br>
-        <b>&copy; 2019 Mayank Bansal. All Rights Reserved.</b>
+        <b>&copy; 2020 Mayank Bansal. All Rights Reserved.</b>
     </span>
 </div>
 
