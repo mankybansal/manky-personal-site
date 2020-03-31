@@ -101,6 +101,10 @@ const socials = [
         link: "https://www.github.com/MankyBansal",
         site: "github",
         handle: "mankybansal"
+    }, {
+        link: "https://www.medium.com/@MankyBansal",
+        site: "medium",
+        handle: "mankybansal"
     },
 ];
 
