@@ -2,6 +2,17 @@
   <head>
     <title>Mayank Bansal</title>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162415812-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-162415812-1');
+    </script>
+
+
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
       rel="stylesheet"
@@ -34,10 +45,6 @@
     ></script>
     <script defer type="text/javascript" src="js/background.js"></script>
     <script defer type="text/javascript" src="js/default.js"></script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-114036075-1"
-    ></script>
 
     <script>
       let feed = new Instafeed({
@@ -50,16 +57,6 @@
         resolution: "low_resolution",
       });
       feed.run();
-
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-
-      gtag("js", new Date());
-
-      gtag("config", "UA-114036075-1");
 
       function openInNewTab(url) {
         var win = window.open(url, "_blank");
@@ -428,59 +425,58 @@
     <div class="section-container" id="projects" style="height: unset;">
       <div class="section-title">Projects</div>
       <hr class="section-header-dark" />
-      <div style="display: flex;   flex-flow: row wrap; justify-content: center">
-      <div class="project">
-        <span class="project-title">Luna's Ice Cream Shoppe</span>
-        <span class="project-subtitle">React</span>
-        <video style="width: 100%;" controls style="margin: 16px;">
-          <source
-            src="videos/Screen%20Recording%202020-04-01%20at%203.44.06%20AM.mov"
-            type="video/mp4"
+      <div style="display: flex; flex-flow: row wrap; justify-content: center;">
+        <div class="project">
+          <span class="project-title">Luna's Ice Cream Shoppe</span>
+          <span class="project-subtitle">React</span>
+          <video style="width: 100%;" controls style="margin: 16px;">
+            <source
+              src="videos/Screen%20Recording%202020-04-01%20at%203.44.06%20AM.mov"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="project">
+          <span class="project-title">Material Modeling IDE</span>
+          <span class="project-subtitle">React, Three.js, Meteor</span>
+          <video style="width: 100%;" controls style="margin: 16px;">
+            <source
+              src="videos/Screen%20Recording%202020-04-01%20at%203.49.07%20AM.mov"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="project">
+          <span class="project-title">Freight Offers</span>
+          <span class="project-subtitle">React</span>
+          <video style="width: 100%;" controls style="margin: 16px;">
+            <source
+              src="videos/Screen%20Recording%202020-04-01%20at%203.50.39%20AM.mov"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="project">
+          <span class="project-title">Immigration Wizard</span>
+          <span class="project-subtitle">React, Rails</span>
+          <img src="images/Intake%20V2.jpg" height="350" />
+        </div>
+        <div class="project">
+          <span class="project-title">Interior Management Dashboard</span>
+          <span class="project-subtitle">Angular + Node.js + Neo4j</span>
+          <img src="images/Interface16.png" height="350" />
+        </div>
+        <div class="project">
+          <span class="project-title">Micro-savings Platform</span>
+          <span class="project-subtitle">Angular + JQuery + Flask</span>
+          <img
+            src="images/Screen%20Shot%202017-06-05%20at%205.29.05%20PM.png"
+            height="350"
           />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="project">
-        <span class="project-title">Material Modeling IDE</span>
-        <span class="project-subtitle">React, Three.js, Meteor</span>
-        <video style="width: 100%;" controls style="margin: 16px;">
-          <source
-            src="videos/Screen%20Recording%202020-04-01%20at%203.49.07%20AM.mov"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="project">
-        <span class="project-title">Freight Offers</span>
-        <span class="project-subtitle">React</span>
-        <video style="width: 100%;" controls style="margin: 16px;">
-          <source
-            src="videos/Screen%20Recording%202020-04-01%20at%203.50.39%20AM.mov"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-
-      </div>
-      <div class="project">
-        <span class="project-title">Immigration Wizard</span>
-        <span class="project-subtitle">React, Rails</span>
-        <img src="images/Intake%20V2.jpg" height="350"  />
-      </div>
-      <div class="project">
-        <span class="project-title">Interior Management Dashboard</span>
-        <span class="project-subtitle">Angular + Node.js + Neo4j</span>
-        <img src="images/Interface16.png" height="350"  />
-      </div>
-      <div class="project">
-        <span class="project-title">Micro-savings Platform</span>
-        <span class="project-subtitle">Angular + JQuery + Flask</span>
-        <img
-          src="images/Screen%20Shot%202017-06-05%20at%205.29.05%20PM.png"
-          height="350"
-        />
-      </div>
+        </div>
       </div>
     </div>
 
