@@ -290,6 +290,26 @@ hr.section-header-black {
   text-align: left;
 }
 
+.project {
+  display: flex; flex-direction: column;
+  margin: 16px;
+  width: 600px;
+}
+
+.project-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.project-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
 .skill-group-title {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
