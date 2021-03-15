@@ -3,15 +3,19 @@
     <title>Mayank Bansal</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162415812-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-162415812-1"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'UA-162415812-1');
+      gtag("config", "UA-162415812-1");
     </script>
-
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
@@ -39,36 +43,37 @@
       type="text/javascript"
       src="node_modules/jquery/dist/jquery.min.js"
     ></script>
-    <script
-      type="text/javascript"
-      src="node_modules/instafeed.js/instafeed.min.js"
-    ></script>
+<!--    <script-->
+<!--      type="text/javascript"-->
+<!--      src="node_modules/instafeed.js/instafeed.min.js"-->
+<!--    ></script>-->
     <script defer type="text/javascript" src="js/background.js"></script>
     <script defer type="text/javascript" src="js/default.js"></script>
 
     <script>
-      let feed = new Instafeed({
-        get: "user",
-        userId: "236501479",
-        clientId: "e2f40c42738b4f1281f1bf31b7d022cd",
-        accessToken: "236501479.e2f40c4.9bfb402940d3498398587634b1bc4078",
-        template:
-          '<div style="width: 240px; display: inline-block; height: 240px; overflow: hidden;  margin: 10px;"><a href="{{link}}"><img style="height: 240px;" src="{{image}}" /></a></div>',
-        resolution: "low_resolution",
-      });
-      feed.run();
+      // let feed = new Instafeed({
+      //   get: "user",
+      //   userId: "236501479",
+      //   clientId: "e2f40c42738b4f1281f1bf31b7d022cd",
+      //   accessToken: "236501479.e2f40c4.9bfb402940d3498398587634b1bc4078",
+      //   template:
+      //     '<div style="width: 240px; display: inline-block; height: 240px; overflow: hidden;  margin: 10px;"><a href="{{link}}"><img style="height: 240px;" src="{{image}}" /></a></div>',
+      //   resolution: "low_resolution",
+      // });
+      // feed.run();
 
       function openInNewTab(url) {
         var win = window.open(url, "_blank");
         win.focus();
       }
     </script>
+
   </head>
 
   <body>
     <canvas id="canvas" width="1366" height="667"></canvas>
 
-    <div style="width: 100%; height: calc(100% - 80px); overflow: hidden;">
+    <div style="width: 100%; height: calc(100% - 80px); overflow: hidden">
       <div
         id="front"
         style="
@@ -80,16 +85,12 @@
       >
         <img
           src="images/Layer%201.png"
-          style="width: 270px; height: 200px; margin-right: 100px;"
+          style="width: 270px; height: 200px; margin-right: 100px"
         />
         <div
-          style="
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-          "
+          style="display: flex; flex-direction: column; align-items: flex-start"
         >
-          <div style="display: flex;">
+          <div style="display: flex">
             <span class="landing-name bold">MAYANK</span>
             <span class="landing-name">&nbsp;BANSAL</span>
           </div>
@@ -97,7 +98,7 @@
 
           <br />
 
-          <div style="display: flex;">
+          <div style="display: flex">
             <a href="https://www.facebook.com/MankyBansal" target="_blank">
               <i class="fab fa-facebook social-icons"></i>
             </a>
@@ -131,7 +132,7 @@
     <div class="header-container">
       <div class="header">
         <div class="cool">
-          <img src="images/Logo.png" style="height: 50px; margin-top: 5px;" />
+          <img src="images/Logo.png" style="height: 50px; margin-top: 5px" />
         </div>
 
         <div
@@ -142,7 +143,7 @@
             padding: 16px 20px 24px 20px;
           "
         >
-          <span style="font-weight: 700;">MAYANK</span>
+          <span style="font-weight: 700">MAYANK</span>
           BANSAL
         </div>
         <div class="header-link"><a href="#about">About</a></div>
@@ -160,18 +161,17 @@
       <div class="section-title">About Me</div>
       <hr class="section-header-dark" />
 
-      <img src="images/Logo.png" style="width: 200px; margin-top: 100px;" />
+      <img src="images/Logo.png" style="width: 200px; margin-top: 100px" />
       <div class="about-me-text">
-        Hi, I'm
-        <span style="font-weight: 700;">Mayank Bansal</span>
+        👋🏼 I'm <span style="font-weight: 700">Mayank Bansal</span>
         <i class="fas fa-volume-up pronounce"></i>
         <div class="pronounce-tooltip">
           <i class="fas fa-volume-up pronounce2"></i> <b>my-YUNGK BUN-sel</b>
         </div>
-        , a 24 year-old
-        <span style="font-weight: 600;">Software Engineer</span>
+        , a 25 year-old
+        <span style="font-weight: 600">Software Engineer</span>
         and self-taught
-        <span style="font-weight: 600;">Designer</span>
+        <span style="font-weight: 600">Designer</span>
         that loves to design and build products that solve challenging
         world-scale problems with careful user research, design, planning and
         strong engineering principles. I have a sharp eye for pixel-perfect
@@ -184,19 +184,19 @@
         Currently an engineer at
         <span
           onclick="openInNewTab('www.convoy.com')"
-          style="cursor: pointer; font-weight: 600; text-decoration: underline;"
+          style="cursor: pointer; font-weight: 600; text-decoration: underline"
           >Convoy</span
         >, a freight and logistics company that wants to transport the world
         with endless capacity and zero waste. <br /><br />
         <b>Facts</b>
-        <ul style="font-size: 20px; margin-left: -20px; margin-top: 0px;">
+        <ul style="font-size: 20px; margin-left: -20px; margin-top: 0px">
           <li>Born in Bengaluru <i class="fa fa-heart"></i></li>
           <li>
             Personality type:
             <a
               href="https://www.16personalities.com/infj-personality"
               target="_blank"
-              style="font-weight: 500; text-decoration: underline;"
+              style="font-weight: 500; text-decoration: underline"
               >INF-J</a
             >
           </li>
@@ -206,7 +206,7 @@
             <a
               href="https://www.thelawrenceschool.org/"
               target="_blank"
-              style="font-weight: 500; text-decoration: underline;"
+              style="font-weight: 500; text-decoration: underline"
               >boarding school</a
             >
           </li>
@@ -218,7 +218,7 @@
       </div>
     </div>
 
-    <div class="section-container" style="height: unset;">
+    <div class="section-container" style="height: unset">
       <div class="section-title">Posts</div>
       <hr class="section-header-dark" />
       <div id="medium-widget"></div>
@@ -238,11 +238,11 @@
       </script>
     </div>
 
-    <div class="section-container" style="height: unset;">
+    <div class="section-container" style="height: unset">
       <div class="section-title">Education</div>
       <hr class="section-header-dark" />
-      <div style="display: flex; justify-content: center;">
-        <div style="display: flex; margin: 50px;">
+      <div style="display: flex; justify-content: center">
+        <div style="display: flex; margin: 50px">
           <img src="images/IIT.png" height="100px" />
           <div
             style="
@@ -263,7 +263,7 @@
             >
             <span
               class="segoe-light-20"
-              style="font-weight: 500; margin-bottom: 4px;"
+              style="font-weight: 500; margin-bottom: 4px"
               >Illinois Institute of Technology</span
             >
             <span
@@ -278,13 +278,13 @@
             >
             <span
               class="segoe-light-20"
-              style="font-weight: 500; font-size: 12px;"
+              style="font-weight: 500; font-size: 12px"
               >Cum Laude, Dean's List, Scholarship, Finished Early</span
             >
           </div>
         </div>
 
-        <div style="display: flex; margin: 50px;">
+        <div style="display: flex; margin: 50px">
           <img src="images/manipal.png" height="100px" />
           <div
             style="
@@ -305,7 +305,7 @@
             >
             <span
               class="segoe-light-20"
-              style="font-weight: 500; margin-bottom: 4px;"
+              style="font-weight: 500; margin-bottom: 4px"
               >Manipal University</span
             >
             <span
@@ -320,7 +320,7 @@
             >
             <span
               class="segoe-light-20"
-              style="font-weight: 500; font-size: 12px;"
+              style="font-weight: 500; font-size: 12px"
               >Two Year Transfer</span
             >
           </div>
@@ -331,12 +331,12 @@
     <div
       class="section-container"
       id="experience"
-      style="height: unset; background: white;"
+      style="height: unset; background: white"
     >
       <div class="section-title">Experience</div>
       <hr class="section-header-dark" />
-      <div style="display: flex; justify-content: center;">
-        <div style="display: flex; margin: 50px;">
+      <div style="display: flex; justify-content: center">
+        <div style="display: flex; margin: 50px">
           <img src="images/C-Block.svg" height="50px" />
           <div
             style="
@@ -357,7 +357,7 @@
             >
             <span
               class="segoe-light-20"
-              style="font-weight: 500; margin-bottom: 4px;"
+              style="font-weight: 500; margin-bottom: 4px"
               >Convoy, Inc.</span
             >
             <span
@@ -372,13 +372,13 @@
             >
             <span
               class="segoe-light-20"
-              style="font-weight: 500; font-size: 12px;"
+              style="font-weight: 500; font-size: 12px"
               >Seattle, Washington</span
             >
           </div>
         </div>
 
-        <div style="display: flex; margin: 50px;">
+        <div style="display: flex; margin: 50px">
           <img src="images/legalpad.png" height="70px" />
           <div
             style="
@@ -399,7 +399,7 @@
             >
             <span
               class="segoe-light-20"
-              style="font-weight: 500; margin-bottom: 4px;"
+              style="font-weight: 500; margin-bottom: 4px"
               >Legalpad, Inc.</span
             >
             <span
@@ -414,7 +414,7 @@
             >
             <span
               class="segoe-light-20"
-              style="font-weight: 500; font-size: 12px;"
+              style="font-weight: 500; font-size: 12px"
               >Seattle, Washington</span
             >
           </div>
@@ -422,14 +422,14 @@
       </div>
     </div>
 
-    <div class="section-container" id="projects" style="height: unset;">
+    <div class="section-container" id="projects" style="height: unset">
       <div class="section-title">Projects</div>
       <hr class="section-header-dark" />
-      <div style="display: flex; flex-flow: row wrap; justify-content: center;">
+      <div style="display: flex; flex-flow: row wrap; justify-content: center">
         <div class="project">
           <span class="project-title">Luna's Ice Cream Shoppe</span>
           <span class="project-subtitle">React</span>
-          <video style="width: 100%;" controls style="margin: 16px;">
+          <video style="width: 100%" controls style="margin: 16px">
             <source
               src="videos/Screen%20Recording%202020-04-01%20at%203.44.06%20AM.mov"
               type="video/mp4"
@@ -438,9 +438,17 @@
           </video>
         </div>
         <div class="project">
+          <span class="project-title">Not Netflix Inc - Checkout</span>
+          <span class="project-subtitle">React + Typescript</span>
+          <img
+            src="images/Screen%20Shot%202021-03-14%20at%2010.39.41%20PM.png"
+            height="350"
+          />
+        </div>
+        <div class="project">
           <span class="project-title">Material Modeling IDE</span>
           <span class="project-subtitle">React, Three.js, Meteor</span>
-          <video style="width: 100%;" controls style="margin: 16px;">
+          <video style="width: 100%" controls style="margin: 16px">
             <source
               src="videos/Screen%20Recording%202020-04-01%20at%203.49.07%20AM.mov"
               type="video/mp4"
@@ -449,9 +457,14 @@
           </video>
         </div>
         <div class="project">
+          <span class="project-title">Tesla Model 3 UI Simulator</span>
+          <span class="project-subtitle">React</span>
+          <img src="images/Tesla%20Sim.jpeg" height="350" />
+        </div>
+        <div class="project">
           <span class="project-title">Freight Offers</span>
           <span class="project-subtitle">React</span>
-          <video style="width: 100%;" controls style="margin: 16px;">
+          <video style="width: 100%" controls style="margin: 16px">
             <source
               src="videos/Screen%20Recording%202020-04-01%20at%203.50.39%20AM.mov"
               type="video/mp4"
@@ -464,6 +477,7 @@
           <span class="project-subtitle">React, Rails</span>
           <img src="images/Intake%20V2.jpg" height="350" />
         </div>
+
         <div class="project">
           <span class="project-title">Interior Management Dashboard</span>
           <span class="project-subtitle">Angular + Node.js + Neo4j</span>
@@ -480,13 +494,13 @@
       </div>
     </div>
 
-    <div class="section-container" id="skills" style="height: unset;">
+    <div class="section-container" id="skills" style="height: unset">
       <div class="section-title">Technical Skills</div>
       <hr class="section-header-dark" />
       <div class="skill-container"></div>
     </div>
 
-    <div class="section-container" style="height: unset;">
+    <div class="section-container" style="height: unset">
       <div class="section-title">Volunteer Work</div>
       <hr class="section-header-dark" />
       <div
@@ -507,7 +521,7 @@
         class="segoe-light-20"
         style="
           margin: 50px auto;
-          max-width: 600px;
+          max-width: 600px;R
           line-height: 28px;
           font-weight: 300;
           text-align: left;
@@ -524,7 +538,7 @@
         <br />
         <a
           href="https://www.firstinspires.org/"
-          style="font-weight: 500; color: #eb9a3f;"
+          style="font-weight: 500; color: #eb9a3f"
           target="_blank"
           >https://firstinspires.org</a
         >
@@ -549,14 +563,14 @@
         <br />
         <a
           href="https://csfirst.withgoogle.com/s/en/home?utm_source=google&utm_medium=cpc&utm_campaign=20200116-CS-First-always-on-cpc--all-all-&src=cpc-google-20200116-CS-First-always-on-cpc--all-all-&gclid=CjwKCAjw95D0BRBFEiwAcO1KDHuRioPi_edSW6_NiFLEmp4DD17eCV4AqUbtQopscGUKTQ2R2Hj0fxoCyPsQAvD_BwE"
-          style="font-weight: 500; color: #eb9a3f;"
+          style="font-weight: 500; color: #eb9a3f"
           target="_blank"
           >https://csfirst.withgoogle.com</a
         >
       </div>
     </div>
 
-    <div class="section-container" style="height: unset;">
+    <div class="section-container" style="height: unset">
       <div class="section-title">GitHub</div>
       <hr class="section-header-dark" />
       <span class="segoe-light-20">Things I'm working on - Coming Soon</span>
@@ -571,7 +585,7 @@
       <br /><br />
     </div>
 
-    <div class="section-container" style="height: unset;">
+    <div class="section-container" style="height: unset">
       <div class="section-title">Dribbble</div>
       <hr class="section-header-dark" />
       <span class="segoe-light-20">Things I've designed - Coming Soon</span>
@@ -588,7 +602,7 @@
 
     <div
       class="section-container"
-      style="height: unset; min-height: 100%; display: inline-block;"
+      style="height: unset; min-height: 100%; display: inline-block"
     >
       <div class="section-title">Instagram</div>
       <hr class="section-header-dark" />
@@ -606,7 +620,7 @@
       <br /><br />
     </div>
 
-    <div class="section-container" id="contact" style="height: unset;">
+    <div class="section-container" id="contact" style="height: unset">
       <div class="section-title">Contact Me</div>
       <hr class="section-header-dark" />
       <br />
@@ -628,8 +642,8 @@
       <div class="social-container"></div>
     </div>
 
-    <div class="section-container" style="height: unset;">
-      <img src="images/Logo.png" style="width: 100px;" />
+    <div class="section-container" style="height: unset">
+      <img src="images/Logo.png" style="width: 100px" />
       <br /><br />
       <span class="segoe-light-17">
         Handmade with <i class="fa fa-heart"></i> in Seattle, WA <br /><br />

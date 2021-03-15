@@ -4,8 +4,9 @@ const skills = [
     items: [
       { title: "React, Svelte, Angular", level: 4 },
       { title: "Apollo + GraphQL", level: 3 },
+      { title: "Framer Motion", level: 4 },
       { title: "JavaScript", level: 5 },
-      { title: "SASS/CSS", level: 5 },
+      { title: "Emotion, SASS/CSS", level: 5 },
       { title: "Next.js, Rails", level: 3 },
       { title: "Mocha / Jest, Cypress", level: 3 },
     ],
@@ -14,7 +15,8 @@ const skills = [
     title: "Backend",
     items: [
       { title: "Node.js + Express", level: 4 },
-      { title: "MySQL/SQL", level: 5 },
+      { title: "GraphQL, REST", level: 5 },
+      { title: "Postgres, MySQL/SQL", level: 5 },
       { title: "MongoDb, Firebase", level: 3 },
     ],
   },
