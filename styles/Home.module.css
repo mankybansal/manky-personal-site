@@ -32,10 +32,6 @@
   letter-spacing: 5px;
 }
 
-.landingName.bold {
-  font-weight: 700;
-}
-
 .landingTitle {
   display: inline-block;
   min-width: 10px;

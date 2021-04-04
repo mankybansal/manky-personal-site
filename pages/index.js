@@ -155,7 +155,9 @@ export default function Index() {
             `}
           >
             <div style={{ display: "flex" }}>
-              <span className={`${styles.landingName} bold`}>MAYANK</span>
+              <span className={styles.landingName} style={{ fontWeight: 700 }}>
+                MAYANK
+              </span>
               <span className={styles.landingName}>&nbsp;BANSAL</span>
             </div>
             <div className={styles.landingTitle}>
