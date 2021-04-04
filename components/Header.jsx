@@ -1,5 +1,4 @@
 import { memo } from "react";
-import { css } from "@emotion/css";
 import styled from "@emotion/styled";
 
 const RootContainer = styled.div`

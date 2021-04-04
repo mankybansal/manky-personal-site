@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Experience from "../components/Experience";
 import styled from "@emotion/styled";
 import Header from "../components/Header";
+import Image from "next/image";
 
 const skills = [
   {
@@ -144,19 +145,13 @@ export default function Index() {
     <>
       <div className={styles.landingContainer}>
         <div className={styles.landingContainerInner}>
-          <img
-            src="static/images/Layer%201.png"
-            className={css`
-              width: 270px;
-              height: 200px;
-              margin-right: 100px;
-            `}
-          />
+          <Image src="/static/images/Layer%201.png" width={270} height={200} />
           <div
             className={css`
               display: flex;
               flex-direction: column;
               align-items: flex-start;
+              margin-left: 100px;
             `}
           >
             <div style={{ display: "flex" }}>
@@ -203,76 +198,74 @@ export default function Index() {
       <SectionContainer id="about">
         <div className={styles.sectionTitle}>About Me</div>
         <hr className={styles.sectionHeaderDark} />
-
-        <img
-          src="static/images/Logo.png"
-          className={css`
-            width: 200px;
-            margin-top: 100px;
-          `}
-        />
-        <div className={styles.aboutMeText}>
-          👋🏼 I'm <span style={{ fontWeight: 700 }}>Mayank Bansal</span>
-          <i className={`fas fa-volume-up ${styles.pronounce}`} />
-          <div className={styles.pronounceTooltip}>
-            <i className={`fas fa-volume-up ${styles.pronounce2}`} />{" "}
-            <b>my-YUNGK BUN-sel</b>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ margin: "50px 150px 0 150px" }}>
+            <Image src="/static/images/Logo.png" width={200} height={315} />
           </div>
-          , a 25 year-old{" "}
-          <span style={{ fontWeight: 600 }}>Software Engineer</span> and
-          self-taught <span style={{ fontWeight: 600 }}>Designer</span> that
-          loves to design and build products that solve challenging world-scale
-          problems with careful user research, design, planning and strong
-          engineering principles. I have a sharp eye for pixel-perfect detail.
-          <br />
-          <br />
-          In my free time, you can find me mentoring, teaching, cooking or
-          playing my guitar. I hope to use my interdisciplinary skills to help
-          build a better and sustainable future.
-          <br />
-          <br />
-          Currently an engineer at{" "}
-          <UnderlinedLink href={"www.convoy.com"} target={"_blank"}>
-            Convoy
-          </UnderlinedLink>
-          , a freight and logistics company that wants to transport the world
-          with endless capacity and zero waste. <br />
-          <br />
-          <b>Facts</b>
-          <ul
-            className={css`
-              font-size: 20px;
-              margin-left: -20px;
-              margin-top: 0;
-            `}
-          >
-            <li>
-              Born in Bengaluru <i className="fa fa-heart" />
-            </li>
-            <li>
-              Personality type:{" "}
-              <UnderlinedLink
-                href="https://www.16personalities.com/infj-personality"
-                target="_blank"
-              >
-                INF-J
-              </UnderlinedLink>
-            </li>
-            <li>Left-handed (yes, ink smears everywhere)</li>
-            <li>
-              Went to a beautiful{" "}
-              <UnderlinedLink
-                href="https://www.thelawrenceschool.org/"
-                target="_blank"
-              >
-                boarding school
-              </UnderlinedLink>
-            </li>
-            <li>I own 20,000+ Lego</li>
-            <li>Webstorm > VS Code (fight me)</li>
-            <li>Chai > Coffee (am I even a Seattleite?)</li>
-            <li>Have an excellent credit score</li>
-          </ul>
+          <div className={styles.aboutMeText}>
+            👋🏼 I'm <span style={{ fontWeight: 700 }}>Mayank Bansal</span>
+            <i className={`fas fa-volume-up ${styles.pronounce}`} />
+            <div className={styles.pronounceTooltip}>
+              <i className={`fas fa-volume-up ${styles.pronounce2}`} />{" "}
+              <b>my-YUNGK BUN-sel</b>
+            </div>
+            , a 25 year-old{" "}
+            <span style={{ fontWeight: 600 }}>Software Engineer</span> and
+            self-taught <span style={{ fontWeight: 600 }}>Designer</span> that
+            loves to design and build products that solve challenging
+            world-scale problems with careful user research, design, planning
+            and strong engineering principles. I have a sharp eye for
+            pixel-perfect detail.
+            <br />
+            <br />
+            In my free time, you can find me mentoring, teaching, cooking or
+            playing my guitar. I hope to use my interdisciplinary skills to help
+            build a better and sustainable future.
+            <br />
+            <br />
+            Currently an engineer at{" "}
+            <UnderlinedLink href={"www.convoy.com"} target={"_blank"}>
+              Convoy
+            </UnderlinedLink>
+            , a freight and logistics company that wants to transport the world
+            with endless capacity and zero waste. <br />
+            <br />
+            <b>Facts</b>
+            <ul
+              className={css`
+                font-size: 20px;
+                margin-left: -20px;
+                margin-top: 0;
+              `}
+            >
+              <li>
+                Born in Bengaluru <i className="fa fa-heart" />
+              </li>
+              <li>
+                Personality type:{" "}
+                <UnderlinedLink
+                  href="https://www.16personalities.com/infj-personality"
+                  target="_blank"
+                >
+                  INF-J
+                </UnderlinedLink>
+              </li>
+              <li>Left-handed (yes, ink smears everywhere)</li>
+              <li>
+                Went to a beautiful{" "}
+                <UnderlinedLink
+                  href="https://www.thelawrenceschool.org/"
+                  target="_blank"
+                >
+                  boarding school
+                </UnderlinedLink>
+              </li>
+              <li>I own 20,000+ Lego</li>
+              <li>Webstorm > VS Code (fight me)</li>
+              <li>Chai > Coffee (am I even a Seattleite?)</li>
+              <li>Have an excellent credit score</li>
+            </ul>
+          </div>
         </div>
       </SectionContainer>
       <SectionContainer id="medium">
@@ -285,7 +278,7 @@ export default function Index() {
         <hr className={styles.sectionHeaderDark} />
         <ExperienceContainer>
           <Experience
-            image={"static/images/IIT.png"}
+            image={"/static/images/IIT.png"}
             name={"Illinois Institute of Technology"}
             imageHeight={"100px"}
             year={"2017 - 2018, Chicago, Illinois"}
@@ -293,7 +286,7 @@ export default function Index() {
             details={"3.65/4.00 GPA, B.S. Computer Science"}
           />
           <Experience
-            image={"static/images/manipal.png"}
+            image={"/static/images/manipal.png"}
             name={"Manipal University"}
             imageHeight={"100px"}
             year={"2014 - 2016, Manipal, Karnataka"}
@@ -307,7 +300,7 @@ export default function Index() {
         <hr className={styles.sectionHeaderDark} />
         <ExperienceContainer>
           <Experience
-            image={"static/images/C-Block.svg"}
+            image={"/static/images/C-Block.svg"}
             name={"Convoy, Inc."}
             imageHeight={"50px"}
             year={"2019 - Present"}
@@ -315,7 +308,7 @@ export default function Index() {
             details={"Software Engineer II"}
           />
           <Experience
-            image={"static/images/legalpad.png"}
+            image={"/static/images/legalpad.png"}
             name={"Legalpad, Inc."}
             imageHeight={"70px"}
             year={"2018 - 2019"}
@@ -341,10 +334,11 @@ export default function Index() {
               href="https://lunas-ice-cream-shoppe.manky.me"
               className={styles.colorLink}
               target="_blank"
+              style={{ marginBottom: 16 }}
             >
               Live Demo
             </a>
-            <video styles="width: 100%" controls style={{ margin: 16 }}>
+            <video controls style={{ width: "100%" }}>
               <source
                 src="videos/Screen%20Recording%202020-04-01%20at%203.44.06%20AM.mov"
                 type="video/mp4"
@@ -363,13 +357,14 @@ export default function Index() {
               href="https://not-netflix-inc.manky.me"
               className={styles.colorLink}
               target="_blank"
+              style={{ marginBottom: 16 }}
             >
               Live Demo
             </a>
-            <img
-              src="static/images/Screen%20Shot%202021-03-14%20at%2010.39.41%20PM.png"
-              height="350"
-              style={{ margin: 16 }}
+            <Image
+              src="/static/images/Screen%20Shot%202021-03-14%20at%2010.39.41%20PM.png"
+              height={350}
+              width={"auto"}
             />
           </div>
           <div className={styles.project}>
@@ -377,7 +372,7 @@ export default function Index() {
             <span className={styles.projectSubtitle}>
               React, Three.js, Meteor
             </span>
-            <video styles="width: 100%" controls style={{ margin: 16 }}>
+            <video width={"100%"} controls style={{ margin: 16 }}>
               <source
                 src="videos/Screen%20Recording%202020-04-01%20at%203.49.07%20AM.mov"
                 type="video/mp4"
@@ -390,7 +385,11 @@ export default function Index() {
               Tesla Model 3 UI Simulator
             </span>
             <span className={styles.projectSubtitle}>React</span>
-            <img src="static/images/Tesla%20Sim.jpeg" height="350" />
+            <Image
+              src="/static/images/Tesla%20Sim.jpeg"
+              height={350}
+              width={"auto"}
+            />
           </div>
           <div className={styles.project}>
             <span className={styles.projectTitle}>Freight Offers</span>
@@ -399,10 +398,11 @@ export default function Index() {
               href="https://convoy-offers-client.manky.me"
               className={styles.colorLink}
               target="_blank"
+              style={{ marginBottom: 16 }}
             >
               Live Demo
             </a>
-            <video styles="width: 100%" controls style={{ margin: 16 }}>
+            <video width={"100%"} controls>
               <source
                 src="videos/Screen%20Recording%202020-04-01%20at%203.50.39%20AM.mov"
                 type="video/mp4"
@@ -413,7 +413,11 @@ export default function Index() {
           <div className={styles.project}>
             <span className={styles.projectTitle}>Immigration Wizard</span>
             <span className={styles.projectSubtitle}>React, Rails</span>
-            <img src="static/images/Intake%20V2.jpg" height="350" />
+            <Image
+              src="/static/images/Intake%20V2.jpg"
+              height={350}
+              width={"auto"}
+            />
           </div>
           <div className={styles.project}>
             <span className={styles.projectTitle}>
@@ -422,16 +426,21 @@ export default function Index() {
             <span className={styles.projectSubtitle}>
               Angular + Node.js + Neo4j
             </span>
-            <img src="static/images/Interface16.png" height="350" />
+            <Image
+              src="/static/images/Interface16.png"
+              height={350}
+              width={"auto"}
+            />
           </div>
           <div className={styles.project}>
             <span className={styles.projectTitle}>Micro-savings Platform</span>
             <span className={styles.projectSubtitle}>
               Angular + JQuery + Flask
             </span>
-            <img
-              src="static/images/Screen%20Shot%202017-06-05%20at%205.29.05%20PM.png"
-              height="350"
+            <Image
+              src="/static/images/Screen%20Shot%202017-06-05%20at%205.29.05%20PM.png"
+              height={350}
+              width={"auto"}
             />
           </div>
         </div>
@@ -625,7 +634,7 @@ export default function Index() {
         </div>
       </SectionContainer>
       <SectionContainer id="footer" variableHeight>
-        <img src={"static/images/Logo.png"} style={{ width: 100 }} />
+        <Image src={"/static/images/Logo.png"} width={100} height={157} />
         <br />
         <br />
         <div className={styles.segoeLight17}>
@@ -637,9 +646,11 @@ export default function Index() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
-                src="vercel.svg"
+              <Image
+                src={"/vercel.svg"}
                 alt="Vercel Logo"
+                height={16}
+                width={70}
                 className={styles.vercelLogo}
               />
             </a>
