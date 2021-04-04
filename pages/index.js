@@ -330,25 +330,6 @@ export default function Index() {
           `}
         >
           <div className={styles.project}>
-            <span className={styles.projectTitle}>Luna's Ice Cream Shoppe</span>
-            <span className={styles.projectSubtitle}>React</span>
-            <a
-              href="https://lunas-ice-cream-shoppe.manky.me"
-              className={styles.colorLink}
-              target="_blank"
-              style={{ marginBottom: 16 }}
-            >
-              Live Demo
-            </a>
-            <video controls style={{ width: "100%" }}>
-              <source
-                src="videos/Screen%20Recording%202020-04-01%20at%203.44.06%20AM.mov"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div className={styles.project}>
             <span className={styles.projectTitle}>
               Not Netflix Inc - Checkout
             </span>
@@ -370,6 +351,25 @@ export default function Index() {
             />
           </div>
           <div className={styles.project}>
+            <span className={styles.projectTitle}>Luna's Ice Cream Shoppe</span>
+            <span className={styles.projectSubtitle}>React</span>
+            <a
+              href="https://lunas-ice-cream-shoppe.manky.me"
+              className={styles.colorLink}
+              target="_blank"
+              style={{ marginBottom: 16 }}
+            >
+              Live Demo
+            </a>
+            <video controls style={{ width: "100%" }}>
+              <source
+                src="videos/Screen%20Recording%202020-04-01%20at%203.44.06%20AM.mov"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className={styles.project}>
             <span className={styles.projectTitle}>Material Modeling IDE</span>
             <span className={styles.projectSubtitle}>
               React, Three.js, Meteor
@@ -388,10 +388,10 @@ export default function Index() {
             </span>
             <span className={styles.projectSubtitle}>React</span>
             <a
-                href="https://tesla-model-3-dashboard.manky.me"
-                className={styles.colorLink}
-                target="_blank"
-                style={{ marginBottom: 16 }}
+              href="https://tesla-model-3-dashboard.manky.me"
+              className={styles.colorLink}
+              target="_blank"
+              style={{ marginBottom: 16 }}
             >
               Live Demo
             </a>
@@ -402,7 +402,7 @@ export default function Index() {
             />
           </div>
           <div className={styles.project}>
-            <span className={styles.projectTitle}>Freight Offers</span>
+            <span className={styles.projectTitle}>Freight Offers - React</span>
             <span className={styles.projectSubtitle}>React</span>
             <a
               href="https://convoy-offers-client.manky.me"
@@ -419,6 +419,23 @@ export default function Index() {
               />
               Your browser does not support the video tag.
             </video>
+          </div>
+          <div className={styles.project}>
+            <span className={styles.projectTitle}>Freight Offers - Svelte</span>
+            <span className={styles.projectSubtitle}>Svelte</span>
+            <a
+              href="https://convoy-offers-svelte.manky.me"
+              className={styles.colorLink}
+              target="_blank"
+              style={{ marginBottom: 16 }}
+            >
+              Live Demo
+            </a>
+            <Image
+              src="/static/images/Screen%20Shot%202021-04-04%20at%203.13.26%20PM.png"
+              height={350}
+              width={"auto"}
+            />
           </div>
           <div className={styles.project}>
             <span className={styles.projectTitle}>Immigration Wizard</span>
