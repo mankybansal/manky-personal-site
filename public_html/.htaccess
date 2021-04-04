@@ -1,3 +1,0 @@
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^www\.manky\.me [NC]
-RewriteRule ^(.*)$ https://manky.me/$1 [L,R=301]
