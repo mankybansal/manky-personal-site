@@ -1,76 +1,80 @@
-html,
-body {
-  text-align: center;
-  height: 100%;
+.landingContainer {
   width: 100%;
-  outline: 0;
-  border: 0;
-  margin: 0;
-
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  position: relative;
 }
 
-a:visited,
-a:hover,
-a:focus,
-a:link,
-a:active {
-  text-decoration: none;
-  color: inherit;
+.landingContainerInner {
+  display: flex;
+  min-width: 200px;
+  padding: 100px;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
-.landing-name,
-.landing-title {
+.landingName,
+.landingTitle {
   text-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   color: #333;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 
-.landing-name {
+.landingName {
   font-size: 65px;
   letter-spacing: 5px;
 }
 
-.landing-name.bold {
+.landingName.bold {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
-.landing-title {
+.landingTitle {
   display: inline-block;
   min-width: 10px;
   min-height: 10px;
   font-size: 35px;
 }
 
-.section-container {
+.sectionContainer {
   width: 100%;
   padding: 50px;
-  box-sizing: border-box;
   background: white;
   display: inline-block;
   border-top: 1px solid #eee;
 }
 
-.section-container:nth-child(odd) {
+.variableHeight {
+  height: unset;
+}
+
+.whiteSection {
+  background: white;
+}
+
+.sectionContainer:nth-child(odd) {
   background: #fafafa;
 }
 
-.segoe-light-20 {
+.segoeLight20 {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 20px;
 }
 
-.segoe-light-17 {
+.segoeLight17 {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 16px;
+}
+
+.vercelLogo {
+  height: 1em;
+  margin-top: 2px;
 }
 
 #canvas {
@@ -81,13 +85,7 @@ a:active {
   height: 100%;
 }
 
-#front {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-.social-icons {
+.socialIcons {
   font-size: 30px;
   margin-left: 10px;
   color: #333;
@@ -101,7 +99,7 @@ a:active {
   color: #666;
 }
 
-.header-container {
+.headerContainer {
   width: 100%;
   height: 80px;
   background: #fafafa;
@@ -111,7 +109,6 @@ a:active {
   width: 100%;
   height: 80px;
   padding-top: 10px;
-  box-sizing: border-box;
   border-bottom: 1px solid #eee;
   background: rgba(255, 255, 255, 0.97);
   transition: all ease 0.5s;
@@ -138,11 +135,10 @@ a:active {
   float: left;
 }
 
-.header-link,
-.header-link-2 {
+.headerLink,
+.headerLink2 {
   display: inline-block;
   font-size: 18px;
-  box-sizing: border-box;
   vertical-align: top;
   height: 60px;
   padding: 18px 5px 24px 5px;
@@ -155,23 +151,29 @@ a:active {
   float: left;
 }
 
-.header-link.shrink {
+.headerName {
+  letter-spacing: 5px;
+  font-size: 20px;
+  padding: 16px 20px 24px 20px;
+}
+
+.headerLink.shrink {
   margin-left: 25px;
   margin-right: 25px;
 }
 
-.header-link-2.shrink {
+.headerLink2.shrink {
   margin-left: 80px;
   margin-right: 60px;
 }
 
-.header-link:hover {
+.headerLink:hover {
   color: #eb9a3f;
   height: 48px;
   border-bottom: 2px solid #eb9a3f;
 }
 
-a.resume-button {
+a.resumeButton {
   padding: 8px 25px 10px 25px;
   line-height: normal;
   font-size: 20px;
@@ -184,20 +186,20 @@ a.resume-button {
   transition: all ease 0.3s;
 }
 
-a.resume-button:hover {
+a.resumeButton:hover {
   border: 2px solid transparent;
   color: white;
   background: #eb9a3f;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.section-title {
+.sectionTitle {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 35px;
 }
 
-.about-me-text {
+.aboutMeText {
   width: 700px;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
@@ -210,14 +212,14 @@ a.resume-button:hover {
   margin-right: 200px;
 }
 
-hr.section-header-dark {
+hr.sectionHeaderDark {
   border: 0;
   width: 100px;
   height: 3px;
   background: #eb9a3f;
 }
 
-hr.section-header-black {
+hr.sectionHeaderBlack {
   border: 0;
   width: 100px;
   height: 1px;
@@ -245,7 +247,7 @@ hr.section-header-black {
   opacity: 1;
 }
 
-.pronounce-tooltip {
+.pronounceTooltip {
   position: absolute;
   margin-left: 70px;
   margin-top: -100px;
@@ -259,12 +261,12 @@ hr.section-header-black {
   transition: all ease-in-out 0.2s;
 }
 
-.pronounce:hover + .pronounce-tooltip {
+.pronounce:hover + .pronounceTooltip {
   margin-top: -90px;
   opacity: 1;
 }
 
-.skill-container {
+.skillContainer {
   width: 100%;
   display: flex;
   padding-top: 15px;
@@ -272,7 +274,7 @@ hr.section-header-black {
   justify-content: center;
 }
 
-.social-container {
+.socialContainer {
   width: 50%;
   display: inline-flex;
   flex-flow: row wrap;
@@ -281,10 +283,9 @@ hr.section-header-black {
   justify-content: center;
 }
 
-.skill-group {
+.skillGroup {
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
   padding: 30px;
   vertical-align: top;
   text-align: left;
@@ -297,21 +298,21 @@ hr.section-header-black {
   width: 600px;
 }
 
-.project-title {
+.projectTitle {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   margin-bottom: 8px;
   font-size: 20px;
 }
 
-.project-subtitle {
+.projectSubtitle {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
 }
 
-.skill-group-title {
+.skillGroupTitle {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #eb9a3f;
@@ -327,24 +328,23 @@ hr.section-header-black {
   margin-top: 10px;
 }
 
-.skill-details {
+.skillDetails {
   width: 100%;
   display: inline-block;
   float: left;
   text-align: left;
 }
 
-.skill-title {
+.skillTitle {
   float: top;
   height: 30px;
   padding: 5px 0;
-  box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 17px;
 }
 
-.handle-text {
+.handleText {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #eb9a3f;
@@ -355,7 +355,7 @@ hr.section-header-black {
   margin-left: 10px;
 }
 
-.contact-icons {
+.contactIcons {
   float: left;
   display: inline-block;
   vertical-align: middle;
@@ -365,7 +365,7 @@ hr.section-header-black {
   cursor: pointer;
 }
 
-.contact-links {
+.contactLinks {
   display: flex;
   align-items: center;
   margin: 20px;
