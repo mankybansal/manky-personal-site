@@ -5,7 +5,6 @@
   "main": "index.html",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.6.3",
-    "instafeed.js": "^1.4.1",
     "jquery": "^3.3.1",
     "prettier": "^2.2.1"
   },
