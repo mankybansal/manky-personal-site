@@ -387,6 +387,14 @@ export default function Index() {
               Tesla Model 3 UI Simulator
             </span>
             <span className={styles.projectSubtitle}>React</span>
+            <a
+                href="https://tesla-model-3-dashboard.manky.me"
+                className={styles.colorLink}
+                target="_blank"
+                style={{ marginBottom: 16 }}
+            >
+              Live Demo
+            </a>
             <Image
               src="/static/images/Tesla%20Sim.jpeg"
               height={350}
