@@ -3,6 +3,7 @@ import { css } from "@emotion/css";
 import { useEffect } from "react";
 import Experience from "../components/Experience";
 import styled from "@emotion/styled";
+import Header from "../components/Header";
 
 const skills = [
   {
@@ -94,6 +95,11 @@ const ExperienceContainer = styled.div`
   justify-content: center;
 `;
 
+const UnderlinedLink = styled.a`
+  font-weight: 600;
+  text-decoration: underline !important;
+`;
+
 export default function Index() {
   const openInNewTab = (url) => {
     const win = window.open(url, "_blank");
@@ -133,11 +139,7 @@ export default function Index() {
               align-items: flex-start;
             `}
           >
-            <div
-              className={css`
-                display: flex;
-              `}
-            >
+            <div style={{ display: "flex" }}>
               <span className={`${styles.landingName} bold`}>MAYANK</span>
               <span className={styles.landingName}>&nbsp;BANSAL</span>
             </div>
@@ -147,11 +149,7 @@ export default function Index() {
 
             <br />
 
-            <div
-              className={css`
-                display: flex;
-              `}
-            >
+            <div style={{ display: "flex" }}>
               <a href="https://www.facebook.com/MankyBansal" target="_blank">
                 <i className={`fab fa-facebook ${styles.socialIcons}`} />
               </a>
@@ -182,48 +180,7 @@ export default function Index() {
         </div>
       </div>
 
-      <div className={styles.headerContainer}>
-        <div className={styles.header}>
-          <div className={styles.cool}>
-            <img
-              src={"static/images/Logo.png"}
-              className={css`
-                height: 50px;
-                margin-top: 5px;
-              `}
-            />
-          </div>
-
-          <div className={`${styles.headerLink2} ${styles.headerName}`}>
-            <span
-              className={css`
-                font-weight: 700;
-              `}
-            >
-              MAYANK
-            </span>
-            BANSAL
-          </div>
-          <div className={styles.headerLink}>
-            <a href={"#about"}>About</a>
-            <div className={styles.headerLink}>
-              <a href={"#experience"}>Experience</a>
-              <div className={styles.headerLink}>
-                <a href={"#projects"}>Projects</a>
-                <div className={styles.headerLink}>
-                  <a href={"#skills"}>Technical Skills</a>
-                  <a href="https://manky.me/resume" target="_blank">
-                    <div className={styles.headerLink}>Resume</div>
-                  </a>
-                  <div className={styles.headerLink}>
-                    <a href={"#contact"}>Contact</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Header />
 
       <div className={styles.sectionContainer} id="about">
         <div className={styles.sectionTitle}>About Me</div>
@@ -271,16 +228,9 @@ export default function Index() {
           <br />
           <br />
           Currently an engineer at
-          <span
-            onClick={() => openInNewTab("www.convoy.com")}
-            className={css`
-              cursor: pointer;
-              font-weight: 600;
-              text-decoration: underline;
-            `}
-          >
+          <UnderlinedLink href={"www.convoy.com"} target={"_blank"}>
             Convoy
-          </span>
+          </UnderlinedLink>
           , a freight and logistics company that wants to transport the world
           with endless capacity and zero waste. <br />
           <br />
@@ -297,30 +247,22 @@ export default function Index() {
             </li>
             <li>
               Personality type:
-              <a
+              <UnderlinedLink
                 href="https://www.16personalities.com/infj-personality"
                 target="_blank"
-                className={css`
-                  font-weight: 500;
-                  text-decoration: underline;
-                `}
               >
                 INF-J
-              </a>
+              </UnderlinedLink>
             </li>
             <li>Left-handed (yes, ink smears everywhere)</li>
             <li>
               Went to a beautiful
-              <a
+              <UnderlinedLink
                 href="https://www.thelawrenceschool.org/"
                 target="_blank"
-                className={css`
-                  font-weight: 500;
-                  text-decoration: underline;
-                `}
               >
                 boarding school
-              </a>
+              </UnderlinedLink>
             </li>
             <li>I own 20,000+ Lego</li>
             <li>Webstorm > VS Code (fight me)</li>
