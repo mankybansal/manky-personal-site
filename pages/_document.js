@@ -18,9 +18,11 @@ class MyDocument extends Document {
             src={`https://kit.fontawesome.com/2d64f5187c.js`}
             crossOrigin="anonymous"
           />
-          <script defer type="text/javascript" src="/public/js/background.js" />
-          <script defer type="text/javascript" src="/public/js/default.js" />
           <script src={"https://medium-widget.pixelpoint.io/widget.js"} />
+          <script
+            async
+            src={"https://www.googletagmanager.com/gtag/js?id=UA-162415812-1"}
+          />
         </Head>
         <body>
           <Main />

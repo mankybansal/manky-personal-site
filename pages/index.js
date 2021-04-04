@@ -100,12 +100,23 @@ const UnderlinedLink = styled.a`
   text-decoration: underline !important;
 `;
 
-export default function Index() {
-  const openInNewTab = (url) => {
-    const win = window.open(url, "_blank");
-    win.focus();
-  };
+const SectionContainer = styled.div`
+  width: 100%;
+  padding: 50px;
+  background: white;
+  display: inline-block;
+  border-top: 1px solid #eee;
 
+  :nth-child(even) {
+    background: #fafafa;
+  }
+
+  min-height: ${({ variableHeight }) => (variableHeight ? "unset" : "100vh")};
+  background: ${({ whiteOverride }) =>
+    whiteOverride ? "white !important" : "initial"};
+`;
+
+export default function Index() {
   useEffect(() => {
     window.MediumWidget.Init({
       renderTo: "#medium-widget",
@@ -118,6 +129,15 @@ export default function Index() {
         ratio: "landscape",
       },
     });
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-162415812-1");
   }, []);
 
   return (
@@ -179,10 +199,8 @@ export default function Index() {
           <div className={styles.mouse} />
         </div>
       </div>
-
       <Header />
-
-      <div className={styles.sectionContainer} id="about">
+      <SectionContainer id="about">
         <div className={styles.sectionTitle}>About Me</div>
         <hr className={styles.sectionHeaderDark} />
 
@@ -194,32 +212,18 @@ export default function Index() {
           `}
         />
         <div className={styles.aboutMeText}>
-          👋🏼 I'm <span styles="font-weight: 700">Mayank Bansal</span>
+          👋🏼 I'm <span style={{ fontWeight: 700 }}>Mayank Bansal</span>
           <i className={`fas fa-volume-up ${styles.pronounce}`} />
           <div className={styles.pronounceTooltip}>
             <i className={`fas fa-volume-up ${styles.pronounce2}`} />{" "}
             <b>my-YUNGK BUN-sel</b>
           </div>
-          , a 25 year-old
-          <span
-            className={css`
-              font-weight: 600;
-            `}
-          >
-            Software Engineer
-          </span>
-          and self-taught
-          <span
-            className={css`
-              font-weight: 600;
-            `}
-          >
-            Designer
-          </span>
-          that loves to design and build products that solve challenging
-          world-scale problems with careful user research, design, planning and
-          strong engineering principles. I have a sharp eye for pixel-perfect
-          detail.
+          , a 25 year-old{" "}
+          <span style={{ fontWeight: 600 }}>Software Engineer</span> and
+          self-taught <span style={{ fontWeight: 600 }}>Designer</span> that
+          loves to design and build products that solve challenging world-scale
+          problems with careful user research, design, planning and strong
+          engineering principles. I have a sharp eye for pixel-perfect detail.
           <br />
           <br />
           In my free time, you can find me mentoring, teaching, cooking or
@@ -227,7 +231,7 @@ export default function Index() {
           build a better and sustainable future.
           <br />
           <br />
-          Currently an engineer at
+          Currently an engineer at{" "}
           <UnderlinedLink href={"www.convoy.com"} target={"_blank"}>
             Convoy
           </UnderlinedLink>
@@ -246,7 +250,7 @@ export default function Index() {
               Born in Bengaluru <i className="fa fa-heart" />
             </li>
             <li>
-              Personality type:
+              Personality type:{" "}
               <UnderlinedLink
                 href="https://www.16personalities.com/infj-personality"
                 target="_blank"
@@ -256,7 +260,7 @@ export default function Index() {
             </li>
             <li>Left-handed (yes, ink smears everywhere)</li>
             <li>
-              Went to a beautiful
+              Went to a beautiful{" "}
               <UnderlinedLink
                 href="https://www.thelawrenceschool.org/"
                 target="_blank"
@@ -270,17 +274,13 @@ export default function Index() {
             <li>Have an excellent credit score</li>
           </ul>
         </div>
-      </div>
-
-      <div className={styles.sectionContainer}>
+      </SectionContainer>
+      <SectionContainer id="medium">
         <div className={styles.sectionTitle}>Posts</div>
         <hr className={styles.sectionHeaderDark} />
         <div id="medium-widget" />
-      </div>
-
-      <div
-        className={`${styles.sectionContainer} ${styles.variableHeight} ${styles.whiteSection}`}
-      >
+      </SectionContainer>
+      <SectionContainer id="education" variableHeight>
         <div className={styles.sectionTitle}>Education</div>
         <hr className={styles.sectionHeaderDark} />
         <ExperienceContainer>
@@ -301,18 +301,8 @@ export default function Index() {
             details={"B.S. Computer Science"}
           />
         </ExperienceContainer>
-      </div>
-
-      <div
-        className={[
-          styles.sectionContainer,
-          css`
-            height: unset;
-            background: white;
-          `,
-        ]}
-        id="experience"
-      >
+      </SectionContainer>
+      <SectionContainer id="experience" variableHeight whiteOverride>
         <div className={styles.sectionTitle}>Experience</div>
         <hr className={styles.sectionHeaderDark} />
         <ExperienceContainer>
@@ -333,14 +323,8 @@ export default function Index() {
             details={"Software Engineer + Designer"}
           />
         </ExperienceContainer>
-      </div>
-
-      <div
-        className={`${styles.sectionContainer} ${css`
-          height: unset;
-        `}`}
-        id="projects"
-      >
+      </SectionContainer>
+      <SectionContainer id="projects" variableHeight>
         <div className={styles.sectionTitle}>Projects</div>
         <hr className={styles.sectionHeaderDark} />
         <div
@@ -353,7 +337,14 @@ export default function Index() {
           <div className={styles.project}>
             <span className={styles.projectTitle}>Luna's Ice Cream Shoppe</span>
             <span className={styles.projectSubtitle}>React</span>
-            <video styles="width: 100%" controls styles="margin: 16px">
+            <a
+              href="https://lunas-ice-cream-shoppe.manky.me"
+              className={styles.colorLink}
+              target="_blank"
+            >
+              Live Demo
+            </a>
+            <video styles="width: 100%" controls style={{ margin: 16 }}>
               <source
                 src="videos/Screen%20Recording%202020-04-01%20at%203.44.06%20AM.mov"
                 type="video/mp4"
@@ -365,10 +356,20 @@ export default function Index() {
             <span className={styles.projectTitle}>
               Not Netflix Inc - Checkout
             </span>
-            <span className={styles.projectSubtitle}>React + Typescript</span>
+            <span className={styles.projectSubtitle}>
+              React + Typescript + Framer Motion
+            </span>
+            <a
+              href="https://not-netflix-inc.manky.me"
+              className={styles.colorLink}
+              target="_blank"
+            >
+              Live Demo
+            </a>
             <img
               src="static/images/Screen%20Shot%202021-03-14%20at%2010.39.41%20PM.png"
               height="350"
+              style={{ margin: 16 }}
             />
           </div>
           <div className={styles.project}>
@@ -376,7 +377,7 @@ export default function Index() {
             <span className={styles.projectSubtitle}>
               React, Three.js, Meteor
             </span>
-            <video styles="width: 100%" controls styles="margin: 16px">
+            <video styles="width: 100%" controls style={{ margin: 16 }}>
               <source
                 src="videos/Screen%20Recording%202020-04-01%20at%203.49.07%20AM.mov"
                 type="video/mp4"
@@ -394,7 +395,14 @@ export default function Index() {
           <div className={styles.project}>
             <span className={styles.projectTitle}>Freight Offers</span>
             <span className={styles.projectSubtitle}>React</span>
-            <video styles="width: 100%" controls styles="margin: 16px">
+            <a
+              href="https://convoy-offers-client.manky.me"
+              className={styles.colorLink}
+              target="_blank"
+            >
+              Live Demo
+            </a>
+            <video styles="width: 100%" controls style={{ margin: 16 }}>
               <source
                 src="videos/Screen%20Recording%202020-04-01%20at%203.50.39%20AM.mov"
                 type="video/mp4"
@@ -407,7 +415,6 @@ export default function Index() {
             <span className={styles.projectSubtitle}>React, Rails</span>
             <img src="static/images/Intake%20V2.jpg" height="350" />
           </div>
-
           <div className={styles.project}>
             <span className={styles.projectTitle}>
               Interior Management Dashboard
@@ -428,37 +435,26 @@ export default function Index() {
             />
           </div>
         </div>
-      </div>
-
-      <div
-        className={`${styles.sectionContainer} ${css`
-          height: unset;
-        `}`}
-        id="skills"
-      >
+      </SectionContainer>
+      <SectionContainer id="skills" variableHeight>
         <div className={styles.sectionTitle}>Technical Skills</div>
         <hr className={styles.sectionHeaderDark} />
         <div className={styles.skillContainer}>
-          {skills.map((skill) => (
-            <div class={styles.skillGroup}>
-              <div class={styles.skillGroupTitle}>{skill.title}</div>
-              {skill.items.map((item) => (
-                <div class={styles.skill}>
-                  <div class={styles.skillDetails}>
-                    <div class={styles.skillTitle}>{item.title}</div>
+          {skills.map((skill, idx) => (
+            <div className={styles.skillGroup} key={`${skill.title}-${idx}`}>
+              <div className={styles.skillGroupTitle}>{skill.title}</div>
+              {skill.items.map((item, idx) => (
+                <div className={styles.skill} key={`${item.title}-${idx}`}>
+                  <div className={styles.skillDetails}>
+                    <div className={styles.skillTitle}>{item.title}</div>
                   </div>
                 </div>
               ))}
             </div>
           ))}
         </div>
-      </div>
-
-      <div
-        className={`${styles.sectionContainer} ${css`
-          height: unset;
-        `}`}
-      >
+      </SectionContainer>
+      <SectionContainer id="volunteer" variableHeight>
         <div className={styles.sectionTitle}>Volunteer Work</div>
         <hr className={styles.sectionHeaderDark} />
         <div
@@ -496,10 +492,7 @@ export default function Index() {
           <br />
           <a
             href="https://www.firstinspires.org/"
-            className={css`
-              font-weight: 500;
-              color: #eb9a3f;
-            `}
+            className={styles.colorLink}
             target="_blank"
           >
             https://firstinspires.org
@@ -525,22 +518,14 @@ export default function Index() {
           <br />
           <a
             href="https://csfirst.withgoogle.com/s/en/home"
-            className={css`
-              font-weight: 500;
-              color: #eb9a3f;
-            `}
+            className={styles.colorLink}
             target="_blank"
           >
             https://csfirst.withgoogle.com
           </a>
         </div>
-      </div>
-
-      <div
-        className={`${styles.sectionContainer} ${css`
-          height: unset;
-        `}`}
-      >
+      </SectionContainer>
+      <SectionContainer id="github" variableHeight>
         <div className={styles.sectionTitle}>GitHub</div>
         <hr className={styles.sectionHeaderDark} />
         <span className={styles.segoeLight20}>
@@ -559,13 +544,8 @@ export default function Index() {
         </a>
         <br />
         <br />
-      </div>
-
-      <div
-        className={`${styles.sectionContainer} ${css`
-          height: unset;
-        `}`}
-      >
+      </SectionContainer>
+      <SectionContainer id="dribbble" variableHeight>
         <div className={styles.sectionTitle}>Dribbble</div>
         <hr className={styles.sectionHeaderDark} />
         <span className={styles.segoeLight20}>
@@ -584,15 +564,8 @@ export default function Index() {
         </a>
         <br />
         <br />
-      </div>
-
-      <div
-        className={`${styles.sectionContainer} ${css`
-          height: unset;
-          min-height: 100%;
-          display: inline-block;
-        `}`}
-      >
+      </SectionContainer>
+      <SectionContainer id="instagram" variableHeight>
         <div className={styles.sectionTitle}>Instagram</div>
         <hr className={styles.sectionHeaderDark} />
         <span className={styles.segoeLight20}>A peak into my world</span>
@@ -611,14 +584,8 @@ export default function Index() {
         </a>
         <br />
         <br />
-      </div>
-
-      <div
-        id="contact"
-        className={`${styles.sectionContainer} ${css`
-          height: unset;
-        `}`}
-      >
+      </SectionContainer>
+      <SectionContainer id="contact" variableHeight>
         <div className={styles.sectionTitle}>Contact Me</div>
         <hr className={styles.sectionHeaderDark} />
         <br />
@@ -637,41 +604,28 @@ export default function Index() {
         <br />
         <br />
         <br />
-        <a
-          href="https://manky.me/resume"
-          className={styles.resumeButton}
-          target="_blank"
-        >
+        <a href="/resume" className={styles.resumeButton} target="_blank">
           <i className="fa fa-file-download" /> &nbsp; Download my Resume
         </a>
         <br />
         <br />
 
         <div className={styles.socialContainer}>
-          {socials.map((social) => (
+          {socials.map((social, idx) => (
             <a
               href={social.link}
               className={styles.contactLinks}
               target="_blank"
+              key={`${social.site}-${idx}`}
             >
               <i className={`fab fa-${social.site} ${styles.contactIcons}`} />
               <div className={styles.handleText}>/{social.handle}</div>
             </a>
           ))}
         </div>
-      </div>
-
-      <div
-        className={`${styles.sectionContainer} ${css`
-          height: unset;
-        `}`}
-      >
-        <img
-          src="static/images/Logo.png"
-          className={css`
-            width: 100px;
-          `}
-        />
+      </SectionContainer>
+      <SectionContainer id="footer" variableHeight>
+        <img src={"static/images/Logo.png"} style={{ width: 100 }} />
         <br />
         <br />
         <div className={styles.segoeLight17}>
@@ -693,7 +647,7 @@ export default function Index() {
           <br />
           <b>&copy; 2021 Mayank Bansal. All Rights Reserved.</b>
         </div>
-      </div>
+      </SectionContainer>
     </>
   );
 }

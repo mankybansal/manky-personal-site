@@ -13,9 +13,7 @@ body {
   -ms-user-select: none;
   user-select: none;
 
-  background: url("../public/static/images/IMG_20180521_102454_998.jpg")
-    no-repeat;
-  background-size: 100% auto;
+  font-family: "Montserrat", sans-serif;
 }
 
 a:visited,

@@ -1,6 +1,11 @@
 .landingContainer {
   width: 100%;
   height: calc(100vh - 80px);
+
+  background: url("../public/static/images/IMG_20180521_102454_998.jpg")
+    no-repeat;
+  background-size: 100% auto;
+
   overflow: hidden;
   position: relative;
 }
@@ -19,7 +24,6 @@
 .landingTitle {
   text-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   color: #333;
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 
@@ -29,7 +33,6 @@
 }
 
 .landingName.bold {
-  font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
@@ -40,34 +43,12 @@
   font-size: 35px;
 }
 
-.sectionContainer {
-  width: 100%;
-  padding: 50px;
-  background: white;
-  display: inline-block;
-  border-top: 1px solid #eee;
-}
-
-.variableHeight {
-  height: unset;
-}
-
-.whiteSection {
-  background: white;
-}
-
-.sectionContainer:nth-child(odd) {
-  background: #fafafa;
-}
-
 .segoeLight20 {
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 20px;
 }
 
 .segoeLight17 {
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
@@ -103,7 +84,6 @@ a.resumeButton {
   padding: 8px 25px 10px 25px;
   line-height: normal;
   font-size: 20px;
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: black;
   background: transparent;
@@ -120,14 +100,17 @@ a.resumeButton:hover {
 }
 
 .sectionTitle {
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 35px;
 }
 
+.colorLink {
+  font-weight: 500;
+  color: #eb9a3f !important;
+}
+
 .aboutMeText {
   width: 700px;
-  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 24px;
   color: #555;
@@ -225,21 +208,18 @@ hr.sectionHeaderBlack {
 }
 
 .projectTitle {
-  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   margin-bottom: 8px;
   font-size: 20px;
 }
 
 .projectSubtitle {
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
 }
 
 .skillGroupTitle {
-  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #eb9a3f;
   font-size: 25px;
@@ -265,13 +245,11 @@ hr.sectionHeaderBlack {
   float: top;
   height: 30px;
   padding: 5px 0;
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 17px;
 }
 
 .handleText {
-  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #eb9a3f;
   font-size: 16px;
