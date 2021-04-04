@@ -1,8 +1,8 @@
-import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { css } from "@emotion/css";
 import { useEffect } from "react";
 import Experience from "../components/Experience";
+import styled from "@emotion/styled";
 
 const skills = [
   {
@@ -88,6 +88,11 @@ const socials = [
     handle: "mankybansal",
   },
 ];
+
+const ExperienceContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function Index() {
   const openInNewTab = (url) => {
@@ -325,14 +330,7 @@ export default function Index() {
         </div>
       </div>
 
-      <div
-        className={[
-          styles.sectionContainer,
-          css`
-            height: unset;
-          `,
-        ]}
-      >
+      <div className={styles.sectionContainer}>
         <div className={styles.sectionTitle}>Posts</div>
         <hr className={styles.sectionHeaderDark} />
         <div id="medium-widget" />
@@ -343,126 +341,24 @@ export default function Index() {
       >
         <div className={styles.sectionTitle}>Education</div>
         <hr className={styles.sectionHeaderDark} />
-        <div
-          className={css`
-            display: flex;
-            justify-content: center;
-          `}
-        >
-          <div
-            className={css`
-              display: flex;
-              margin: 50px;
-            `}
-          >
-            <img src="static/images/IIT.png" height="100px" />
-            <div
-              className={css`
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                margin-left: 16px;
-              `}
-            >
-              <span
-                className={css`
-                  font-family: "Montserrat", sans-serif;
-                  font-weight: 400;
-                  font-size: 16px;
-                  margin-bottom: 8px;
-                `}
-              >
-                2017 - 2018, Chicago, Illinois
-              </span>
-              <span
-                // className={styles.segoeLight20}
-                className={css`
-                  font-weight: 500;
-                  margin-bottom: 4px;
-                `}
-              >
-                Illinois Institute of Technology
-              </span>
-              <span
-                // className={styles.segoeLight20}
-                className={css`
-                  font-weight: 600;
-                  font-size: 16px;
-                  color: #eb9a3f;
-                  margin-bottom: 8px;
-                `}
-              >
-                3.65/4.00 GPA, B.S. Computer Science
-              </span>
-              <span
-                // className={styles.segoeLight20}
-                className={css`
-                  font-weight: 500;
-                  font-size: 12px;
-                `}
-              >
-                Cum Laude, Dean's List, Scholarship, Finished Early
-              </span>
-            </div>
-          </div>
-
-          <div
-            className={css`
-              display: flex;
-              margin: 50px;
-            `}
-          >
-            <img src="static/images/manipal.png" height="100px" />
-            <div
-              className={css`
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                margin-left: 16px;
-              `}
-            >
-              <span
-                className={css`
-                  font-family: "Montserrat", sans-serif;
-                  font-weight: 400;
-                  font-size: 16px;
-                  margin-bottom: 8px;
-                `}
-              >
-                2014 - 2016, Manipal, Karnataka
-              </span>
-              <span
-                // className={styles.segoeLight20}
-                className={css`
-                  font-weight: 500;
-                  margin-bottom: 4px;
-                `}
-              >
-                Manipal University
-              </span>
-              <span
-                // className={styles.segoeLight20}
-                className={css`
-                  font-weight: 600;
-                  font-size: 16px;
-                  color: #eb9a3f;
-                  margin-bottom: 8px;
-                `}
-              >
-                B.S. Computer Science
-              </span>
-              <span
-                // className={styles.segoeLight20}
-                className={css`
-                  font-weight: 500;
-                  font-size: 12px;
-                `}
-              >
-                Two Year Transfer
-              </span>
-            </div>
-          </div>
-        </div>
+        <ExperienceContainer>
+          <Experience
+            image={"static/images/IIT.png"}
+            name={"Illinois Institute of Technology"}
+            imageHeight={"100px"}
+            year={"2017 - 2018, Chicago, Illinois"}
+            city={"Cum Laude, Dean's List, Scholarship, Finished Early"}
+            details={"3.65/4.00 GPA, B.S. Computer Science"}
+          />
+          <Experience
+            image={"static/images/manipal.png"}
+            name={"Manipal University"}
+            imageHeight={"100px"}
+            year={"2014 - 2016, Manipal, Karnataka"}
+            city={" Two Year Transfer"}
+            details={"B.S. Computer Science"}
+          />
+        </ExperienceContainer>
       </div>
 
       <div
@@ -477,12 +373,7 @@ export default function Index() {
       >
         <div className={styles.sectionTitle}>Experience</div>
         <hr className={styles.sectionHeaderDark} />
-        <div
-          className={css`
-            display: flex;
-            justify-content: center;
-          `}
-        >
+        <ExperienceContainer>
           <Experience
             image={"static/images/C-Block.svg"}
             name={"Convoy, Inc."}
@@ -499,7 +390,7 @@ export default function Index() {
             city={"Seattle, Washington"}
             details={"Software Engineer + Designer"}
           />
-        </div>
+        </ExperienceContainer>
       </div>
 
       <div
