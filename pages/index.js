@@ -422,7 +422,7 @@ export default function Index() {
           </div>
           <div className={styles.project}>
             <span className={styles.projectTitle}>Freight Offers - Svelte</span>
-            <span className={styles.projectSubtitle}>Svelte</span>
+            <span className={styles.projectSubtitle}>Svelte + Typescript</span>
             <a
               href="https://convoy-offers-svelte.manky.me"
               className={styles.colorLink}
