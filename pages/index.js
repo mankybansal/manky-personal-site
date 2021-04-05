@@ -5,91 +5,11 @@ import Experience from "../components/Experience";
 import styled from "@emotion/styled";
 import Header from "../components/Header";
 import Image from "next/image";
+import Project from "../components/Project";
 
-const skills = [
-  {
-    title: "Frontend",
-    items: [
-      { title: "React, Svelte, Angular", level: 4 },
-      { title: "Apollo + GraphQL", level: 3 },
-      { title: "Framer Motion", level: 4 },
-      { title: "JavaScript", level: 5 },
-      { title: "Emotion, SASS/CSS", level: 5 },
-      { title: "Next.js, Rails", level: 3 },
-      { title: "Mocha / Jest, Cypress", level: 3 },
-    ],
-  },
-  {
-    title: "Backend",
-    items: [
-      { title: "Node.js + Express", level: 4 },
-      { title: "GraphQL, REST", level: 5 },
-      { title: "Postgres, MySQL/SQL", level: 5 },
-      { title: "MongoDb, Firebase", level: 3 },
-    ],
-  },
-  {
-    title: "Programming",
-    items: [
-      { title: "TypeScript", level: 4 },
-      { title: "Python, C/C++, Java", level: 4 },
-      { title: "C#, RobotC, Ruby", level: 2.5 },
-    ],
-  },
-  {
-    title: "Mobile",
-    items: [
-      { title: "Android", level: 4 },
-      { title: "React Native", level: 4 },
-    ],
-  },
-  {
-    title: "Prototyping",
-    items: [
-      { title: "Adobe Illustrator, Photoshop", level: 5 },
-      { title: "Sketch + Principle + Origami", level: 4 },
-      { title: "Figma", level: 3.5 },
-    ],
-  },
-];
-
-const socials = [
-  {
-    link: "https://www.facebook.com/MankyBansal",
-    site: "facebook",
-    handle: "mankybansal",
-  },
-  {
-    link: "https://www.instagram.com/MankyBansal",
-    site: "instagram",
-    handle: "mankybansal",
-  },
-  {
-    link: "https://www.twitter.com/MankyBansal",
-    site: "twitter",
-    handle: "mankybansal",
-  },
-  {
-    link: "https://www.dribbble.com/MankyBansal",
-    site: "dribbble",
-    handle: "mankybansal",
-  },
-  {
-    link: "https://www.linkedin.com/in/MankyBansal",
-    site: "linkedin",
-    handle: "mankybansal",
-  },
-  {
-    link: "https://www.github.com/MankyBansal",
-    site: "github",
-    handle: "mankybansal",
-  },
-  {
-    link: "https://www.medium.com/@MankyBansal",
-    site: "medium",
-    handle: "mankybansal",
-  },
-];
+import { skills } from "../data/skills";
+import { socials } from "../data/socials";
+import { projects } from "../data/projects";
 
 const ExperienceContainer = styled.div`
   display: flex;
@@ -145,7 +65,7 @@ export default function Index() {
     <>
       <div className={styles.landingContainer}>
         <div className={styles.landingContainerInner}>
-          <Image src="/static/images/Layer%201.png" width={270} height={200} />
+          <Image src="/images/Layer%201.png" width={270} height={200} />
           <div
             className={css`
               display: flex;
@@ -202,7 +122,7 @@ export default function Index() {
         <hr className={styles.sectionHeaderDark} />
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div style={{ margin: "50px 150px 0 150px" }}>
-            <Image src="/static/images/Logo.png" width={200} height={315} />
+            <Image src="/images/Logo.png" width={200} height={315} />
           </div>
           <div className={styles.aboutMeText}>
             👋🏼 I'm <span style={{ fontWeight: 700 }}>Mayank Bansal</span>
@@ -280,7 +200,7 @@ export default function Index() {
         <hr className={styles.sectionHeaderDark} />
         <ExperienceContainer>
           <Experience
-            image={"/static/images/IIT.png"}
+            image={"/images/IIT.png"}
             name={"Illinois Institute of Technology"}
             imageHeight={"100px"}
             year={"2017 - 2018, Chicago, Illinois"}
@@ -288,7 +208,7 @@ export default function Index() {
             details={"3.65/4.00 GPA, B.S. Computer Science"}
           />
           <Experience
-            image={"/static/images/manipal.png"}
+            image={"/images/manipal.png"}
             name={"Manipal University"}
             imageHeight={"100px"}
             year={"2014 - 2016, Manipal, Karnataka"}
@@ -302,7 +222,7 @@ export default function Index() {
         <hr className={styles.sectionHeaderDark} />
         <ExperienceContainer>
           <Experience
-            image={"/static/images/C-Block.svg"}
+            image={"/images/C-Block.svg"}
             name={"Convoy, Inc."}
             imageHeight={"50px"}
             year={"2019 - Present"}
@@ -310,7 +230,7 @@ export default function Index() {
             details={"Software Engineer II"}
           />
           <Experience
-            image={"/static/images/legalpad.png"}
+            image={"/images/legalpad.png"}
             name={"Legalpad, Inc."}
             imageHeight={"70px"}
             year={"2018 - 2019"}
@@ -323,161 +243,24 @@ export default function Index() {
         <div className={styles.sectionTitle}>Projects</div>
         <hr className={styles.sectionHeaderDark} />
         <div
-          className={css`
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: center;
-          `}
+          style={{
+            display: "flex",
+            flexFlow: "row wrap",
+            justifyContent: "center",
+          }}
         >
-          <div className={styles.project}>
-            <span className={styles.projectTitle}>
-              Not Netflix Inc - Checkout
-            </span>
-            <span className={styles.projectSubtitle}>
-              React + Typescript + Framer Motion
-            </span>
-            <a
-              href="https://not-netflix-inc.manky.me"
-              className={styles.colorLink}
-              target="_blank"
-              style={{ marginBottom: 16 }}
-            >
-              Live Demo
-            </a>
-            <Image
-              src="/static/images/Screen%20Shot%202021-03-14%20at%2010.39.41%20PM.png"
-              height={350}
-              width={"auto"}
+          {projects.map((project, idx) => (
+            <Project
+              key={`${project.title}-${idx}`}
+              title={project.title}
+              subtitle={project.subtitle}
+              demoLink={project.demoLink}
+              imageUrl={project.imageUrl}
+              videoUrl={project.videoUrl}
+              height={project.height}
+              width={project.width}
             />
-          </div>
-          <div className={styles.project}>
-            <span className={styles.projectTitle}>Luna's Ice Cream Shoppe</span>
-            <span className={styles.projectSubtitle}>React</span>
-            <a
-              href="https://lunas-ice-cream-shoppe.manky.me"
-              className={styles.colorLink}
-              target="_blank"
-              style={{ marginBottom: 16 }}
-            >
-              Live Demo
-            </a>
-            <video controls style={{ width: "100%" }}>
-              <source
-                src="videos/Screen%20Recording%202020-04-01%20at%203.44.06%20AM.mov"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div className={styles.project}>
-            <span className={styles.projectTitle}>Material Modeling IDE</span>
-            <span className={styles.projectSubtitle}>
-              React, Three.js, Meteor
-            </span>
-            <a
-              href="https://material-modeling-ide.manky.me"
-              className={styles.colorLink}
-              target="_blank"
-              style={{ marginBottom: 16 }}
-            >
-              Live Demo
-            </a>
-            <video width={"100%"} controls>
-              <source
-                src="videos/Screen%20Recording%202020-04-01%20at%203.49.07%20AM.mov"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div className={styles.project}>
-            <span className={styles.projectTitle}>
-              Tesla Model 3 UI Simulator
-            </span>
-            <span className={styles.projectSubtitle}>React</span>
-            <a
-              href="https://tesla-model-3-dashboard.manky.me"
-              className={styles.colorLink}
-              target="_blank"
-              style={{ marginBottom: 16 }}
-            >
-              Live Demo
-            </a>
-            <Image
-              src="/static/images/Tesla%20Sim.jpeg"
-              height={350}
-              width={"auto"}
-            />
-          </div>
-          <div className={styles.project}>
-            <span className={styles.projectTitle}>Freight Offers - React</span>
-            <span className={styles.projectSubtitle}>React</span>
-            <a
-              href="https://convoy-offers-client.manky.me"
-              className={styles.colorLink}
-              target="_blank"
-              style={{ marginBottom: 16 }}
-            >
-              Live Demo
-            </a>
-            <video width={"100%"} controls>
-              <source
-                src="videos/Screen%20Recording%202020-04-01%20at%203.50.39%20AM.mov"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div className={styles.project}>
-            <span className={styles.projectTitle}>Freight Offers - Svelte</span>
-            <span className={styles.projectSubtitle}>Svelte + Typescript</span>
-            <a
-              href="https://convoy-offers-svelte.manky.me"
-              className={styles.colorLink}
-              target="_blank"
-              style={{ marginBottom: 16 }}
-            >
-              Live Demo
-            </a>
-            <Image
-              src="/static/images/Screen%20Shot%202021-04-04%20at%203.13.26%20PM.png"
-              height={350}
-              width={"auto"}
-            />
-          </div>
-          <div className={styles.project}>
-            <span className={styles.projectTitle}>Immigration Wizard</span>
-            <span className={styles.projectSubtitle}>React, Rails</span>
-            <Image
-              src="/static/images/Intake%20V2.jpg"
-              height={350}
-              width={"auto"}
-            />
-          </div>
-          <div className={styles.project}>
-            <span className={styles.projectTitle}>
-              Interior Management Dashboard
-            </span>
-            <span className={styles.projectSubtitle}>
-              Angular + Node.js + Neo4j
-            </span>
-            <Image
-              src="/static/images/Interface16.png"
-              height={350}
-              width={"auto"}
-            />
-          </div>
-          <div className={styles.project}>
-            <span className={styles.projectTitle}>Micro-savings Platform</span>
-            <span className={styles.projectSubtitle}>
-              Angular + JQuery + Flask
-            </span>
-            <Image
-              src="/static/images/Screen%20Shot%202017-06-05%20at%205.29.05%20PM.png"
-              height={350}
-              width={"auto"}
-            />
-          </div>
+          ))}
         </div>
       </SectionContainer>
       <SectionContainer id="skills" variableHeight>
@@ -669,7 +452,7 @@ export default function Index() {
         </div>
       </SectionContainer>
       <SectionContainer id="footer" variableHeight>
-        <Image src={"/static/images/Logo.png"} width={100} height={157} />
+        <Image src={"/images/Logo.png"} width={100} height={157} />
         <br />
         <br />
         <div className={styles.segoeLight17}>

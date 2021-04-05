@@ -2,7 +2,7 @@
   width: 100%;
   height: calc(100vh - 80px);
 
-  background: url("../public/static/images/IMG_20180521_102454_998.jpg")
+  background: url("../public/images/IMG_20180521_102454_998.jpg")
     no-repeat;
   background-size: 100% auto;
 
@@ -194,25 +194,6 @@ hr.sectionHeaderBlack {
   padding: 30px;
   vertical-align: top;
   text-align: left;
-}
-
-.project {
-  display: flex;
-  flex-direction: column;
-  margin: 16px;
-  width: 600px;
-}
-
-.projectTitle {
-  font-weight: 600;
-  margin-bottom: 8px;
-  font-size: 20px;
-}
-
-.projectSubtitle {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
 }
 
 .skillGroupTitle {
