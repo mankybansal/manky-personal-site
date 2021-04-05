@@ -43,6 +43,10 @@ const HeaderLink1 = styled(BaseHeaderLink)`
     height: 48px;
     border-bottom: 2px solid #eb9a3f;
   }
+
+  @media (max-width: 576px) {
+    display: none;
+  }
 `;
 
 const HeaderLink2 = styled(BaseHeaderLink)`

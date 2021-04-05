@@ -1,16 +1,30 @@
 import { css } from "@emotion/css";
 import styles from "../styles/Home.module.css";
 import { memo } from "react";
+import styled from "@emotion/styled";
+
+const RootContainer = styled.div`
+  display: flex;
+  margin: 50px;
+
+  @media (max-width: 576px) {
+    margin: 20px 0;
+    width: 100%;
+    text-align: left;
+    flex-direction: column;
+  }
+`;
+
+const StyledImage = styled.img`
+  @media (max-width: 576px) {
+    display: none;
+  }
+`;
 
 const Experience = ({ year, image, imageHeight, name, city, details }) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        margin: "50px",
-      }}
-    >
-      <img src={image} height={imageHeight} />
+    <RootContainer>
+      <StyledImage src={image} height={imageHeight} />
       <div
         className={css`
           display: flex;
@@ -19,7 +33,7 @@ const Experience = ({ year, image, imageHeight, name, city, details }) => {
           margin-left: 32px;
         `}
       >
-        <span
+        <div
           className={css`
             font-family: "Montserrat", sans-serif;
             font-weight: 400;
@@ -28,8 +42,8 @@ const Experience = ({ year, image, imageHeight, name, city, details }) => {
           `}
         >
           {year}
-        </span>
-        <span
+        </div>
+        <div
           className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 500;
@@ -37,8 +51,8 @@ const Experience = ({ year, image, imageHeight, name, city, details }) => {
                   `}`}
         >
           {name}
-        </span>
-        <span
+        </div>
+        <div
           className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 600;
@@ -48,8 +62,8 @@ const Experience = ({ year, image, imageHeight, name, city, details }) => {
                   `}`}
         >
           {details}
-        </span>
-        <span
+        </div>
+        <div
           className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 500;
@@ -57,9 +71,9 @@ const Experience = ({ year, image, imageHeight, name, city, details }) => {
                   `}`}
         >
           {city}
-        </span>
+        </div>
       </div>
-    </div>
+    </RootContainer>
   );
 };
 
