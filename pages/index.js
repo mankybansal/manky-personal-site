@@ -248,7 +248,7 @@ export default function Index() {
               <a href="https://www.medium.com/@MankyBansal" target="_blank">
                 <i className={`fab fa-medium ${styles.socialIcons}`} />
               </a>
-              <a href="mailto:manky.bansal@gmail.com" target="_blank">
+              <a href="mailto:hi@manky.me" target="_blank">
                 <i className={`fas fa-envelope ${styles.socialIcons}`} />
               </a>
             </div>
@@ -558,7 +558,7 @@ export default function Index() {
         <br />
         <span className={styles.segoeLight20}>
           <i className="fa fa-envelope" />
-          &nbsp; manky.bansal[at]gmail[dot]com
+          &nbsp; hi@manky.me
         </span>
 
         <br />
