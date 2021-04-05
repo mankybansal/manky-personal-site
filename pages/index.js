@@ -374,7 +374,15 @@ export default function Index() {
             <span className={styles.projectSubtitle}>
               React, Three.js, Meteor
             </span>
-            <video width={"100%"} controls style={{ margin: 16 }}>
+            <a
+              href="https://material-modeling-ide.manky.me"
+              className={styles.colorLink}
+              target="_blank"
+              style={{ marginBottom: 16 }}
+            >
+              Live Demo
+            </a>
+            <video width={"100%"} controls>
               <source
                 src="videos/Screen%20Recording%202020-04-01%20at%203.49.07%20AM.mov"
                 type="video/mp4"
