@@ -286,7 +286,7 @@ export default function Index() {
             <br />
             <br />
             Currently an engineer at{" "}
-            <UnderlinedLink href={"www.convoy.com"} target={"_blank"}>
+            <UnderlinedLink href={"https://www.convoy.com"} target={"_blank"}>
               Convoy
             </UnderlinedLink>
             , a freight and logistics company that wants to transport the world
