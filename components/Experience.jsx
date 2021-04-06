@@ -21,60 +21,60 @@ const StyledImage = styled.img`
   }
 `;
 
-const Experience = ({ year, image, imageHeight, name, city, details }) => {
-  return (
-    <RootContainer>
-      <StyledImage src={image} height={imageHeight} />
+const Experience = ({
+  experience: { year, image, imageHeight, name, city, details },
+}) => (
+  <RootContainer>
+    <StyledImage src={image} height={imageHeight} />
+    <div
+      className={css`
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 32px;
+      `}
+    >
       <div
         className={css`
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          margin-left: 32px;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          margin-bottom: 8px;
         `}
       >
-        <div
-          className={css`
-            font-family: "Montserrat", sans-serif;
-            font-weight: 400;
-            font-size: 16px;
-            margin-bottom: 8px;
-          `}
-        >
-          {year}
-        </div>
-        <div
-          className={`${styles.segoeLight20}
+        {year}
+      </div>
+      <div
+        className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 500;
                     margin-bottom: 4px;
                   `}`}
-        >
-          {name}
-        </div>
-        <div
-          className={`${styles.segoeLight20}
+      >
+        {name}
+      </div>
+      <div
+        className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 600;
                     font-size: 16px;
                     color: #eb9a3f;
                     margin-bottom: 8px;
                   `}`}
-        >
-          {details}
-        </div>
-        <div
-          className={`${styles.segoeLight20}
+      >
+        {details}
+      </div>
+      <div
+        className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 500;
                     font-size: 12px;
                   `}`}
-        >
-          {city}
-        </div>
+      >
+        {city}
       </div>
-    </RootContainer>
-  );
-};
+    </div>
+  </RootContainer>
+);
 
 export default memo(Experience);

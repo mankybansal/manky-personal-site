@@ -10,6 +10,8 @@ import Project from "../components/Project";
 import { skills } from "../data/skills";
 import { socials } from "../data/socials";
 import { projects } from "../data/projects";
+import { experiences } from "../data/experiences";
+import { education } from "../data/education";
 
 const LandingContainer = styled.div`
   width: 100%;
@@ -342,50 +344,34 @@ export default function Index() {
       <SectionContainer id="medium">
         <div className={styles.sectionTitle}>Posts</div>
         <hr className={styles.sectionHeaderDark} />
+        <TextContainer>
+          Sometimes, I write about social issues, personal life stories,
+          technology and projects I've worked on.
+        </TextContainer>
         <div id="medium-widget" />
       </SectionContainer>
       <SectionContainer id="education" variableHeight>
         <div className={styles.sectionTitle}>Education</div>
         <hr className={styles.sectionHeaderDark} />
         <ExperienceContainer>
-          <Experience
-            image={"/images/IIT.png"}
-            name={"Illinois Institute of Technology"}
-            imageHeight={"100px"}
-            year={"2017 - 2018, Chicago, Illinois"}
-            city={"Cum Laude, Dean's List, Scholarship, Finished Early"}
-            details={"3.65/4.00 GPA, B.S. Computer Science"}
-          />
-          <Experience
-            image={"/images/manipal.png"}
-            name={"Manipal University"}
-            imageHeight={"100px"}
-            year={"2014 - 2016, Manipal, Karnataka"}
-            city={" Two Year Transfer"}
-            details={"B.S. Computer Science"}
-          />
+          {education.map((experience, idx) => (
+            <Experience
+              key={`${experience.name}-${idx}`}
+              experience={experience}
+            />
+          ))}
         </ExperienceContainer>
       </SectionContainer>
       <SectionContainer id="experience" variableHeight whiteOverride>
         <div className={styles.sectionTitle}>Experience</div>
         <hr className={styles.sectionHeaderDark} />
         <ExperienceContainer>
-          <Experience
-            image={"/images/C-Block.svg"}
-            name={"Convoy, Inc."}
-            imageHeight={"50px"}
-            year={"2019 - Present"}
-            city={"Seattle, Washington"}
-            details={"Software Engineer II"}
-          />
-          <Experience
-            image={"/images/legalpad.png"}
-            name={"Legalpad, Inc."}
-            imageHeight={"70px"}
-            year={"2018 - 2019"}
-            city={"Seattle, Washington"}
-            details={"Software Engineer + Designer"}
-          />
+          {experiences.map((experience, idx) => (
+            <Experience
+              key={`${experience.name}-${idx}`}
+              experience={experience}
+            />
+          ))}
         </ExperienceContainer>
       </SectionContainer>
       <SectionContainer id="projects" variableHeight>
@@ -508,12 +494,10 @@ export default function Index() {
         <div className={styles.sectionTitle}>Instagram</div>
         <hr className={styles.sectionHeaderDark} />
         <span className={styles.segoeLight20}>A peak into my world</span>
-        <br />
-        <br />
-        <div id="instafeed" />
-        <br />
-        <br />
-        <br />
+        <TextContainer>
+          There used to be an embedded Insta feed here. I need to update it to
+          use Facebook's GraphQL API at some point.
+        </TextContainer>
         <a
           href="https://instagram.com/mankybansal"
           className={styles.resumeButton}
