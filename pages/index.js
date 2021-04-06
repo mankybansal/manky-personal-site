@@ -106,6 +106,15 @@ const UnderlinedLink = styled.a`
   text-decoration: underline !important;
 `;
 
+const TextContainer = styled.div`
+  font-size: 20px;
+  margin: 50px auto;
+  max-width: 600px;
+  line-height: 28px;
+  font-weight: 300;
+  text-align: left;
+`;
+
 const SectionContainer = styled.div`
   width: 100%;
   padding: 50px;
@@ -382,18 +391,14 @@ export default function Index() {
       <SectionContainer id="projects" variableHeight>
         <div className={styles.sectionTitle}>Projects</div>
         <hr className={styles.sectionHeaderDark} />
+        <TextContainer>
+          Here are some side projects / code samples I've worked on. Some of
+          these projects may not have aged well, but hey... engineering involves
+          an incremental learning process.
+        </TextContainer>
         <ProjectsContainer>
           {projects.map((project, idx) => (
-            <Project
-              key={`${project.title}-${idx}`}
-              title={project.title}
-              subtitle={project.subtitle}
-              demoLink={project.demoLink}
-              imageUrl={project.imageUrl}
-              videoUrl={project.videoUrl}
-              height={project.height}
-              width={project.width}
-            />
+            <Project key={`${project.title}-${idx}`} project={project} />
           ))}
         </ProjectsContainer>
       </SectionContainer>
@@ -418,30 +423,12 @@ export default function Index() {
       <SectionContainer id="volunteer" variableHeight>
         <div className={styles.sectionTitle}>Volunteer Work</div>
         <hr className={styles.sectionHeaderDark} />
-        <div
-          className={`
-            ${styles.segoeLight20} ${css`
-            margin: 50px auto;
-            max-width: 600px;
-            line-height: 28px;
-            font-weight: 300;
-            text-align: left;
-          `}`}
-        >
+        <TextContainer>
           I spend about 10-12 weekends a year volunteering for STEM programs.
           It's a great way to inspire kids to become engineers and work on the
           worlds toughest problems.
-        </div>
-        <div
-          className={`
-            ${styles.segoeLight20} ${css`
-            margin: 50px auto;
-            max-width: 600px;
-            line-height: 28px;
-            font-weight: 300;
-            text-align: left;
-          `}`}
-        >
+        </TextContainer>
+        <TextContainer>
           <b>FIRST Robotics</b>
           <br />
           Over 500+ hours of event volunteering at FTC, FRC & FLL as Lead
@@ -458,17 +445,8 @@ export default function Index() {
           >
             https://firstinspires.org
           </a>
-        </div>
-        <div
-          className={`
-            ${styles.segoeLight20} ${css`
-            margin: 50px auto;
-            max-width: 600px;
-            line-height: 28px;
-            font-weight: 300;
-            text-align: left;
-          `}`}
-        >
+        </TextContainer>
+        <TextContainer>
           <b>Google CS First</b>
           <br />
           Google CS First is an 8-week after-school computer science program for
@@ -484,7 +462,7 @@ export default function Index() {
           >
             https://csfirst.withgoogle.com
           </a>
-        </div>
+        </TextContainer>
       </SectionContainer>
       <SectionContainer id="github" variableHeight>
         <div className={styles.sectionTitle}>GitHub</div>

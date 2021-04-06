@@ -19,6 +19,22 @@ const ProjectSubTitle = styled.div`
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ProjectType = styled.div`
+  margin-left: 8px;
+  font-weight: 600;
+  font-size: 12px;
+`;
+
+const TimingIcon = styled.span`
+  i {
+    margin: 0 4px;
+  }
 `;
 
 const Link = styled.a`
@@ -28,18 +44,36 @@ const Link = styled.a`
 `;
 
 const Project = ({
-  demoLink,
-  subtitle,
-  title,
-  height = "auto",
-  width = "100%",
-  imageUrl,
-  videoUrl,
+  project: {
+    demoLink,
+    subtitle,
+    title,
+    timing,
+    year,
+    height = "auto",
+    width = "100%",
+    imageUrl,
+    videoUrl,
+    projectType,
+  },
 }) => {
   return (
     <RootContainer>
       <ProjectTitle>{title}</ProjectTitle>
-      <ProjectSubTitle>{subtitle}</ProjectSubTitle>
+      <ProjectSubTitle>
+        {subtitle}
+        {projectType && (
+          <ProjectType>
+            ({projectType}){" "}
+            {timing && (
+              <TimingIcon>
+                <i className="fas fa-hourglass-half" />
+                {timing}
+              </TimingIcon>
+            )}
+          </ProjectType>
+        )}
+      </ProjectSubTitle>
       {demoLink && (
         <Link href={demoLink} target="_blank">
           Live Demo
