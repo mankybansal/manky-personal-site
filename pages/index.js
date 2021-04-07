@@ -108,6 +108,40 @@ const UnderlinedLink = styled.a`
   text-decoration: underline !important;
 `;
 
+const ImagesContainer = styled.div`
+  width: 100%;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  img {
+    :not(:first-of-type) {
+      margin-left: 16px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    max-height: unset;
+
+    img {
+      :not(:first-of-type) {
+        margin-left: 0;
+        margin-top: 16px;
+      }
+    }
+  }
+`;
+
+const ImageContainer = styled.img`
+  max-height: 400px;
+  height: 100%;
+
+  @media (max-width: 576px) {
+    height: auto;
+    width: 100%;
+  }
+`;
+
 const TextContainer = styled.div`
   font-size: 20px;
   margin: 50px auto;
@@ -421,7 +455,8 @@ export default function Index() {
           Scorekeeper, Field Management and Judge at the city, state, and world
           championship level. Former technical mentor for Illinois Tech
           Perspectives Math & Science Academy FRC Team 2709 - Iron Wolves (focus
-          on robot programming, automation and game strategy).
+          on robot programming, automation and game strategy) & multiple FLL
+          teams.
           <br />
           <br />
           <a
@@ -432,6 +467,20 @@ export default function Index() {
             https://firstinspires.org
           </a>
         </TextContainer>
+        <ImagesContainer>
+          <ImageContainer
+            src={"/images/first-robotics.jpg"}
+            alt="FIRST ROBOTICS"
+            width={"auto"}
+            height={"100%"}
+          />
+          <ImageContainer
+            src={"/images/first-robotics-2.jpg"}
+            alt="FIRST ROBOTICS 2"
+            width={"auto"}
+            height={"100%"}
+          />
+        </ImagesContainer>
         <TextContainer>
           <b>Google CS First</b>
           <br />
