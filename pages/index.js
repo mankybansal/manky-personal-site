@@ -239,8 +239,8 @@ export default function Index() {
       renderTo: "#medium-widget",
       params: {
         resource: "https://medium.com/@mankybansal",
-        postsPerLine: 2,
-        limit: 4,
+        postsPerLine: 3,
+        limit: 5,
         picture: "big",
         fields: ["description", "author", "claps", "publishAt"],
         ratio: "landscape",
