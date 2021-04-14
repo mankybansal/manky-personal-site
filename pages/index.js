@@ -380,9 +380,22 @@ export default function Index() {
         <hr className={styles.sectionHeaderDark} />
         <TextContainer>
           Sometimes, I write about social issues, personal life stories,
-          technology and projects I've worked on.
+          technology and projects I've worked on. Here are a few highlights:
         </TextContainer>
         <div id="medium-widget" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <a
+            href="https://medium.com/mankybansal"
+            className={styles.resumeButton}
+            target="_blank"
+        >
+          <i className="fab fa-medium" /> &nbsp; Visit my Blog
+        </a>
+        <br />
+        <br />
       </SectionContainer>
       <SectionContainer id="education" variableHeight>
         <div className={styles.sectionTitle}>Education</div>
