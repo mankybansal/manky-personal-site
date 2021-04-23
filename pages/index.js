@@ -388,9 +388,9 @@ export default function Index() {
         <br />
         <br />
         <a
-            href="https://medium.com/mankybansal"
-            className={styles.resumeButton}
-            target="_blank"
+          href="https://medium.com/mankybansal"
+          className={styles.resumeButton}
+          target="_blank"
         >
           <i className="fab fa-medium" /> &nbsp; Visit my Blog
         </a>
@@ -438,6 +438,12 @@ export default function Index() {
       <SectionContainer id="skills" variableHeight>
         <div className={styles.sectionTitle}>Technical Skills</div>
         <hr className={styles.sectionHeaderDark} />
+        <TextContainer>
+          Though I am a Full Stack Engineer, in reality I spend 60% of my time
+          on the frontend, 30% on the backend and about 10% designing things. I
+          like to work on robust production-grade end-to-end experiences
+          starting from user research all the way up to launch.
+        </TextContainer>
         <div className={styles.skillContainer}>
           {skills.map((skill, idx) => (
             <SkillGroup key={`${skill.title}-${idx}`}>
