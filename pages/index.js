@@ -439,10 +439,9 @@ export default function Index() {
         <div className={styles.sectionTitle}>Technical Skills</div>
         <hr className={styles.sectionHeaderDark} />
         <TextContainer>
-          Though I am a Full Stack Engineer, in reality I spend 60% of my time
-          on the frontend, 30% on the backend and about 10% designing things. I
-          like to work on robust production-grade end-to-end experiences
-          starting from user research all the way up to launch.
+          Though I am a Full Stack Engineer, in reality my time is split
+          60/30/10 Frontend/Backend/Design. I like to work on robust
+          production-grade end-to-end experiences from user research to launch.
         </TextContainer>
         <div className={styles.skillContainer}>
           {skills.map((skill, idx) => (
