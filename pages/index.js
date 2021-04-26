@@ -151,6 +151,12 @@ const TextContainer = styled.div`
   text-align: left;
 `;
 
+const OrangeBox = styled.div`
+  height: 100px;
+  width: 100px;
+  background: darkorange;
+`
+
 const SectionContainer = styled.div`
   width: 100%;
   padding: 50px;
@@ -574,6 +580,16 @@ export default function Index() {
         </a>
         <br />
         <br />
+      </SectionContainer>
+      <SectionContainer id="likings" variableHeight>
+        <div className={styles.sectionTitle}>Things I Like</div>
+        <hr className={styles.sectionHeaderDark} />
+        <span className={styles.segoeLight20}>In-case you're interested</span>
+        <TextContainer>
+          Colors: <OrangeBox/>
+          Fonts: <div><b>Montserrat</b></div>
+          Beautiful Products: <b>Vercel, Medium, Miro, Figma, Apple TV, Netflix</b>
+        </TextContainer>
       </SectionContainer>
       <SectionContainer id="contact" variableHeight>
         <div className={styles.sectionTitle}>Contact Me</div>
