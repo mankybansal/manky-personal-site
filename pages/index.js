@@ -578,6 +578,10 @@ export default function Index() {
       <SectionContainer id="contact" variableHeight>
         <div className={styles.sectionTitle}>Contact Me</div>
         <hr className={styles.sectionHeaderDark} />
+        <TextContainer>
+          Whether you want to hire me, collaborate, get some advice or just chat
+          about mutual interests, please reach out!
+        </TextContainer>
         <br />
         <span className={styles.segoeLight20}>
           <i className="fa fa-mobile-alt" />
