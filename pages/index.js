@@ -583,17 +583,25 @@ export default function Index() {
           about mutual interests, please reach out!
         </TextContainer>
         <br />
+        <a
+          href="https://calendly.com/mankybansal"
+          className={styles.resumeButton}
+          target="_blank"
+        >
+          <i className="fa fa-calendar-check" /> &nbsp; Schedule a Meeting
+        </a>
+        <br />
         <span className={styles.segoeLight20}>
           <i className="fa fa-mobile-alt" />
           &nbsp; +1 (312) 593 - two four six five
         </span>
         <br />
+        https://calendly.com/mankybansal
         <br />
         <span className={styles.segoeLight20}>
           <i className="fa fa-envelope" />
           &nbsp; hi@manky.me
         </span>
-
         <br />
         <br />
         <br />
@@ -603,7 +611,6 @@ export default function Index() {
         </a>
         <br />
         <br />
-
         <div className={styles.socialContainer}>
           {socials.map((social, idx) => (
             <a
