@@ -583,6 +583,7 @@ export default function Index() {
           about mutual interests, please reach out!
         </TextContainer>
         <br />
+        <br />
         <a
           href="https://calendly.com/mankybansal"
           className={styles.resumeButton}
@@ -591,12 +592,12 @@ export default function Index() {
           <i className="fa fa-calendar-check" /> &nbsp; Schedule a Meeting
         </a>
         <br />
+        <br />
         <span className={styles.segoeLight20}>
           <i className="fa fa-mobile-alt" />
           &nbsp; +1 (312) 593 - two four six five
         </span>
         <br />
-        https://calendly.com/mankybansal
         <br />
         <span className={styles.segoeLight20}>
           <i className="fa fa-envelope" />
