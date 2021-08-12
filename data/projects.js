@@ -7,7 +7,7 @@ export const projects = [
     demoLink: "https://not-netflix-inc.manky.me",
     imageUrl: "/images/screenshots/not-netflix-inc.png",
     height: 350,
-    width: "auto",
+    width: 400,
   },
   {
     title: "Luna's Ice Cream Shoppe",
@@ -16,6 +16,8 @@ export const projects = [
     timing: "~4 hours",
     demoLink: "https://lunas-ice-cream-shoppe.manky.me",
     videoUrl: "videos/lunas-ice-cream-shoppe.mov",
+    height: 350,
+    width: "auto",
   },
   {
     title: "Material Modeling IDE",
@@ -33,7 +35,7 @@ export const projects = [
     demoLink: "https://tesla-model-3-dashboard.manky.me",
     imageUrl: "/images/screenshots/model-3-simulator.jpeg",
     height: 350,
-    width: "auto",
+    width: 400,
   },
   {
     title: "Freight Offers - React",
@@ -51,7 +53,7 @@ export const projects = [
     demoLink: "https://convoy-offers-svelte.manky.me",
     imageUrl: "/images/screenshots/convoy-offers-svelte.png",
     height: 350,
-    width: "auto",
+    width: 400,
   },
   {
     title: "Tag Autocomplete - React",
@@ -61,7 +63,7 @@ export const projects = [
     demoLink: "https://tag-autocomplete-react.manky.me/",
     imageUrl: "/images/screenshots/tag-autocomplete-react.png",
     height: 350,
-    width: "auto",
+    width: 400,
   },
   {
     title: "Immigration Wizard",
@@ -69,7 +71,7 @@ export const projects = [
     projectType: "Production App",
     imageUrl: "/images/screenshots/immigration-wizard.jpg",
     height: 350,
-    width: "auto",
+    width: 400,
   },
   {
     title: "Interior Management Dashboard",
@@ -77,7 +79,7 @@ export const projects = [
     projectType: "Production App",
     imageUrl: "/images/screenshots/interior-dashboard.png",
     height: 350,
-    width: "auto",
+    width: 400,
   },
   {
     title: "Micro-savings Platform",
@@ -86,6 +88,6 @@ export const projects = [
     timing: "24 hours",
     imageUrl: "/images/screenshots/micro-savings-platform.png",
     height: 350,
-    width: "auto",
+    width: 400,
   },
 ];
