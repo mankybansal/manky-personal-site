@@ -16,6 +16,7 @@ export const skills = [
     items: [
       { title: "Node.js + Express", level: 4 },
       { title: "GraphQL, REST", level: 5 },
+      { title: "Apollo Federation", level: 5 },
       { title: "Postgres, MySQL/SQL", level: 5 },
       { title: "MongoDb, Firebase", level: 3 },
     ],
@@ -38,9 +39,9 @@ export const skills = [
   {
     title: "Prototyping",
     items: [
+      { title: "Figma, FigJam", level: 3.5 },
       { title: "Adobe Illustrator, Photoshop", level: 5 },
       { title: "Sketch + Principle + Origami", level: 4 },
-      { title: "Figma", level: 3.5 },
     ],
   },
 ];

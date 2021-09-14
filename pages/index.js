@@ -337,7 +337,7 @@ export default function Index() {
             , a freight and logistics company that wants to transport the world
             with endless capacity and zero waste. <br />
             <br />
-            <b>Facts</b>
+            <b>10 Facts About Me</b>
             <ul
               className={css`
                 font-size: 20px;
@@ -346,7 +346,14 @@ export default function Index() {
               `}
             >
               <li>
-                Born in Bengaluru <i className="fa fa-heart" />
+                Born in{" "}
+                <UnderlinedLink
+                  href={"https://en.wikipedia.org/wiki/Bangalore"}
+                  target={"_blank"}
+                >
+                  Bengaluru
+                </UnderlinedLink>{" "}
+                <i className="fa fa-heart" />
               </li>
               <li>
                 Personality type:{" "}
@@ -367,10 +374,20 @@ export default function Index() {
                   boarding school
                 </UnderlinedLink>
               </li>
-              <li>I own 21,000+ Lego</li>
+              <li>I own 22,000+ Lego</li>
               <li>Webstorm > VS Code (fight me)</li>
               <li>Chai > Coffee (am I even a Seattleite?)</li>
               <li>Have an excellent credit score</li>
+              <li>
+                The U.S. government think's I'm{" "}
+                <UnderlinedLink
+                  href="https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement"
+                  target="_blank"
+                >
+                  "extraordinary"
+                </UnderlinedLink>
+              </li>
+              <li>I play percussive fingerstyle guitar 🎸</li>
             </ul>
           </AboutMeText>
         </div>
@@ -583,19 +600,30 @@ export default function Index() {
           about mutual interests, please reach out!
         </TextContainer>
         <br />
-        <a
-          href="https://calendly.com/mankybansal"
-          className={styles.resumeButton}
-          target="_blank"
-        >
-          <i className="fa fa-calendar-check" /> &nbsp; Schedule a Meeting
-        </a>
+        <div>
+          <a
+            href="https://calendly.com/mankybansal"
+            className={styles.resumeButton}
+            target="_blank"
+          >
+            <i className="fa fa-calendar-check" /> &nbsp; Schedule a 30-min
+            Meeting
+          </a>
+          <a
+            href="/resume"
+            className={styles.resumeButton}
+            target="_blank"
+            style={{ marginLeft: 8 }}
+          >
+            <i className="fa fa-file-download" /> &nbsp; Download my Resume
+          </a>
+        </div>
         <br />
         <br />
         <br />
         <span className={styles.segoeLight20}>
           <i className="fa fa-mobile-alt" />
-          &nbsp; +1 (312) 593 - two four six five
+          &nbsp; +1 (206) 588 — six three eight seven
         </span>
         <br />
         <br />
@@ -605,11 +633,26 @@ export default function Index() {
         </span>
         <br />
         <br />
-        <br />
-        <br />
-        <a href="/resume" className={styles.resumeButton} target="_blank">
-          <i className="fa fa-file-download" /> &nbsp; Download my Resume
-        </a>
+        <TextContainer>
+          If you found my help useful, you can buy me coffee ☕️.
+        </TextContainer>
+        <div>
+          <a
+            href="https://paypal.me/USAmankybansal"
+            className={styles.resumeButton}
+            target="_blank"
+          >
+            <i className="fa fa-paypal" /> &nbsp; PayPal
+          </a>
+          <a
+            href="https://venmo.com/Amankybansal"
+            className={styles.resumeButton}
+            target="_blank"
+            style={{ marginLeft: 8 }}
+          >
+            <i className="fa fa-dollar-sign" /> &nbsp; Venmo
+          </a>
+        </div>
         <br />
         <br />
         <div className={styles.socialContainer}>
