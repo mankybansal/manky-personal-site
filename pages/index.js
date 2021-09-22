@@ -636,9 +636,9 @@ export default function Index() {
         <TextContainer>
           If you found my help useful, you can buy me coffee ☕️.
         </TextContainer>
-        <div>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
           <a
-            href="https://paypal.me/USAmankybansal"
+            href="https://paypal.me/mankybansalUSA"
             className={styles.resumeButton}
             target="_blank"
           >
