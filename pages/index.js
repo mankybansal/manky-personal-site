@@ -652,7 +652,7 @@ export default function Index() {
             <i className="fa fa-paypal" /> &nbsp; PayPal
           </a>
           <a
-            href="https://venmo.com/Amankybansal"
+            href="https://venmo.com/u/mankybansal"
             className={styles.resumeButton}
             target="_blank"
             style={{ marginLeft: 8 }}
