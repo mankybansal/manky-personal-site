@@ -265,8 +265,6 @@ export default function Index() {
     gtag("config", "UA-162415812-1");
   }, []);
 
-  console.log(process.env.REACT_APP_INSTAGTAM_TOKEN);
-
   return (
     <>
       <LandingContainer>
