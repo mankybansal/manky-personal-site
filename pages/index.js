@@ -422,7 +422,7 @@ export default function Index() {
                   boarding school
                 </UnderlinedLink>
               </li>
-              <li>I own 22,000+ Lego</li>
+              <li>I own 25,000+ Lego</li>
               <li>Webstorm &gt; VS Code (fight me)</li>
               <li>Chai &gt; Coffee (am I even a Seattleite?)</li>
               <li>Have an excellent credit score</li>
