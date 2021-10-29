@@ -641,6 +641,7 @@ export default function Index() {
         />
         token sample {process.env.REACT_APP_INSTAGTAM_TOKEN}
         token sample {process.env.INSTAGTAM_TOKEN}
+        {JSON.stringify(process.env)}
         <br />
         <br />
         <a
