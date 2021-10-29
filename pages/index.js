@@ -583,7 +583,7 @@ export default function Index() {
         <span className={styles.segoeLight20}>A peak into my world</span>
         <br />
         <br />
-        <InstagramFeed counter={18} token={process.env.INSTAGRAM_TOKEN} />
+        <InstagramFeed counter={18} token={process.env.REACT_APP_INSTAGRAM_TOKEN} />
         <br />
         <br />
         <a
