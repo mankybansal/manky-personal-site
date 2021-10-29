@@ -639,8 +639,8 @@ export default function Index() {
           counter={18}
           token={process.env.REACT_APP_INSTAGRAM_TOKEN}
         />
-        {process.env.REACT_APP_INSTAGTAM_TOKEN}
-        {process.env.INSTAGTAM_TOKEN}
+        token {process.env.REACT_APP_INSTAGTAM_TOKEN}
+        token {process.env.INSTAGTAM_TOKEN}
         <br />
         <br />
         <a
