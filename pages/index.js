@@ -637,7 +637,7 @@ export default function Index() {
         <br />
         <InstagramFeed
           counter={18}
-          token={process.env.REACT_APP_INSTAGRAM_TOKEN}
+          token={process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN}
         />
         <br />
         <br />
