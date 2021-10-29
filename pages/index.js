@@ -9,6 +9,7 @@ import Project from "../components/Project";
 import React from "react";
 import InstagramFeed from "react-ig-feed";
 import "react-ig-feed/dist/index.css";
+import Link from "next/link";
 
 import { skills } from "../data/skills";
 import { socials } from "../data/socials";
@@ -238,6 +239,10 @@ const LandingLogo = styled.div`
 
 export default function Index() {
   useEffect(() => {
+    if (!window.MediumWidget) {
+      return;
+    }
+
     window.MediumWidget.Init({
       renderTo: "#medium-widget",
       params: {
@@ -265,7 +270,12 @@ export default function Index() {
       <LandingContainer>
         <LandingContainerInner>
           <LandingLogo>
-            <Image src="/images/Layer%201.png" width={270} height={200} />
+            <Image
+              src="/images/Layer%201.png"
+              width={270}
+              height={200}
+              alt={"Landing Image"}
+            />
           </LandingLogo>
           <LandingContent>
             <LandingNameContainer>
@@ -275,28 +285,56 @@ export default function Index() {
             <LandingTitle>Full Stack Engineer + Designer</LandingTitle>
             <br />
             <div style={{ display: "flex" }}>
-              <a href="https://www.facebook.com/MankyBansal" target="_blank">
+              <a
+                href="https://www.facebook.com/MankyBansal"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className={`fab fa-facebook ${styles.socialIcons}`} />
               </a>
-              <a href="https://www.instagram.com/MankyBansal" target="_blank">
+              <a
+                href="https://www.instagram.com/MankyBansal"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className={`fab fa-instagram ${styles.socialIcons}`} />
               </a>
-              <a href="https://www.twitter.com/MankyBansal" target="_blank">
+              <a
+                href="https://www.twitter.com/MankyBansal"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className={`fab fa-twitter ${styles.socialIcons}`} />
               </a>
-              <a href="https://www.dribbble.com/MankyBansal" target="_blank">
+              <a
+                href="https://www.dribbble.com/MankyBansal"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className={`fab fa-dribbble ${styles.socialIcons}`} />
               </a>
-              <a href="https://www.linkedin.com/in/MankyBansal" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/MankyBansal"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className={`fab fa-linkedin ${styles.socialIcons}`} />
               </a>
-              <a href="https://www.github.com/MankyBansal" target="_blank">
+              <a
+                href="https://www.github.com/MankyBansal"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className={`fab fa-github ${styles.socialIcons}`} />
               </a>
-              <a href="https://www.medium.com/@MankyBansal" target="_blank">
+              <a
+                href="https://www.medium.com/@MankyBansal"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <i className={`fab fa-medium ${styles.socialIcons}`} />
               </a>
-              <a href="mailto:hi@manky.me" target="_blank">
+              <a href="mailto:hi@manky.me" target="_blank" rel="noreferrer">
                 <i className={`fas fa-envelope ${styles.socialIcons}`} />
               </a>
             </div>
@@ -310,10 +348,15 @@ export default function Index() {
         <hr className={styles.sectionHeaderDark} />
         <div style={{ display: "flex", justifyContent: "center" }}>
           <AboutMeLogo>
-            <Image src="/images/Logo.png" width={200} height={315} />
+            <Image
+              src="/images/Logo.png"
+              width={200}
+              height={315}
+              alt={"Manky Logo — About Us"}
+            />
           </AboutMeLogo>
           <AboutMeText>
-            👋🏼 I'm <span style={{ fontWeight: 700 }}>Mayank Bansal</span>
+            👋🏼 I&apos;m <span style={{ fontWeight: 700 }}>Mayank Bansal</span>
             <i className={`fas fa-volume-up ${styles.pronounce}`} />
             <div className={styles.pronounceTooltip}>
               <i className={`fas fa-volume-up ${styles.pronounce2}`} />{" "}
@@ -363,6 +406,7 @@ export default function Index() {
                 <UnderlinedLink
                   href="https://www.16personalities.com/infj-personality"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   INF-J
                 </UnderlinedLink>
@@ -373,21 +417,23 @@ export default function Index() {
                 <UnderlinedLink
                   href="https://www.thelawrenceschool.org/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   boarding school
                 </UnderlinedLink>
               </li>
               <li>I own 22,000+ Lego</li>
-              <li>Webstorm > VS Code (fight me)</li>
-              <li>Chai > Coffee (am I even a Seattleite?)</li>
+              <li>Webstorm &gt; VS Code (fight me)</li>
+              <li>Chai &gt; Coffee (am I even a Seattleite?)</li>
               <li>Have an excellent credit score</li>
               <li>
-                The U.S. government think's I'm{" "}
+                The U.S. government think&apos;s I&apos;m{" "}
                 <UnderlinedLink
                   href="https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement"
                   target="_blank"
+                  rel="noreferrer"
                 >
-                  "extraordinary"
+                  &quot;extraordinary&quot;
                 </UnderlinedLink>
               </li>
               <li>I play percussive fingerstyle guitar 🎸</li>
@@ -400,7 +446,8 @@ export default function Index() {
         <hr className={styles.sectionHeaderDark} />
         <TextContainer>
           Sometimes, I write about social issues, personal life stories,
-          technology and projects I've worked on. Here are a few highlights:
+          technology and projects I&apos;ve worked on. Here are a few
+          highlights:
         </TextContainer>
         <div id="medium-widget" />
         <br />
@@ -411,6 +458,7 @@ export default function Index() {
           href="https://medium.com/mankybansal"
           className={styles.resumeButton}
           target="_blank"
+          rel="noreferrer"
         >
           <i className="fab fa-medium" /> &nbsp; Visit my Blog
         </a>
@@ -445,9 +493,9 @@ export default function Index() {
         <div className={styles.sectionTitle}>Projects</div>
         <hr className={styles.sectionHeaderDark} />
         <TextContainer>
-          Here are some side projects / code samples I've worked on. Some of
-          these projects may not have aged well, but hey... engineering involves
-          an incremental learning process.
+          Here are some side projects / code samples I&apos;ve worked on. Some
+          of these projects may not have aged well, but hey... engineering
+          involves an incremental learning process.
         </TextContainer>
         <ProjectsContainer>
           {projects.map((project, idx) => (
@@ -459,7 +507,7 @@ export default function Index() {
         <div className={styles.sectionTitle}>Technical Skills</div>
         <hr className={styles.sectionHeaderDark} />
         <TextContainer>
-          Though I'm a Full Stack Engineer, my time is split 60/30/10
+          Though I&apos;m a Full Stack Engineer, my time is split 60/30/10
           frontend/backend/design. I like to work on high quality experiences
           from user research to launch.
         </TextContainer>
@@ -483,8 +531,8 @@ export default function Index() {
         <hr className={styles.sectionHeaderDark} />
         <TextContainer>
           I spend about 10-12 weekends a year volunteering for STEM programs.
-          It's a great way to inspire kids to become engineers and work on the
-          worlds toughest problems.
+          It&apos;s a great way to inspire kids to become engineers and work on
+          the worlds toughest problems.
         </TextContainer>
         <TextContainer>
           <b>FIRST Robotics</b>
@@ -501,6 +549,7 @@ export default function Index() {
             href="https://www.firstinspires.org/"
             className={styles.colorLink}
             target="_blank"
+            rel="noreferrer"
           >
             https://firstinspires.org
           </a>
@@ -523,7 +572,7 @@ export default function Index() {
           <b>Google CS First</b>
           <br />
           Google CS First is an 8-week after-school computer science program for
-          elementary schools. It uses MIT's Scratch programming language to
+          elementary schools. It uses MIT&apos;s Scratch programming language to
           teach basic CS principles with the help of short modules each with
           different focus and objective.
           <br />
@@ -532,6 +581,7 @@ export default function Index() {
             href="https://csfirst.withgoogle.com/s/en/home"
             className={styles.colorLink}
             target="_blank"
+            rel="noreferrer"
           >
             https://csfirst.withgoogle.com
           </a>
@@ -541,7 +591,7 @@ export default function Index() {
         <div className={styles.sectionTitle}>GitHub</div>
         <hr className={styles.sectionHeaderDark} />
         <span className={styles.segoeLight20}>
-          Things I'm working on - Coming Soon
+          Things I&apos;m working on - Coming Soon
         </span>
         <br />
         <br />
@@ -551,6 +601,7 @@ export default function Index() {
           href="https://github.com/mankybansal"
           className={styles.resumeButton}
           target="_blank"
+          rel="noreferrer"
         >
           <i className="fab fa-github" /> &nbsp; Visit my GitHub
         </a>
@@ -561,7 +612,7 @@ export default function Index() {
         <div className={styles.sectionTitle}>Dribbble</div>
         <hr className={styles.sectionHeaderDark} />
         <span className={styles.segoeLight20}>
-          Things I've designed - Coming Soon
+          Things I&apos;ve designed - Coming Soon
         </span>
         <br />
         <br />
@@ -571,6 +622,7 @@ export default function Index() {
           href="https://dribbble.com/mankybansal"
           className={styles.resumeButton}
           target="_blank"
+          rel="noreferrer"
         >
           <i className="fab fa-dribbble" /> &nbsp; Visit my Dribbble
         </a>
@@ -583,13 +635,17 @@ export default function Index() {
         <span className={styles.segoeLight20}>A peak into my world</span>
         <br />
         <br />
-        <InstagramFeed counter={18} token={process.env.REACT_APP_INSTAGRAM_TOKEN} />
+        <InstagramFeed
+          counter={18}
+          token={process.env.REACT_APP_INSTAGRAM_TOKEN}
+        />
         <br />
         <br />
         <a
           href="https://instagram.com/mankybansal"
           className={styles.resumeButton}
           target="_blank"
+          rel="noreferrer"
         >
           <i className="fab fa-instagram" /> &nbsp; Visit my Instagram
         </a>
@@ -609,18 +665,16 @@ export default function Index() {
             href="https://calendly.com/mankybansal"
             className={styles.resumeButton}
             target="_blank"
+            rel="noreferrer"
           >
             <i className="fa fa-calendar-check" /> &nbsp; Schedule a 30-min
             Meeting
           </a>
-          <a
-            href="/resume"
-            className={styles.resumeButton}
-            target="_blank"
-            style={{ marginLeft: 8 }}
-          >
-            <i className="fa fa-file-download" /> &nbsp; Download my Resume
-          </a>
+          <Link href="/resume" target="_blank" rel="noreferrer">
+            <a className={styles.resumeButton} style={{ marginLeft: 8 }}>
+              <i className="fa fa-file-download" /> &nbsp; Download my Resume
+            </a>
+          </Link>
         </div>
         <br />
         <br />
@@ -652,6 +706,7 @@ export default function Index() {
             href="https://paypal.me/mankybansalUSA"
             className={styles.resumeButton}
             target="_blank"
+            rel="noreferrer"
           >
             <i className="fa fa-paypal" /> &nbsp; PayPal
           </a>
@@ -659,6 +714,7 @@ export default function Index() {
             href="https://venmo.com/u/mankybansal"
             className={styles.resumeButton}
             target="_blank"
+            rel="noreferrer"
             style={{ marginLeft: 8 }}
           >
             <i className="fa fa-dollar-sign" /> &nbsp; Venmo
@@ -672,6 +728,7 @@ export default function Index() {
               href={social.link}
               className={styles.contactLinks}
               target="_blank"
+              rel="noreferrer"
               key={`${social.site}-${idx}`}
             >
               <i className={`fab fa-${social.site} ${styles.contactIcons}`} />
@@ -681,18 +738,19 @@ export default function Index() {
         </div>
       </SectionContainer>
       <SectionContainer id="footer" variableHeight>
-        <Image src={"/images/Logo.png"} width={100} height={157} />
+        <Image
+          src={"/images/Logo.png"}
+          width={100}
+          height={157}
+          alt={"Manky Logo"}
+        />
         <br />
         <br />
         <div className={styles.segoeLight17}>
           <div>
             Handmade with <i className="fa fa-heart" /> in <b>Seattle, WA</b>{" "}
             using <b>Next.js 12</b> and{" "}
-            <a
-              href="https://vercel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://vercel.com" target="_blank" rel="noreferrer">
               <Image
                 src={"/vercel.svg"}
                 alt="Vercel Logo"

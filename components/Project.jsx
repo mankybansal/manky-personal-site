@@ -75,11 +75,18 @@ const Project = ({
         )}
       </ProjectSubTitle>
       {demoLink && (
-        <Link href={demoLink} target="_blank">
+        <Link href={demoLink} target="_blank" rel="noreferrer">
           Live Demo
         </Link>
       )}
-      {imageUrl && <Image src={imageUrl} height={height} width={width} />}
+      {imageUrl && (
+        <Image
+          src={imageUrl}
+          alt={"ProjectImage"}
+          height={height}
+          width={width}
+        />
+      )}
       {videoUrl && (
         <video height={height} width={width} controls>
           <source src={videoUrl} type="video/mp4" />
