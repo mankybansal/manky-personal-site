@@ -6,6 +6,9 @@ import styled from "@emotion/styled";
 import Header from "../components/Header";
 import Image from "next/image";
 import Project from "../components/Project";
+import React from "react";
+import InstagramFeed from "react-ig-feed";
+import "react-ig-feed/dist/index.css";
 
 import { skills } from "../data/skills";
 import { socials } from "../data/socials";
@@ -158,7 +161,7 @@ const SectionContainer = styled.div`
   display: inline-block;
   border-top: 1px solid #eee;
 
-  :nth-child(even) {
+  :nth-of-type(even) {
     background: #fafafa;
   }
 
@@ -578,10 +581,11 @@ export default function Index() {
         <div className={styles.sectionTitle}>Instagram</div>
         <hr className={styles.sectionHeaderDark} />
         <span className={styles.segoeLight20}>A peak into my world</span>
-        <TextContainer>
-          There used to be an embedded Insta feed here. I need to update it to
-          use Facebook's GraphQL API at some point.
-        </TextContainer>
+        <br />
+        <br />
+        <InstagramFeed counter={18} token={process.env.INSTAGRAM_TOKEN} />
+        <br />
+        <br />
         <a
           href="https://instagram.com/mankybansal"
           className={styles.resumeButton}
@@ -683,7 +687,7 @@ export default function Index() {
         <div className={styles.segoeLight17}>
           <div>
             Handmade with <i className="fa fa-heart" /> in <b>Seattle, WA</b>{" "}
-            using <b>NextJS</b> and{" "}
+            using <b>Next.js 12</b> and{" "}
             <a
               href="https://vercel.com"
               target="_blank"

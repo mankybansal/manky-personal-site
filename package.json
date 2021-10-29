@@ -13,9 +13,10 @@
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "jquery": "^3.3.1",
-    "next": "11.1.0",
-    "prettier": "^2.3.0",
+    "next": "12.0.1",
+    "prettier": "^2.4.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-ig-feed": "^1.0.4"
   }
 }
