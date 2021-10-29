@@ -265,6 +265,8 @@ export default function Index() {
     gtag("config", "UA-162415812-1");
   }, []);
 
+  console.log(process.env.REACT_APP_INSTAGTAM_TOKEN);
+
   return (
     <>
       <LandingContainer>
@@ -639,9 +641,6 @@ export default function Index() {
           counter={18}
           token={process.env.REACT_APP_INSTAGRAM_TOKEN}
         />
-        token sample {process.env.REACT_APP_INSTAGTAM_TOKEN}
-        token sample {process.env.INSTAGTAM_TOKEN}
-        {JSON.stringify(process.env)}
         <br />
         <br />
         <a
