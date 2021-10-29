@@ -639,6 +639,7 @@ export default function Index() {
           counter={18}
           token={process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN}
         />
+        {process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN}
         <br />
         <br />
         <a
