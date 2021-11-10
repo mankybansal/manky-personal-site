@@ -422,7 +422,7 @@ export default function Index() {
                   boarding school
                 </UnderlinedLink>
               </li>
-              <li>I own 25,000+ Lego</li>
+              <li>I own 27,500+ Lego</li>
               <li>Webstorm &gt; VS Code (fight me)</li>
               <li>Chai &gt; Coffee (am I even a Seattleite?)</li>
               <li>Have an excellent credit score</li>
@@ -632,7 +632,7 @@ export default function Index() {
       <SectionContainer id="instagram" variableHeight>
         <div className={styles.sectionTitle}>Instagram</div>
         <hr className={styles.sectionHeaderDark} />
-        <span className={styles.segoeLight20}>A peak into my world</span>
+        <span className={styles.segoeLight20}>A peek into my world</span>
         <br />
         <br />
         <InstagramFeed
@@ -660,7 +660,7 @@ export default function Index() {
           about mutual interests, please reach out!
         </TextContainer>
         <br />
-        <div>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
           <a
             href="https://calendly.com/mankybansal"
             className={styles.resumeButton}
