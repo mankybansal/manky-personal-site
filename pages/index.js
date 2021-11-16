@@ -486,7 +486,10 @@ export default function Index() {
           technology and projects I&apos;ve worked on. Here are a few
           highlights:
         </TextContainer>
-        <div id="medium-widget" />
+        <div
+          id="medium-widget"
+          style={{ maxWidth: 1200, margin: "0 auto", textAlign: "left" }}
+        />
         <br />
         <br />
         <br />
