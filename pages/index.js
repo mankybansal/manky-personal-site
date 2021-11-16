@@ -464,7 +464,7 @@ export default function Index() {
               <li>Chai &gt; Coffee (am I even a Seattleite?)</li>
               <li>Have an excellent credit score</li>
               <li>
-                The U.S. government think&apos;s I&apos;m{" "}
+                The U.S. government thinks I&apos;m{" "}
                 <UnderlinedLink
                   href="https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement"
                   target="_blank"
