@@ -1,15 +1,15 @@
-import styles from "../styles/Home.module.css";
-import { css } from "@emotion/css";
-import { useEffect } from "react";
-import Experience from "../components/Experience";
-import styled from "@emotion/styled";
-import Header from "../components/Header";
-import Image from "next/image";
-import Project from "../components/Project";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import InstagramFeed from "react-ig-feed";
 import "react-ig-feed/dist/index.css";
 import Link from "next/link";
+import { css } from "@emotion/css";
+import styled from "@emotion/styled";
+import Image from "next/image";
+
+import styles from "../styles/Home.module.css";
+import Experience from "../components/Experience";
+import Header from "../components/Header";
+import Project from "../components/Project";
 
 import { skills } from "../data/skills";
 import { socials } from "../data/socials";
@@ -237,7 +237,23 @@ const LandingLogo = styled.div`
   height: 200px;
 `;
 
+const PronunciationTooltip = styled.div`
+  position: absolute;
+  margin-left: 70px;
+  margin-top: ${(props) => (props.visible ? "-90px" : "-100px")};
+  padding: 5px 25px 5px 25px;
+  font-size: 15px;
+  background: #eb9a3f;
+  border-radius: 25px;
+  color: white;
+  opacity: ${(props) => (props.visible ? 1 : 0)};
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  transition: all ease-in-out 0.2s;
+`;
+
 export default function Index() {
+  const [shouldShowPronunciation, setShouldShowPronunciation] = useState(false);
+
   useEffect(() => {
     if (!window.MediumWidget) {
       return;
@@ -356,12 +372,32 @@ export default function Index() {
             />
           </AboutMeLogo>
           <AboutMeText>
-            👋🏼 I&apos;m <span style={{ fontWeight: 700 }}>Mayank Bansal</span>
-            <i className={`fas fa-volume-up ${styles.pronounce}`} />
-            <div className={styles.pronounceTooltip}>
-              <i className={`fas fa-volume-up ${styles.pronounce2}`} />{" "}
-              <b>my-YUNGK BUN-sel</b>
-            </div>
+            👋🏼 I&apos;m{" "}
+            <span style={{ fontWeight: 700 }}>
+              Mayank Bansal{" "}
+              <span style={{ fontWeight: 500, marginRight: 4 }}>
+                (मयंक बंसल)
+              </span>
+            </span>
+            <i
+              className={`fas fa-volume-up ${styles.pronounce}`}
+              onClick={() => {
+                setShouldShowPronunciation((p) => !p);
+              }}
+            />
+            <PronunciationTooltip visible={shouldShowPronunciation}>
+              My-unk Bun-sal
+              <a
+                href={
+                  "https://translate.google.com/?sl=en&tl=hi&text=myUnk%20bunsal&op=translate"
+                }
+                target={"_blank"}
+                style={{ marginLeft: 16 }}
+              >
+                <i className={`fas fa-volume-up ${styles.pronounce2}`} />{" "}
+                <b>Hear pronunciation</b>
+              </a>
+            </PronunciationTooltip>
             , a 25 year-old{" "}
             <span style={{ fontWeight: 600 }}>Software Engineer</span> and
             self-taught <span style={{ fontWeight: 600 }}>Designer</span> that

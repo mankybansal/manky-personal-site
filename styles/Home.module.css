@@ -96,29 +96,6 @@ hr.sectionHeaderBlack {
   margin: 0 5px 0 5px;
 }
 
-.pronounce:hover {
-  opacity: 1;
-}
-
-.pronounceTooltip {
-  position: absolute;
-  margin-left: 70px;
-  margin-top: -100px;
-  padding: 5px 25px 5px 25px;
-  font-size: 15px;
-  background: #eb9a3f;
-  border-radius: 25px;
-  color: white;
-  opacity: 0;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  transition: all ease-in-out 0.2s;
-}
-
-.pronounce:hover + .pronounceTooltip {
-  margin-top: -90px;
-  opacity: 1;
-}
-
 .skillContainer {
   width: 100%;
   display: flex;
