@@ -391,6 +391,7 @@ export default function Index() {
                 href={
                   "https://translate.google.com/?sl=en&tl=hi&text=myUnk%20bunsal&op=translate"
                 }
+                rel="noreferrer"
                 target={"_blank"}
                 style={{ marginLeft: 16 }}
               >
