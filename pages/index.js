@@ -660,18 +660,25 @@ export default function Index() {
           about mutual interests, please reach out!
         </TextContainer>
         <br />
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           <a
             href="https://calendly.com/mankybansal"
             className={styles.resumeButton}
             target="_blank"
             rel="noreferrer"
+            style={{ margin: 4 }}
           >
             <i className="fa fa-calendar-check" /> &nbsp; Schedule a 30-min
             Meeting
           </a>
           <Link href="/resume" target="_blank" rel="noreferrer">
-            <a className={styles.resumeButton} style={{ marginLeft: 8 }}>
+            <a className={styles.resumeButton} style={{ margin: 4 }}>
               <i className="fa fa-file-download" /> &nbsp; Download my Resume
             </a>
           </Link>
