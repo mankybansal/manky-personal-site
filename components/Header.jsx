@@ -21,6 +21,8 @@ const InnerContainer = styled.div`
   position: absolute;
   z-index: 9999;
   overflow: hidden;
+  justify-content: center;
+  display: flex;
 `;
 
 const BaseHeaderLink = styled.div`
