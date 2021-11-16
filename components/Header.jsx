@@ -54,7 +54,7 @@ const HeaderLink1 = styled(BaseHeaderLink)`
 const HeaderLink2 = styled(BaseHeaderLink)`
   letter-spacing: 5px;
   font-size: 20px;
-  padding: 16px 20px 24px 20px;
+  padding: 16px 0 24px 0;
 `;
 
 const links = [
