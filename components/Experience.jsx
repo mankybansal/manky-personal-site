@@ -77,7 +77,8 @@ const Experience = ({
         className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 500;
-                    color: #eb9a3f;
+                    color: #aaa;
+                    margin-top: 4px;
                     font-size: 12px;
                   `}`}
       >

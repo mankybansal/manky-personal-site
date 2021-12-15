@@ -1,12 +1,21 @@
 export const experiences = [
   {
+    image: "/images/outgo.png",
+    name: "Stealth Startup",
+    imageHeight: "50px",
+    year: "2022 - Present",
+    city: "Seattle, Washington",
+    details: "Software Engineer III",
+    stage: "Seed Stage",
+  },
+  {
     image: "/images/C-Block.svg",
     name: "Convoy, Inc.",
     imageHeight: "50px",
-    year: "2019 - Present",
+    year: "2019 - 2022",
     city: "Seattle, Washington",
     details: "Software Engineer II",
-    stage: "Series D"
+    stage: "Series D",
   },
   {
     image: "/images/legalpad.png",
@@ -15,7 +24,7 @@ export const experiences = [
     year: "2018 - 2019",
     city: "Seattle, Washington",
     details: "Software Engineer + Designer",
-    stage: "Series A"
+    stage: "Series A",
   },
   {
     image: "/images/mitraz.png",
@@ -24,6 +33,15 @@ export const experiences = [
     year: "2015 - 2018 (Part Time)",
     city: "Chicago, Illinois",
     details: "Software Engineer + Designer",
-    stage: "Acquired by Scripbox"
+    stage: "Acquired by Scripbox",
+  },
+  {
+    image: "/images/1519876701450.jpeg",
+    name: "Sadgi Creative",
+    imageHeight: "70px",
+    year: "2015 - 2018 (Part Time)",
+    city: "Chicago, Illinois",
+    details: "Co-founder, Tech Lead",
+    stage: "Defunct",
   },
 ];
