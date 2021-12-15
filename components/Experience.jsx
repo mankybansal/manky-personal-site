@@ -22,7 +22,7 @@ const StyledImage = styled.img`
 `;
 
 const Experience = ({
-  experience: { year, image, imageHeight, name, city, details },
+  experience: { year, image, imageHeight, name, city, details, stage },
 }) => (
   <RootContainer>
     <StyledImage src={image} height={imageHeight} />
@@ -72,6 +72,16 @@ const Experience = ({
                   `}`}
       >
         {city}
+      </div>
+      <div
+        className={`${styles.segoeLight20}
+                  ${css`
+                    font-weight: 500;
+                    color: #eb9a3f;
+                    font-size: 12px;
+                  `}`}
+      >
+        {stage}
       </div>
     </div>
   </RootContainer>

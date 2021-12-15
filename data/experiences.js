@@ -6,6 +6,7 @@ export const experiences = [
     year: "2019 - Present",
     city: "Seattle, Washington",
     details: "Software Engineer II",
+    stage: "Series D"
   },
   {
     image: "/images/legalpad.png",
@@ -14,6 +15,7 @@ export const experiences = [
     year: "2018 - 2019",
     city: "Seattle, Washington",
     details: "Software Engineer + Designer",
+    stage: "Series A"
   },
   {
     image: "/images/mitraz.png",
@@ -22,5 +24,6 @@ export const experiences = [
     year: "2015 - 2018 (Part Time)",
     city: "Chicago, Illinois",
     details: "Software Engineer + Designer",
+    stage: "Acquired by Scripbox"
   },
 ];
