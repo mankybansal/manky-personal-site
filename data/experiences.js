@@ -1,7 +1,7 @@
 export const experiences = [
   {
     image: "/images/outgo.png",
-    name: "Stealth Startup",
+    name: "Outgo, Inc.",
     imageHeight: "50px",
     year: "2022 - Present",
     city: "Seattle, Washington",
@@ -15,7 +15,7 @@ export const experiences = [
     year: "2019 - 2022",
     city: "Seattle, Washington",
     details: "Software Engineer II",
-    stage: "Series D",
+    stage: "Series E 🦄",
   },
   {
     image: "/images/legalpad.png",

@@ -14,10 +14,6 @@ const MyApp = ({ Component, pageProps }) => (
       strategy="beforeInteractive"
     />
     <Script
-      src={"https://medium-widget.pixelpoint.io/widget.js"}
-      strategy="beforeInteractive"
-    />
-    <Script
       async
       src={"https://www.googletagmanager.com/gtag/js?id=UA-162415812-1"}
     />

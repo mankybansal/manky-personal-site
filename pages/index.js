@@ -255,22 +255,6 @@ export default function Index() {
   const [shouldShowPronunciation, setShouldShowPronunciation] = useState(false);
 
   useEffect(() => {
-    if (!window.MediumWidget) {
-      return;
-    }
-
-    window.MediumWidget.Init({
-      renderTo: "#medium-widget",
-      params: {
-        resource: "https://medium.com/@mankybansal",
-        postsPerLine: 2,
-        limit: 4,
-        picture: "big",
-        fields: ["description", "author", "claps", "publishAt"],
-        ratio: "landscape",
-      },
-    });
-
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
@@ -280,6 +264,12 @@ export default function Index() {
 
     gtag("config", "UA-162415812-1");
   }, []);
+
+  const calculateAge = (birthday) => {
+    const ageDifMs = Date.now() - birthday;
+    const ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  };
 
   return (
     <>
@@ -399,7 +389,7 @@ export default function Index() {
                 <b>Hear pronunciation</b>
               </a>
             </PronunciationTooltip>
-            , a 25 year-old{" "}
+            , a {calculateAge(new Date("1996-02-07"))} year-old{" "}
             <span style={{ fontWeight: 600 }}>Software Engineer</span> and
             self-taught <span style={{ fontWeight: 600 }}>Designer</span> that
             loves to design and build products that solve challenging
@@ -413,12 +403,21 @@ export default function Index() {
             build a better and sustainable future.
             <br />
             <br />
-            Currently an engineer at{" "}
-            <UnderlinedLink href={"https://www.convoy.com"} target={"_blank"}>
-              Convoy
+            Currently an all-in-one employee at{" "}
+            <UnderlinedLink href={"https://www.outgo.co"} target={"_blank"}>
+              Outgo
             </UnderlinedLink>
-            , a freight and logistics company that wants to transport the world
-            with endless capacity and zero waste. <br />
+            , whose mission is to build an all-in-one fintech solution that
+            truly benefits carriers. Previously at{" "}
+            <UnderlinedLink href={"https://www.convoy.co,"} target={"_blank"}>
+              Convoy
+            </UnderlinedLink>{" "}
+            and{" "}
+            <UnderlinedLink href={"https://www.legalpad.io"} target={"_blank"}>
+              Legalpad
+            </UnderlinedLink>
+            .
+            <br />
             <br />
             <b>10 Facts About Me</b>
             <ul
@@ -486,12 +485,10 @@ export default function Index() {
           technology and projects I&apos;ve worked on. Here are a few
           highlights:
         </TextContainer>
-        <div
-          id="medium-widget"
-          style={{ maxWidth: 1200, margin: "0 auto", textAlign: "left" }}
-        />
-        <br />
-        <br />
+
+        <TextContainer>
+          Whoops, this widget is broken. I will fix this at some point.
+        </TextContainer>
         <br />
         <br />
         <a
@@ -679,6 +676,10 @@ export default function Index() {
           counter={18}
           token={process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN}
         />
+        <TextContainer>
+          {" "}
+          Whoops, this widget is broken. I will fix this at some point.
+        </TextContainer>
         <br />
         <br />
         <a
@@ -808,7 +809,10 @@ export default function Index() {
             </a>
           </div>
           <br />
-          <b>&copy; 2021 Mayank Bansal. All Rights Reserved.</b>
+          <b>
+            &copy; {new Date().getFullYear()} Mayank Bansal. All Rights
+            Reserved.
+          </b>
         </div>
       </SectionContainer>
     </>
