@@ -354,10 +354,27 @@ export default function Index() {
         <hr className={styles.sectionHeaderDark} />
         <div style={{ display: "flex", justifyContent: "center" }}>
           <AboutMeLogo>
+            <div
+              style={{
+                height: 200,
+                width: 200,
+                border: "4px solid #DDD",
+                borderRadius: "50%",
+                marginBottom: 32,
+                overflow: "hidden",
+              }}
+            >
+              <Image
+                src="/images/me.jpg"
+                width={200}
+                height={200}
+                alt={"Manky — About Us"}
+              />
+            </div>
             <Image
               src="/images/Logo.png"
-              width={200}
-              height={315}
+              width={133}
+              height={210}
               alt={"Manky Logo — About Us"}
             />
           </AboutMeLogo>
@@ -605,6 +622,7 @@ export default function Index() {
             height={"100%"}
           />
         </ImagesContainer>
+
         <TextContainer>
           <b>Google CS First</b>
           <br />
