@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import Head from "next/head";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 const MyApp = ({ Component, pageProps }) => (
   <>
@@ -18,6 +19,7 @@ const MyApp = ({ Component, pageProps }) => (
       src={"https://www.googletagmanager.com/gtag/js?id=UA-162415812-1"}
     />
     <Component {...pageProps} />
+    <Analytics />
   </>
 );
 
