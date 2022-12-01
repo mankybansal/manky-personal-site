@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import InstagramFeed from "react-ig-feed";
 import "react-ig-feed/dist/index.css";
 import Link from "next/link";
@@ -16,6 +16,8 @@ import { socials } from "../data/socials";
 import { projects } from "../data/projects";
 import { experiences } from "../data/experiences";
 import { education } from "../data/education";
+import Education from "../components/Education";
+import { routes } from "../routes";
 
 const LandingContainer = styled.div`
   width: 100%;
@@ -78,7 +80,7 @@ const LandingTitle = styled(LandingTitleBase)`
   }
 `;
 
-const LandingName = styled(LandingTitleBase)`
+const LandingName = styled(LandingTitleBase)<{ bold?: boolean }>`
   font-size: 65px;
   letter-spacing: 5px;
   font-weight: ${(props) => (props.bold ? 700 : 400)};
@@ -155,7 +157,10 @@ const TextContainer = styled.div`
   text-align: left;
 `;
 
-const SectionContainer = styled.div`
+const SectionContainer = styled.div<{
+  variableHeight?: boolean;
+  whiteOverride?: boolean;
+}>`
   width: 100%;
   padding: 50px;
   background: white;
@@ -237,7 +242,7 @@ const LandingLogo = styled.div`
   height: 200px;
 `;
 
-const PronunciationTooltip = styled.div`
+const PronunciationTooltip = styled.div<{ visible: boolean }>`
   position: absolute;
   margin-left: 70px;
   margin-top: ${(props) => (props.visible ? "-90px" : "-100px")};
@@ -251,19 +256,8 @@ const PronunciationTooltip = styled.div`
   transition: all ease-in-out 0.2s;
 `;
 
-export default function Index() {
+const Home = () => {
   const [shouldShowPronunciation, setShouldShowPronunciation] = useState(false);
-
-  useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "UA-162415812-1");
-  }, []);
 
   const calculateAge = (birthday) => {
     const ageDifMs = Date.now() - birthday;
@@ -506,10 +500,10 @@ export default function Index() {
         <div className={styles.sectionTitle}>Education</div>
         <hr className={styles.sectionHeaderDark} />
         <ExperienceContainer>
-          {education.map((experience, idx) => (
-            <Experience
-              key={`${experience.name}-${idx}`}
-              experience={experience}
+          {education.map((education, idx) => (
+            <Education
+              key={`${education.institution}-${idx}`}
+              education={education}
             />
           ))}
         </ExperienceContainer>
@@ -708,20 +702,24 @@ export default function Index() {
             justifyContent: "center",
           }}
         >
-          <a
-            href="https://calendly.com/mankybansal"
-            className={styles.resumeButton}
+          <Link
+            href={routes.meet}
             target="_blank"
             rel="noreferrer"
+            className={styles.resumeButton}
             style={{ margin: 4 }}
           >
             <i className="fa fa-calendar-check" /> &nbsp; Schedule a 30-min
             Meeting
-          </a>
-          <Link href="/resume" target="_blank" rel="noreferrer">
-            <a className={styles.resumeButton} style={{ margin: 4 }}>
-              <i className="fa fa-file-download" /> &nbsp; Download my Resume
-            </a>
+          </Link>
+          <Link
+            href={routes.resume}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.resumeButton}
+            style={{ margin: 4 }}
+          >
+            <i className="fa fa-file-download" /> &nbsp; Download my Resume
           </Link>
         </div>
         <br />
@@ -797,7 +795,7 @@ export default function Index() {
         <div className={styles.segoeLight17}>
           <div>
             Handmade with <i className="fa fa-heart" /> in <b>Seattle, WA</b>{" "}
-            using <b>Next.js 12</b> and{" "}
+            using <b>Next.js 13</b> and{" "}
             <a href="https://vercel.com" target="_blank" rel="noreferrer">
               <Image
                 src={"/vercel.svg"}
@@ -817,4 +815,6 @@ export default function Index() {
       </SectionContainer>
     </>
   );
-}
+};
+
+export default Home;

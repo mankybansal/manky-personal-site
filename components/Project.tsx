@@ -1,6 +1,7 @@
 import { memo } from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
+import { Project } from "../data/projects";
 
 const RootContainer = styled.div`
   display: flex;
@@ -11,7 +12,10 @@ const RootContainer = styled.div`
 
 const ProjectTitle = styled.div`
   font-weight: 600;
+  justify-content: center;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
   font-size: 20px;
 `;
 
@@ -39,27 +43,53 @@ const TimingIcon = styled.span`
 
 const Link = styled.a`
   font-weight: 500;
+  font-size: 16px;
+  margin-left: 16px;
   color: #eb9a3f !important;
-  margin-bottom: 16px;
 `;
 
-const Project = ({
-  project: {
+const ImageContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border: 2px solid #eee;
+  background: #333;
+  overflow: hidden;
+  height: 350px;
+  margin-bottom: 16px;
+
+  @media (max-width: 576px) {
+    height: auto;
+    width: 100%;
+  }
+`;
+
+interface Props {
+  project: Project;
+}
+
+const Project = ({ project }: Props) => {
+  const {
     demoLink,
     subtitle,
     title,
     timing,
-    year,
     height = "auto",
     width = "100%",
-    imageUrl,
+    image,
     videoUrl,
     projectType,
-  },
-}) => {
+  } = project;
   return (
     <RootContainer>
-      <ProjectTitle>{title}</ProjectTitle>
+      <ProjectTitle>
+        <div>{title}</div>
+        {demoLink && (
+          <Link href={demoLink} target="_blank" rel="noreferrer">
+            Live Demo
+          </Link>
+        )}
+      </ProjectTitle>
       <ProjectSubTitle>
         {subtitle}
         {projectType && (
@@ -74,25 +104,15 @@ const Project = ({
           </ProjectType>
         )}
       </ProjectSubTitle>
-      {demoLink && (
-        <Link href={demoLink} target="_blank" rel="noreferrer">
-          Live Demo
-        </Link>
-      )}
-      {imageUrl && (
-        <Image
-          src={imageUrl}
-          alt={"ProjectImage"}
-          height={height}
-          width={width}
-        />
-      )}
-      {videoUrl && (
-        <video height={height} width={width} controls>
-          <source src={videoUrl} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      )}
+      <ImageContainer>
+        {image && <Image src={image} alt={"ProjectImage"} height={350} />}
+        {videoUrl && (
+          <video height={height} width={width} controls>
+            <source src={videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
+      </ImageContainer>
     </RootContainer>
   );
 };

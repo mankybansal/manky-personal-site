@@ -1,13 +1,34 @@
-export const projects = [
+import notNetflixInc from "../public/images/screenshots/not-netflix-inc.png";
+import convoyOffersSvelte from "../public/images/screenshots/convoy-offers-svelte.png";
+import tagAutocompleteReact from "../public/images/screenshots/tag-autocomplete-react.png";
+import model3Simulator from "../public/images/screenshots/model-3-simulator.jpeg";
+import immigrationWizard from "../public/images/screenshots/immigration-wizard.jpg";
+import interiorDashboard from "../public/images/screenshots/interior-dashboard.png";
+import microSavingsPlatform from "../public/images/screenshots/micro-savings-platform.png";
+
+import { StaticImageData } from "next/image";
+
+export type Project = {
+  demoLink?: string;
+  subtitle: string;
+  title: string;
+  timing?: string;
+  year?: string;
+  height?: any;
+  width?: any;
+  image?: StaticImageData;
+  videoUrl?: string;
+  projectType: string;
+};
+
+export const projects: Project[] = [
   {
     title: "Not Netflix Inc - Checkout",
     subtitle: "React + Typescript + Framer Motion",
     projectType: "Code Sample",
     timing: "~7 hours",
     demoLink: "https://not-netflix-inc.manky.me",
-    imageUrl: "/images/screenshots/not-netflix-inc.png",
-    height: 350,
-    width: 400,
+    image: notNetflixInc,
   },
   {
     title: "Luna's Ice Cream Shoppe",
@@ -26,6 +47,8 @@ export const projects = [
     timing: "~10 hours",
     demoLink: "https://material-modeling-ide.manky.me",
     videoUrl: "videos/material-modeling-ide.mov",
+    height: 350,
+    width: "auto",
   },
   {
     title: "Tesla Model 3 UI Simulator",
@@ -33,9 +56,7 @@ export const projects = [
     projectType: "Side Project",
     timing: "~10 hours",
     demoLink: "https://tesla-model-3-dashboard.manky.me",
-    imageUrl: "/images/screenshots/model-3-simulator.jpeg",
-    height: 350,
-    width: 400,
+    image: model3Simulator,
   },
   {
     title: "Freight Offers - React",
@@ -44,6 +65,8 @@ export const projects = [
     timing: "~8 hours",
     demoLink: "https://convoy-offers-client.manky.me",
     videoUrl: "/videos/convoy-offers-react.mov",
+    height: 350,
+    width: "auto",
   },
   {
     title: "Freight Offers - Svelte",
@@ -51,9 +74,7 @@ export const projects = [
     projectType: "Side Project",
     timing: "~4 hours",
     demoLink: "https://convoy-offers-svelte.manky.me",
-    imageUrl: "/images/screenshots/convoy-offers-svelte.png",
-    height: 350,
-    width: 400,
+    image: convoyOffersSvelte,
   },
   {
     title: "Tag Autocomplete - React",
@@ -61,33 +82,25 @@ export const projects = [
     projectType: "Code Sample",
     timing: "1.5 hours",
     demoLink: "https://tag-autocomplete-react.manky.me/",
-    imageUrl: "/images/screenshots/tag-autocomplete-react.png",
-    height: 350,
-    width: 400,
+    image: tagAutocompleteReact,
   },
   {
     title: "Immigration Wizard",
     subtitle: "React, Rails",
     projectType: "Production App",
-    imageUrl: "/images/screenshots/immigration-wizard.jpg",
-    height: 350,
-    width: 400,
+    image: immigrationWizard,
   },
   {
     title: "Interior Management Dashboard",
     subtitle: "AngularJS + Node.js + Neo4j",
     projectType: "Production App",
-    imageUrl: "/images/screenshots/interior-dashboard.png",
-    height: 350,
-    width: 400,
+    image: interiorDashboard,
   },
   {
     title: "Micro-savings Platform",
     subtitle: "Angular + JQuery + Flask",
     projectType: "Hackathon",
     timing: "24 hours",
-    imageUrl: "/images/screenshots/micro-savings-platform.png",
-    height: 350,
-    width: 400,
+    image: microSavingsPlatform,
   },
 ];

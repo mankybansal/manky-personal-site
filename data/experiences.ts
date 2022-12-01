@@ -1,4 +1,14 @@
-export const experiences = [
+export type Experience = {
+  year: string;
+  image: string;
+  imageHeight: string;
+  name: string;
+  city: string;
+  details: string;
+  stage: string;
+};
+
+export const experiences: Experience[] = [
   {
     image: "/images/outgo.png",
     name: "Outgo, Inc.",
@@ -24,7 +34,7 @@ export const experiences = [
     year: "2018 - 2019",
     city: "Seattle, Washington",
     details: "Software Engineer + Designer",
-    stage: "Series A",
+    stage: "Acquired by Deel",
   },
   {
     image: "/images/mitraz.png",

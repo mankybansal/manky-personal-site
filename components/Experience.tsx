@@ -2,6 +2,7 @@ import { css } from "@emotion/css";
 import styles from "../styles/Home.module.css";
 import { memo } from "react";
 import styled from "@emotion/styled";
+import { Experience } from "../data/experiences";
 
 const RootContainer = styled.div`
   display: flex;
@@ -21,71 +22,76 @@ const StyledImage = styled.img`
   }
 `;
 
-const Experience = ({
-  experience: { year, image, imageHeight, name, city, details, stage },
-}) => (
-  <RootContainer>
-    <StyledImage src={image} height={imageHeight} />
-    <div
-      className={css`
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 32px;
-      `}
-    >
+interface Props {
+  experience: Experience;
+}
+
+const Experience = ({ experience }: Props) => {
+  const { year, image, imageHeight, name, city, details, stage } = experience;
+  return (
+    <RootContainer>
+      <StyledImage src={image} height={imageHeight} />
       <div
         className={css`
-          font-family: "Montserrat", sans-serif;
-          font-weight: 400;
-          font-size: 16px;
-          margin-bottom: 8px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: 32px;
         `}
       >
-        {year}
-      </div>
-      <div
-        className={`${styles.segoeLight20}
+        <div
+          className={css`
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            margin-bottom: 8px;
+          `}
+        >
+          {year}
+        </div>
+        <div
+          className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 500;
                     margin-bottom: 4px;
                   `}`}
-      >
-        {name}
-      </div>
-      <div
-        className={`${styles.segoeLight20}
+        >
+          {name}
+        </div>
+        <div
+          className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 600;
                     font-size: 16px;
                     color: #eb9a3f;
                     margin-bottom: 8px;
                   `}`}
-      >
-        {details}
-      </div>
-      <div
-        className={`${styles.segoeLight20}
+        >
+          {details}
+        </div>
+        <div
+          className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 500;
                     font-size: 12px;
                   `}`}
-      >
-        {city}
-      </div>
-      <div
-        className={`${styles.segoeLight20}
+        >
+          {city}
+        </div>
+        <div
+          className={`${styles.segoeLight20}
                   ${css`
                     font-weight: 500;
                     color: #aaa;
                     margin-top: 4px;
                     font-size: 12px;
                   `}`}
-      >
-        {stage}
+        >
+          {stage}
+        </div>
       </div>
-    </div>
-  </RootContainer>
-);
+    </RootContainer>
+  );
+};
 
 export default memo(Experience);
