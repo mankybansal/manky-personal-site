@@ -76,7 +76,11 @@ type FormState = {
   step1: "immigration" | "hiring" | "other" | undefined;
   immigration: "hasWatched" | "hasNotWatched" | undefined;
   hiring: "hireMayank" | "hireMe" | undefined;
-  hireMe: "hasOpenPosition" | "hasNoOpenPosition" | undefined;
+  hireMe:
+    | "hasOpenPosition"
+    | "hasNoOpenPosition"
+    | "differentCompany"
+    | undefined;
 };
 
 const Meet = () => {
@@ -259,6 +263,13 @@ const Meet = () => {
             >
               No, there isn&apos;t an open position
             </OptionButton>
+
+            <OptionButton
+              isSelected={formState.hireMe === "differentCompany"}
+              onClick={() => handleSelectHireMe("differentCompany")}
+            >
+              No, I want to talk about a different company
+            </OptionButton>
           </OptionsContainer>
         </OptionGroup>
       )}
@@ -280,6 +291,7 @@ const Meet = () => {
         </OptionGroup>
       )}
       {(formState.step1 === "other" ||
+        formState.hireMe === "differentCompany" ||
         formState.hireMe === "hasOpenPosition" ||
         formState.immigration === "hasWatched") && (
         <OptionGroup>
