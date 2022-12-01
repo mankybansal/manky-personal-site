@@ -242,7 +242,7 @@ const Meet = () => {
       {formState.hiring === "hireMe" && (
         <OptionGroup>
           <h1>
-            Does Mayank's current / previous company have an open position?
+            Does Mayank&apos;s current / previous company have an open position?
           </h1>
           <OptionsContainer>
             <OptionButton
@@ -255,7 +255,7 @@ const Meet = () => {
               isSelected={formState.hireMe === "hasNoOpenPosition"}
               onClick={() => handleSelectHireMe("hasNoOpenPosition")}
             >
-              No, I there isn't an open position
+              No, I there isn&apos;t an open position
             </OptionButton>
           </OptionsContainer>
         </OptionGroup>
@@ -263,8 +263,8 @@ const Meet = () => {
       {formState.hireMe === "hasNoOpenPosition" && (
         <OptionGroup>
           <h1>
-            It's unlikely that we can hire you at the moment. Connect with me on
-            linkedin for future opportunities!
+            It&apos;s unlikely that we can hire you at the moment. Connect with
+            me on linkedin for future opportunities!
           </h1>
           <OptionsContainer>
             <OptionButton
@@ -281,7 +281,7 @@ const Meet = () => {
         formState.hireMe === "hasOpenPosition" ||
         formState.immigration === "hasWatched") && (
         <OptionGroup>
-          <h1>Great! Let's talk.</h1>
+          <h1>Great! Let&apos;s talk.</h1>
           <h4>
             If you are present in North America at the time of the meeting,
             please schedule our meeting on a weekday. Weekends are reserved for
