@@ -36,12 +36,12 @@ const OptionsContainer = styled.div`
 `;
 
 const OptionButton = styled.button<{ isSelected?: boolean }>`
-  padding: 8px 25px 10px 25px;
+  padding: 8px 32px;
   line-height: normal;
   font-size: 20px;
   font-weight: 400;
   color: black;
-  margin: 2px;
+  margin: 4px;
   background: transparent;
   border-radius: 2rem;
   width: fit-content;
@@ -146,7 +146,7 @@ const Meet = () => {
             isSelected={formState.step1 === "other"}
             onClick={() => handleSelectStep1("other")}
           >
-            General Networking
+            Networking
           </OptionButton>
         </OptionsContainer>
       </OptionGroup>
@@ -178,27 +178,29 @@ const Meet = () => {
         </OptionGroup>
       )}
       {formState.immigration === "hasNotWatched" && (
-        <>
+        <OptionGroup>
           <h1>You can watch them here:</h1>
-          <Link
-            href="https://www.youtube.com/watch?v=Ar_hijWPS5s"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fa fa-youtube" />
-            Alternative Work Visa In USA When H-1B Visa Fails
-            <i className="fa fa-link" />
-          </Link>
-          <Link
-            href="https://www.youtube.com/watch?v=0AzPlMJ6slQ"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i className="fa fa-youtube" />
-            Most Common Question About O-1 Work Visa In USA
-            <i className="fa fa-link" />
-          </Link>
-        </>
+          <OptionsContainer>
+            <OptionButton
+              onClick={() =>
+                window.open("https://www.youtube.com/watch?v=Ar_hijWPS5s")
+              }
+            >
+              <i className="fa fa-youtube" />
+              Alternative Work Visa In USA When H-1B Visa Fails
+              <i className="fa fa-link" />
+            </OptionButton>
+            <OptionButton
+              onClick={() =>
+                window.open("https://www.youtube.com/watch?v=0AzPlMJ6slQ")
+              }
+            >
+              <i className="fa fa-youtube" />
+              Most Common Question About O-1 Work Visa In USA
+              <i className="fa fa-link" />
+            </OptionButton>
+          </OptionsContainer>
+        </OptionGroup>
       )}
       {formState.step1 === "hiring" && (
         <OptionGroup>
