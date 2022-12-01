@@ -242,20 +242,22 @@ const Meet = () => {
       {formState.hiring === "hireMe" && (
         <OptionGroup>
           <h1>
-            Does Mayank&apos;s current / previous company have an open position?
+            Does <Highlight>Outgo</Highlight>, <Highlight>Convoy</Highlight>, or{" "}
+            <Highlight>Legalpad</Highlight> have an open position on their
+            website?
           </h1>
           <OptionsContainer>
             <OptionButton
               isSelected={formState.hireMe === "hasOpenPosition"}
               onClick={() => handleSelectHireMe("hasOpenPosition")}
             >
-              Yes, I there is an open position
+              Yes, there is an open position
             </OptionButton>
             <OptionButton
               isSelected={formState.hireMe === "hasNoOpenPosition"}
               onClick={() => handleSelectHireMe("hasNoOpenPosition")}
             >
-              No, I there isn&apos;t an open position
+              No, there isn&apos;t an open position
             </OptionButton>
           </OptionsContainer>
         </OptionGroup>
