@@ -131,7 +131,6 @@ hr.sectionHeaderBlack {
 .skillDetails {
   width: 100%;
   display: inline-block;
-  float: left;
   text-align: left;
 }
 
@@ -144,7 +143,6 @@ hr.sectionHeaderBlack {
 }
 
 .contactIcons {
-  float: left;
   display: inline-block;
   vertical-align: middle;
   font-size: 30px;
@@ -167,6 +165,7 @@ hr.sectionHeaderBlack {
   width: 26px;
   left: 50%;
   height: 42px;
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);

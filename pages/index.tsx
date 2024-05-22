@@ -614,8 +614,6 @@ const Home = () => {
         >
           <Link
             href={routes.meet}
-            target="_blank"
-            rel="noreferrer"
             className={styles.resumeButton}
             style={{ margin: 4 }}
           >
