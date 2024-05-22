@@ -1,13 +1,14 @@
 import { memo } from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
-import { Project } from "../data/projects";
+import { TProject } from "../data/projects";
 
 const RootContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 16px;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
 `;
 
 const ProjectTitle = styled.div`
@@ -65,7 +66,7 @@ const ImageContainer = styled.div`
 `;
 
 interface Props {
-  project: Project;
+  project: TProject;
 }
 
 const Project = ({ project }: Props) => {
@@ -94,7 +95,7 @@ const Project = ({ project }: Props) => {
         {subtitle}
         {projectType && (
           <ProjectType>
-            ({projectType}){" "}
+            {`(${projectType}) `}
             {timing && (
               <TimingIcon>
                 <i className="fas fa-hourglass-half" />

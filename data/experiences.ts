@@ -1,4 +1,4 @@
-export type Experience = {
+export type TExperience = {
   year: string;
   image: string;
   imageHeight: string;
@@ -8,7 +8,7 @@ export type Experience = {
   stage: string;
 };
 
-export const experiences: Experience[] = [
+export const experiences: TExperience[] = [
   {
     image: "/images/outgo.png",
     name: "Outgo, Inc.",

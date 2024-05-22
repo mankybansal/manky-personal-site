@@ -1,4 +1,4 @@
-export type Education = {
+export type TEducation = {
   image: string;
   institution: string;
   imageHeight: string;

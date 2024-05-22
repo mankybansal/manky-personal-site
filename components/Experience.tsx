@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 import styles from "../styles/Home.module.css";
 import { memo } from "react";
 import styled from "@emotion/styled";
-import { Experience } from "../data/experiences";
+import { TExperience } from "../data/experiences";
 
 const RootContainer = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ const StyledImage = styled.img`
 `;
 
 interface Props {
-  experience: Experience;
+  experience: TExperience;
 }
 
 const Experience = ({ experience }: Props) => {

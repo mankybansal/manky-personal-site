@@ -8,7 +8,7 @@ import microSavingsPlatform from "../public/images/screenshots/micro-savings-pla
 
 import { StaticImageData } from "next/image";
 
-export type Project = {
+export type TProject = {
   demoLink?: string;
   subtitle: string;
   title: string;
@@ -21,7 +21,7 @@ export type Project = {
   projectType: string;
 };
 
-export const projects: Project[] = [
+export const projects: TProject[] = [
   {
     title: "Not Netflix Inc - Checkout",
     subtitle: "React + Typescript + Framer Motion",

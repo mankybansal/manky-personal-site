@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import InstagramFeed from "react-ig-feed";
-import "react-ig-feed/dist/index.css";
 import Link from "next/link";
 import { css } from "@emotion/css";
 import styled from "@emotion/styled";
@@ -18,6 +16,7 @@ import { experiences } from "../data/experiences";
 import { education } from "../data/education";
 import Education from "../components/Education";
 import { routes } from "../routes";
+import MediumArticles from "../components/MediumArticles";
 
 const LandingContainer = styled.div`
   width: 100%;
@@ -55,12 +54,7 @@ const LandingContainerInner = styled.div`
 const LandingContent = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-left: 100px;
-
-  @media (max-width: 576px) {
-    margin-left: 0;
-  }
+  align-items: center;
 `;
 
 const LandingTitleBase = styled.div`
@@ -73,10 +67,10 @@ const LandingTitle = styled(LandingTitleBase)`
   display: inline-block;
   min-width: 10px;
   min-height: 10px;
-  font-size: 35px;
+  font-size: 36px;
   @media (max-width: 576px) {
     font-size: 24px;
-    text-align: left;
+    margin-top: 16px;
   }
 `;
 
@@ -259,30 +253,16 @@ const PronunciationTooltip = styled.div<{ visible: boolean }>`
 const Home = () => {
   const [shouldShowPronunciation, setShouldShowPronunciation] = useState(false);
 
-  const calculateAge = (birthday) => {
-    const ageDifMs = Date.now() - birthday;
-    const ageDate = new Date(ageDifMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  };
-
   return (
     <>
       <LandingContainer>
         <LandingContainerInner>
-          <LandingLogo>
-            <Image
-              src="/images/Layer%201.png"
-              width={270}
-              height={200}
-              alt={"Landing Image"}
-            />
-          </LandingLogo>
           <LandingContent>
             <LandingNameContainer>
               <LandingName bold>MAYANK</LandingName>
               <LandingName>BANSAL</LandingName>
             </LandingNameContainer>
-            <LandingTitle>Full Stack Engineer + Designer</LandingTitle>
+            <LandingTitle>Lead Frontend Engineer + Designer</LandingTitle>
             <br />
             <div style={{ display: "flex" }}>
               <a
@@ -383,13 +363,13 @@ const Home = () => {
                 <b>Hear pronunciation</b>
               </a>
             </PronunciationTooltip>
-            , a {calculateAge(new Date("1996-02-07"))} year-old{" "}
-            <span style={{ fontWeight: 600 }}>Software Engineer</span> and
-            self-taught <span style={{ fontWeight: 600 }}>Designer</span> that
-            loves to design and build products that solve challenging
-            world-scale problems with careful user research, design, planning
-            and strong engineering principles. I have a sharp eye for
-            pixel-perfect detail.
+            , a{" "}
+            <span style={{ fontWeight: 600 }}>Senior Frontend Engineer</span>{" "}
+            and self-taught <span style={{ fontWeight: 600 }}>Designer</span>{" "}
+            with full-stack experience that loves to design and build products
+            that solve challenging world-scale problems with careful user
+            research, design, planning and strong engineering principles. I have
+            a sharp eye for pixel-perfect detail.
             <br />
             <br />
             In my free time, you can find me mentoring, teaching, cooking or
@@ -401,8 +381,8 @@ const Home = () => {
             <UnderlinedLink href={"https://www.outgo.co"} target={"_blank"}>
               Outgo
             </UnderlinedLink>
-            , whose mission is to build an all-in-one fintech solution that
-            truly benefits carriers. Previously at{" "}
+            . Our mission is to build an all-in-one fintech solution for
+            carriers. Previously at{" "}
             <UnderlinedLink href={"https://www.convoy.co,"} target={"_blank"}>
               Convoy
             </UnderlinedLink>{" "}
@@ -471,6 +451,7 @@ const Home = () => {
           </AboutMeText>
         </div>
       </SectionContainer>
+
       <SectionContainer id="medium">
         <div className={styles.sectionTitle}>Posts</div>
         <hr className={styles.sectionHeaderDark} />
@@ -480,9 +461,7 @@ const Home = () => {
           highlights:
         </TextContainer>
 
-        <TextContainer>
-          Whoops, this widget is broken. I will fix this at some point.
-        </TextContainer>
+        <MediumArticles />
         <br />
         <br />
         <a
@@ -538,7 +517,7 @@ const Home = () => {
         <div className={styles.sectionTitle}>Technical Skills</div>
         <hr className={styles.sectionHeaderDark} />
         <TextContainer>
-          Though I&apos;m a Full Stack Engineer, my time is split 60/30/10
+          Though I&apos;m a Frontend Engineer, my time is split 60/30/10
           frontend/backend/design. I like to work on high quality experiences
           from user research to launch.
         </TextContainer>
@@ -617,75 +596,6 @@ const Home = () => {
             https://csfirst.withgoogle.com
           </a>
         </TextContainer>
-      </SectionContainer>
-      <SectionContainer id="github" variableHeight>
-        <div className={styles.sectionTitle}>GitHub</div>
-        <hr className={styles.sectionHeaderDark} />
-        <span className={styles.segoeLight20}>
-          Things I&apos;m working on - Coming Soon
-        </span>
-        <br />
-        <br />
-        <br />
-        <br />
-        <a
-          href="https://github.com/mankybansal"
-          className={styles.resumeButton}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fab fa-github" /> &nbsp; Visit my GitHub
-        </a>
-        <br />
-        <br />
-      </SectionContainer>
-      <SectionContainer id="dribbble" variableHeight>
-        <div className={styles.sectionTitle}>Dribbble</div>
-        <hr className={styles.sectionHeaderDark} />
-        <span className={styles.segoeLight20}>
-          Things I&apos;ve designed - Coming Soon
-        </span>
-        <br />
-        <br />
-        <br />
-        <br />
-        <a
-          href="https://dribbble.com/mankybansal"
-          className={styles.resumeButton}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fab fa-dribbble" /> &nbsp; Visit my Dribbble
-        </a>
-        <br />
-        <br />
-      </SectionContainer>
-      <SectionContainer id="instagram" variableHeight>
-        <div className={styles.sectionTitle}>Instagram</div>
-        <hr className={styles.sectionHeaderDark} />
-        <span className={styles.segoeLight20}>A peek into my world</span>
-        <br />
-        <br />
-        <InstagramFeed
-          counter={18}
-          token={process.env.NEXT_PUBLIC_INSTAGRAM_TOKEN}
-        />
-        <TextContainer>
-          {" "}
-          Whoops, this widget is broken. I will fix this at some point.
-        </TextContainer>
-        <br />
-        <br />
-        <a
-          href="https://instagram.com/mankybansal"
-          className={styles.resumeButton}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fab fa-instagram" /> &nbsp; Visit my Instagram
-        </a>
-        <br />
-        <br />
       </SectionContainer>
       <SectionContainer id="contact" variableHeight>
         <div className={styles.sectionTitle}>Contact Me</div>
@@ -795,7 +705,7 @@ const Home = () => {
         <div className={styles.segoeLight17}>
           <div>
             Handmade with <i className="fa fa-heart" /> in <b>Seattle, WA</b>{" "}
-            using <b>Next.js 13</b> and{" "}
+            using <b>Next.js</b> and{" "}
             <a href="https://vercel.com" target="_blank" rel="noreferrer">
               <Image
                 src={"/vercel.svg"}
