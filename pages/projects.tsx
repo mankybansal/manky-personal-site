@@ -11,48 +11,18 @@ const projects = [
         title: "Outgo",
         description: "A tool to help people manage their finances.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://outgo.app",
       },
       {
         id: "convoy",
         title: "Convoy",
         description: "A platform to help people find and hire lawyers.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://convoy.app",
       },
       {
         id: "legalpad",
         title: "Legalpad",
         description: "A platform to help people find and hire lawyers.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://legalpad.io",
-      },
-    ],
-  },
-  {
-    category: "Projects",
-    description: "Personal projects I've worked on.",
-    list: [
-      {
-        id: "chutta",
-        title: "Chutta",
-        description: "A tool to help people manage their finances.",
-        techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://chutta.app",
-      },
-      {
-        id: "librorum",
-        title: "Librorum",
-        description: "A platform to help people find and hire lawyers.",
-        techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://librorum.app",
-      },
-      {
-        id: "ipod-js",
-        title: "iPod.js",
-        description: "A platform to help people find and hire lawyers.",
-        techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://ipodjs.app",
       },
     ],
   },
@@ -65,49 +35,66 @@ const projects = [
         title: "Email Thing",
         description: "A tool to help people manage their finances.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://emailthing.app",
       },
       {
         id: "convoy-svelte",
         title: "Convoy Svelte",
         description: "A platform to help people find and hire lawyers.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://convoy.app",
       },
       {
         id: "convoy-react",
         title: "Convoy React",
         description: "A platform to help people find and hire lawyers.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://convoy.app",
       },
       {
         id: "convoy-svelte",
         title: "Outgo — Svelte",
         description: "A tool to help people manage their finances.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://outgo.app",
       },
       {
         id: "lunas",
         title: "Luna's",
         description: "A platform to help people find and hire lawyers.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://lunas.app",
       },
       {
         id: "not-netflix-inc",
         title: "Not Netflix Inc",
         description: "A platform to help people find and hire lawyers.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://notnetflixinc.app",
       },
       {
         id: "material-ide",
         title: "Material IDE",
         description: "A platform to help people find and hire lawyers.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://materialide.app",
+      },
+    ],
+  },
+  {
+    category: "Projects",
+    description: "Personal projects I've worked on.",
+    list: [
+      {
+        id: "chutta",
+        title: "Chutta",
+        description: "A tool to help people manage their finances.",
+        techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+      },
+      {
+        id: "librorum",
+        title: "Librorum",
+        description: "A platform to help people find and hire lawyers.",
+        techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+      },
+      {
+        id: "cyberhawk",
+        title: "Cyberhawk",
+        description: "A platform to help people find and hire lawyers.",
+        techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
       },
     ],
   },
@@ -120,21 +107,18 @@ const projects = [
         title: "Wordle",
         description: "A tool to help people manage their finances.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://wordle.app",
       },
       {
         id: "snake",
         title: "Snake",
         description: "A platform to help people find and hire lawyers.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://snake.app",
       },
       {
         id: "color-autocomplete-react",
         title: "Autocomplete React",
         description: "A platform to help people find and hire lawyers.",
         techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-        link: "https://autocomplete.app",
       },
     ],
   },
@@ -154,12 +138,19 @@ const CategoryTitle = styled.h2`
 const ProjectList = styled.ul`
   list-style: none;
   padding: 0;
+  margin-top: 2rem;
 `;
 
 const ProjectItem = styled.li`
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   border-left: 4px solid #eb9a3f;
   padding-left: 1rem;
+  cursor: pointer;
+
+  transition: all ease 0.3s;
+  :hover {
+    padding-left: 1.25rem;
+  }
 `;
 
 const ProjectTitle = styled.h3`
@@ -175,13 +166,6 @@ const ProjectDescription = styled.p`
 const ProjectTechStack = styled.p`
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
-`;
-
-const ProjectLink = styled.a`
-  color: #eb9a3f !important;
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 600;
 `;
 
 const CategoryDescription = styled.p`
@@ -210,18 +194,17 @@ const Projects = () => {
           <CategoryDescription>{category.description}</CategoryDescription>
           <ProjectList>
             {category.list.map((project) => (
-              <ProjectItem key={project.id}>
+              <ProjectItem
+                key={project.id}
+                onClick={() =>
+                  window.open(routes.project.replace(":id", project.id))
+                }
+              >
                 <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectDescription>{project.description}</ProjectDescription>
                 <ProjectTechStack>
                   {project.techStack.join(", ")}
                 </ProjectTechStack>
-                <ProjectLink
-                  href={routes.project.replace(":id", project.id)}
-                  target="_blank"
-                >
-                  {project.link}
-                </ProjectLink>
               </ProjectItem>
             ))}
           </ProjectList>

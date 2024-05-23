@@ -465,7 +465,7 @@ const Home = () => {
         <br />
         <br />
         <a
-          href="https://medium.com/mankybansal"
+          href="https://mankybansal.medium.com/"
           className={styles.resumeButton}
           target="_blank"
           rel="noreferrer"
