@@ -38,14 +38,13 @@ const Card = styled.div`
   vertical-align: top;
   flex: 1;
   max-width: 500px;
+  cursor: pointer;
   width: 100%;
-`;
 
-const Link = styled.a`
-  font-weight: bold;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+  :hover {
+    a {
+      text-decoration: underline !important;
+    }
   }
 `;
 
@@ -53,63 +52,87 @@ const Body = styled.div`
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  align-items: center;
+  text-align: left;
 `;
 
-const Title = styled.h4`
+const Title = styled.a`
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: left;
 `;
 
 const Subtitle = styled.p`
   font-size: 1rem;
 `;
 
+const ImageContainer = styled.div`
+  max-width: 500px;
+  width: 100%;
+  height: 250px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #eee;
+  border-radius: 10px;
+
+  :hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+`;
+
 const MediumCard = ({ article }) => {
   const imageUrl = article["description"].match(/<img[^>]+src="([^">]+)"/)[1];
 
   return (
-    <Card>
+    <Card onClick={() => window.open(article.link)}>
       {imageUrl && (
-        <div
-          style={{
-            maxWidth: "500px",
-            width: "100%",
-            height: "250px",
-            background: "white",
-            overflow: "hidden",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-            border: "2px solid #eee",
-            borderRadius: "10px",
-          }}
-        >
+        <ImageContainer>
           <Image
             src={imageUrl}
             alt={article.title}
             width={500}
             height={250}
-            style={{ objectFit: "cover" }} // optional
+            style={{ objectFit: "cover" }}
           />
-        </div>
+        </ImageContainer>
       )}
       <Body>
-        <Title>{article.title}</Title>
+        <Title href={article.href}>{article.title}</Title>
         <div
           style={{
             display: "flex",
+            gap: "16px",
             alignItems: "center",
-            justifyContent: "space-between",
-            gap: "1rem",
           }}
         >
-          <Subtitle className="text-muted">
+          <i className={"fa fa-medium"} />
+          <Subtitle className="text-muted" style={{ color: "#888" }}>
             {DateTime.fromFormat(
               article.pubDate,
               "yyyy-MM-dd HH:mm:ss",
             ).toFormat("dd LLLL, yyyy")}
           </Subtitle>
-          <Link href={article.link}>Read More</Link>
+          <div style={{ fontWeight: 500 }}>Mayank Bansal</div>
+        </div>
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.26rem" }}>
+          {article.categories.map((category, index) => (
+            <div
+              style={{
+                display: "flex",
+                color: "#555",
+                fontSize: "0.75rem",
+                border: "1px solid #ccc",
+                padding: "0.25rem 0.5rem",
+                borderRadius: "2rem",
+                whiteSpace: "nowrap",
+              }}
+              key={index}
+            >
+              {category}
+            </div>
+          ))}
         </div>
       </Body>
     </Card>

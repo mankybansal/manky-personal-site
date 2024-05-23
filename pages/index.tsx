@@ -503,11 +503,18 @@ const Home = () => {
         <div className={styles.sectionTitle}>Projects</div>
         <hr className={styles.sectionHeaderDark} />
         <TextContainer>
-          Here are some side projects / code samples I&apos;ve worked on. Some
-          of these projects may not have aged well, but hey... engineering
-          involves an incremental learning process.
+          Here are some selected side projects / code samples I&apos;ve worked
+          on. You can view all of them here:
         </TextContainer>
-        <ProjectsContainer>
+        <a
+          href={routes.projects}
+          className={styles.resumeButton}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <i className="fas fa-tools" /> &nbsp; See all projects
+        </a>
+        <ProjectsContainer style={{ marginTop: 64 }}>
           {projects.map((project, idx) => (
             <Project key={`${project.title}-${idx}`} project={project} />
           ))}
@@ -519,7 +526,14 @@ const Home = () => {
         <TextContainer>
           Though I&apos;m a Frontend Engineer, my time is split 60/30/10
           frontend/backend/design. I like to work on high quality experiences
-          from user research to launch.
+          from user research to launch on web and mobile.
+          <br />
+          <br />I also have experience with{" "}
+          <span style={{ fontWeight: 500 }}>
+            Internationalization - i18n
+          </span>, <span style={{ fontWeight: 500 }}>Accessibility</span>,{" "}
+          <span style={{ fontWeight: 500 }}>Security</span>, and{" "}
+          <span style={{ fontWeight: 500 }}>Performance</span>.
         </TextContainer>
         <div className={styles.skillContainer}>
           {skills.map((skill, idx) => (
@@ -528,7 +542,12 @@ const Home = () => {
               {skill.items.map((item, idx) => (
                 <div className={styles.skill} key={`${item.title}-${idx}`}>
                   <div className={styles.skillDetails}>
-                    <div className={styles.skillTitle}>{item.title}</div>
+                    <div
+                      className={styles.skillTitle}
+                      style={{ fontWeight: item.bold ? 600 : 400 }}
+                    >
+                      {item.title}
+                    </div>
                   </div>
                 </div>
               ))}

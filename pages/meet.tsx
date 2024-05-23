@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";

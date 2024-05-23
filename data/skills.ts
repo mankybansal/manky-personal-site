@@ -2,13 +2,12 @@ export const skills = [
   {
     title: "Frontend",
     items: [
-      { title: "React, Next.js, React Native", level: 4 },
-      { title: "Expo, Recoil, Jotai, Vite", level: 4 },
+      { title: "React, Next.js, ", level: 4, bold: true },
+      { title: "React Native, Expo", level: 4, bold: true },
+      { title: "Recoil, Jotai, Framer Motion", level: 4, bold: true },
       { title: "Apollo Client, Svelte, Rails", level: 3 },
-      { title: "Framer Motion, Webpack", level: 4 },
+      { title: "Vite, Webpack", level: 4 },
       { title: "Emotion, Styled Components", level: 5 },
-      { title: "Performance, i18n", level: 5 },
-      { title: "Accessibility, Security", level: 5 },
     ],
   },
   {
@@ -25,7 +24,7 @@ export const skills = [
   {
     title: "Languages",
     items: [
-      { title: "TypeScript", level: 4 },
+      { title: "TypeScript", level: 4, bold: true },
       { title: "JavaScript", level: 4 },
       { title: "Python", level: 4 },
       { title: "C/C++, Java", level: 4 },
@@ -35,18 +34,18 @@ export const skills = [
   {
     title: "Testing / Release",
     items: [
-      { title: "Playwright", level: 3 },
-      { title: "Cypress, Enzyme", level: 3 },
+      { title: "Playwright", level: 3, bold: true },
+      { title: "Cypress, Enzyme", level: 3, bold: true },
       { title: "Mocha, Jest", level: 3 },
       { title: "CI/CD, Expo", level: 3 },
-      { title: "Expo (EAS), App Stores", level: 3 },
+      { title: "Expo (EAS), App Stores", level: 3, bold: true },
       { title: "Embeddable Widgets", level: 3 },
     ],
   },
   {
     title: "Prototyping",
     items: [
-      { title: "Figma", level: 3.5 },
+      { title: "Figma", level: 3.5, bold: true },
       { title: "FigJam", level: 3.5 },
       { title: "Adobe Illustrator", level: 5 },
       { title: "Adobe Photoshop", level: 5 },
