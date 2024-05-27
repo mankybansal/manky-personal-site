@@ -55,7 +55,7 @@ export default function Chutta() {
           system would round off the transaction by charging an additional
           amount. For example ₹483.00 would become ₹500.00 if you had set{" "}
           <Highlight>
-            "Round to the nearest 50 on transactions above ₹300.00."
+            &quot;Round to the nearest 50 on transactions above ₹300.00.&quot;
           </Highlight>
         </TextBlock>
 
