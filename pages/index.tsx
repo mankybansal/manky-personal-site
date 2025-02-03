@@ -377,12 +377,15 @@ const Home = () => {
             build a better and sustainable future.
             <br />
             <br />
-            Currently an all-in-one employee at{" "}
-            <UnderlinedLink href={"https://www.outgo.co"} target={"_blank"}>
+            Currently building AI products at{" "}
+            <UnderlinedLink href={"https://www.openai.com"} target={"_blank"}>
+              OpenAI
+            </UnderlinedLink>
+            . Previously at{" "}
+            <UnderlinedLink href={"https://www.outgo.com"} target={"_blank"}>
               Outgo
             </UnderlinedLink>
-            . Our mission is to build an all-in-one fintech solution for
-            carriers. Previously at{" "}
+            ,{" "}
             <UnderlinedLink href={"https://www.convoy.co,"} target={"_blank"}>
               Convoy
             </UnderlinedLink>{" "}
@@ -491,12 +494,24 @@ const Home = () => {
         <div className={styles.sectionTitle}>Experience</div>
         <hr className={styles.sectionHeaderDark} />
         <ExperienceContainer>
-          {experiences.map((experience, idx) => (
-            <Experience
-              key={`${experience.name}-${idx}`}
-              experience={experience}
-            />
-          ))}
+          {experiences
+            .filter((e) => e.current)
+            .map((experience, idx) => (
+              <Experience
+                key={`${experience.name}-${idx}`}
+                experience={experience}
+              />
+            ))}
+        </ExperienceContainer>
+        <ExperienceContainer>
+          {experiences
+            .filter((e) => !e.current)
+            .map((experience, idx) => (
+              <Experience
+                key={`${experience.name}-${idx}`}
+                experience={experience}
+              />
+            ))}
         </ExperienceContainer>
       </SectionContainer>
       <SectionContainer id="projects" variableHeight>

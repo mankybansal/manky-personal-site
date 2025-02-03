@@ -1,12 +1,11 @@
-import { css } from "@emotion/css";
-import styles from "../styles/Home.module.css";
 import { memo } from "react";
 import styled from "@emotion/styled";
 import { TExperience } from "../data/experiences";
 
-const RootContainer = styled.div`
+const RootContainer = styled.div<{ current: boolean }>`
   display: flex;
   margin: 50px;
+  gap: ${({ current }) => (current ? "32px" : "16px")};
 
   @media (max-width: 576px) {
     margin: 20px 0;
@@ -22,74 +21,67 @@ const StyledImage = styled.img`
   }
 `;
 
+const InfoContainer = styled.div<{ current: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+const YearText = styled.div`
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 8px;
+`;
+
+const NameText = styled.a`
+  font-weight: 500;
+  margin-bottom: 4px;
+  text-decoration: underline;
+`;
+
+const DetailsText = styled.div<{ current: boolean }>`
+  font-weight: 600;
+  font-size: ${({ current }) => (current ? "16px" : "12px")};
+  color: #eb9a3f;
+  margin-bottom: 8px;
+`;
+
+const CityText = styled.div`
+  font-weight: 500;
+  font-size: 12px;
+`;
+
+const StageText = styled.div`
+  font-weight: 500;
+  color: #aaa;
+  margin-top: 4px;
+  font-size: 12px;
+`;
+
 interface Props {
   experience: TExperience;
 }
 
 const Experience = ({ experience }: Props) => {
-  const { year, image, imageHeight, name, city, details, stage } = experience;
+  const { year, image, name, city, details, stage, current, link } = experience;
+
   return (
-    <RootContainer>
-      <StyledImage src={image} height={imageHeight} />
-      <div
-        className={css`
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          margin-left: 32px;
-        `}
-      >
-        <div
-          className={css`
-            font-family: "Montserrat", sans-serif;
-            font-weight: 400;
-            font-size: 16px;
-            margin-bottom: 8px;
-          `}
-        >
-          {year}
-        </div>
-        <div
-          className={`${styles.segoeLight20}
-                  ${css`
-                    font-weight: 500;
-                    margin-bottom: 4px;
-                  `}`}
-        >
+    <RootContainer current={current}>
+      <StyledImage src={image} height={current ? "48px" : "32px"} />
+      <InfoContainer current={current}>
+        <YearText>{year}</YearText>
+        <NameText href={link} target="_blank" rel="noreferrer">
           {name}
-        </div>
-        <div
-          className={`${styles.segoeLight20}
-                  ${css`
-                    font-weight: 600;
-                    font-size: 16px;
-                    color: #eb9a3f;
-                    margin-bottom: 8px;
-                  `}`}
-        >
-          {details}
-        </div>
-        <div
-          className={`${styles.segoeLight20}
-                  ${css`
-                    font-weight: 500;
-                    font-size: 12px;
-                  `}`}
-        >
-          {city}
-        </div>
-        <div
-          className={`${styles.segoeLight20}
-                  ${css`
-                    font-weight: 500;
-                    color: #aaa;
-                    margin-top: 4px;
-                    font-size: 12px;
-                  `}`}
-        >
-          {stage}
-        </div>
-      </div>
+          <i
+            className="fa fa-arrow-right"
+            style={{ marginLeft: "16px", color: "#DDD" }}
+          />
+        </NameText>
+        <DetailsText current={current}>{details}</DetailsText>
+        <CityText>{city}</CityText>
+        <StageText>{stage}</StageText>
+      </InfoContainer>
     </RootContainer>
   );
 };
