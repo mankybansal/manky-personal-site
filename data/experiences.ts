@@ -27,7 +27,7 @@ export const experiences: TExperience[] = [
     year: "2022 - 2024",
     city: "Seattle, Washington",
     details: "Software Engineer III",
-    stage: "Seed+ Stage",
+    stage: "Acquired by DAT",
   },
   {
     image: "/images/logos/convoy.svg",
@@ -36,7 +36,7 @@ export const experiences: TExperience[] = [
     year: "2019 - 2022",
     city: "Seattle, Washington",
     details: "Software Engineer II",
-    stage: "Series E 🦄",
+    stage: "Acquired by Flexport",
   },
   {
     image: "/images/logos/legalpad.svg",

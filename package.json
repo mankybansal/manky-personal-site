@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "prettier -c -w . && eslint ."
@@ -14,15 +14,19 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@vercel/analytics": "^1.2.2",
+    "@vercel/kv": "^3.0.0",
+    "framer-motion": "^12.14.0",
     "jquery": "^3.7.1",
     "luxon": "^3.5.0",
-    "next": "15.1.2",
+    "next": "15.2.4",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "redis": "^5.1.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "@types/react": "19.0.8",
     "@types/node": "22.13.0",
+    "@types/react": "19.0.8",
     "@typescript-eslint/parser": "^7.10.0",
     "eslint": "^9.19.0",
     "eslint-config-next": "15.1.6",

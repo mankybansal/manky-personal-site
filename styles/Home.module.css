@@ -1,26 +1,3 @@
-.segoeLight20 {
-  font-weight: 400;
-  font-size: 20px;
-}
-
-.segoeLight17 {
-  font-weight: 400;
-  font-size: 16px;
-}
-
-.vercelLogo {
-  height: 1em;
-  margin-top: 2px;
-}
-
-#canvas {
-  position: absolute;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-}
-
 .socialIcons {
   font-size: 30px;
   margin-left: 10px;
@@ -54,21 +31,9 @@ a.resumeButton:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.sectionTitle {
-  font-weight: 400;
-  font-size: 35px;
-}
-
 .colorLink {
   font-weight: 500;
   color: #eb9a3f !important;
-}
-
-hr.sectionHeaderDark {
-  border: 0;
-  width: 100px;
-  height: 3px;
-  background: #eb9a3f;
 }
 
 hr.sectionHeaderBlack {
@@ -155,38 +120,6 @@ hr.sectionHeaderBlack {
   display: flex;
   align-items: center;
   margin: 20px;
-}
-
-.mouse {
-  border: 2px solid #333;
-  border-radius: 26px;
-  position: absolute;
-  top: 90%;
-  width: 26px;
-  left: 50%;
-  height: 42px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  opacity: 1;
-  transition: all 0.3s ease-in-out;
-}
-
-.mouse::after {
-  background-color: #333;
-  border-radius: 100%;
-  content: "";
-  position: absolute;
-  top: 5px;
-  margin-left: -2px;
-  width: 4px;
-  height: 4px;
-  opacity: 1;
-  -webkit-transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
-  transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
-  -webkit-animation: scroll 1.5s -1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-  animation: scroll 1.5s -1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 }
 
 @-webkit-keyframes scroll {

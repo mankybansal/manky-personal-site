@@ -3,14 +3,23 @@ import styled from "@emotion/styled";
 import { TEducation } from "../data/education";
 
 const RootContainer = styled.div`
+  background: #fffdf8
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03), transparent);
+  border-radius: 20px;
+  padding: 24px;
+
   display: flex;
-  margin: 50px;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  min-width: 280px;
+  width: 100%;
+  max-width: 480px;
+  transition: transform 0.2s;
 
   @media (max-width: 576px) {
-    margin: 20px 0;
-    width: 100%;
-    text-align: left;
     flex-direction: column;
+    padding: 20px;
+    text-align: left;
   }
 `;
 
@@ -29,14 +38,19 @@ const InfoContainer = styled.div`
 
 const YearLocationText = styled.div`
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
 `;
 
 const InstitutionText = styled.div`
-  font-weight: 500;
-  margin-bottom: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #222;
+  text-decoration: none;
 `;
 
 const CredentialText = styled.div`
@@ -47,8 +61,9 @@ const CredentialText = styled.div`
 `;
 
 const ExtraNotesText = styled.div`
-  font-weight: 500;
   font-size: 12px;
+  color: #aaa;
+  margin-top: 2px;
 `;
 
 interface Props {

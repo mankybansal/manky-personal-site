@@ -2,12 +2,12 @@ export const skills = [
   {
     title: "Frontend",
     items: [
-      { title: "React, Next.js, ", level: 4, bold: true },
+      { title: "React, Next.js, Remix", level: 4, bold: true },
       { title: "React Native, Expo", level: 4, bold: true },
-      { title: "Recoil, Jotai, Framer Motion", level: 4, bold: true },
+      { title: "Recoil, Jotai, Zustand", level: 4, bold: true },
       { title: "Apollo Client, Svelte, Rails", level: 3 },
       { title: "Vite, Webpack", level: 4 },
-      { title: "Emotion, Styled Components", level: 5 },
+      { title: "Motion, Styled Components", level: 5 },
     ],
   },
   {
@@ -15,7 +15,7 @@ export const skills = [
     items: [
       { title: "Node.js + Express", level: 4 },
       { title: "GraphQL, REST, RPC", level: 5 },
-      { title: "Apollo Server", level: 5 },
+      { title: "FastAPI, Apollo Server", level: 5 },
       { title: "Postgres, MySQL/SQL", level: 5 },
       { title: "MongoDb, Firebase", level: 3 },
       { title: "Server Side Rendering", level: 3 },

@@ -3,60 +3,100 @@ import styled from "@emotion/styled";
 import { TExperience } from "../data/experiences";
 
 const RootContainer = styled.div<{ current: boolean }>`
-  display: flex;
-  margin: 50px;
-  gap: ${({ current }) => (current ? "32px" : "16px")};
+  background: ${({ current }) =>
+    current
+      ? "linear-gradient(135deg, #fffdf8, #fef5e7)" // warm light gradient
+      : "white"};
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: ${({ current }) =>
+    current
+      ? "0 24px 48px rgba(0, 0, 0, 0.08)"
+      : "0 20px 40px rgba(0, 0, 0, 0.06)"};
+  flex: 1;
+  min-width: 280px;
+  max-width: 360px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.3s;
+  text-align: left;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-4px) scale(${({ current }) => (current ? 1.02 : 1)});
+    box-shadow: ${({ current }) =>
+      current
+        ? "0 30px 60px rgba(0, 0, 0, 0.1)"
+        : "0 24px 50px rgba(0, 0, 0, 0.08)"};
+  }
 
   @media (max-width: 576px) {
-    margin: 20px 0;
-    width: 100%;
-    text-align: left;
-    flex-direction: column;
+    padding: 20px;
   }
 `;
 
 const StyledImage = styled.img`
+  width: 48px;
+  height: auto;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  object-fit: contain;
+
   @media (max-width: 576px) {
     display: none;
   }
 `;
 
-const InfoContainer = styled.div<{ current: boolean }>`
+const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 `;
 
 const YearText = styled.div`
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
 `;
 
 const NameText = styled.a`
-  font-weight: 500;
-  margin-bottom: 4px;
-  text-decoration: underline;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #222;
+  text-decoration: none;
+
+  i {
+    margin-left: 8px;
+    font-size: 12px;
+    color: #bbb;
+  }
+
+  &:hover i {
+    transform: translateX(4px);
+    transition: transform 0.2s;
+    color: #eb9a3f;
+  }
 `;
 
-const DetailsText = styled.div<{ current: boolean }>`
+const DetailsText = styled.div`
   font-weight: 600;
-  font-size: ${({ current }) => (current ? "16px" : "12px")};
+  font-size: 16px;
   color: #eb9a3f;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 `;
 
 const CityText = styled.div`
+  font-size: 14px;
+  color: #555;
   font-weight: 500;
-  font-size: 12px;
 `;
 
 const StageText = styled.div`
-  font-weight: 500;
-  color: #aaa;
-  margin-top: 4px;
   font-size: 12px;
+  color: #aaa;
+  margin-top: 2px;
 `;
 
 interface Props {
@@ -68,17 +108,14 @@ const Experience = ({ experience }: Props) => {
 
   return (
     <RootContainer current={current}>
-      <StyledImage src={image} height={current ? "48px" : "32px"} />
-      <InfoContainer current={current}>
+      <StyledImage src={image} alt={`${name} logo`} />
+      <InfoContainer>
         <YearText>{year}</YearText>
         <NameText href={link} target="_blank" rel="noreferrer">
           {name}
-          <i
-            className="fa fa-arrow-right"
-            style={{ marginLeft: "16px", color: "#DDD" }}
-          />
+          <i className="fa fa-arrow-right" />
         </NameText>
-        <DetailsText current={current}>{details}</DetailsText>
+        <DetailsText>{details}</DetailsText>
         <CityText>{city}</CityText>
         <StageText>{stage}</StageText>
       </InfoContainer>

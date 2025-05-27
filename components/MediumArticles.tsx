@@ -15,77 +15,110 @@ const MediumArticles = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: "2rem",
-        justifyContent: "center",
-        flexWrap: "wrap",
-        width: "100%",
-      }}
-    >
+    <ArticlesGrid>
       {articles?.map((article, index) => (
         <MediumCard article={article} key={index} />
       ))}
-    </div>
+    </ArticlesGrid>
   );
 };
 
-const Card = styled.div`
+const ArticlesGrid = styled.div`
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  vertical-align: top;
-  flex: 1;
-  max-width: 500px;
-  cursor: pointer;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
   width: 100%;
-
-  :hover {
-    a {
-      text-decoration: underline !important;
-    }
-  }
+  max-width: 1000px;
+  margin-top: 2rem;
 `;
 
-const Body = styled.div`
-  padding: 0.5rem;
+const Card = styled.div`
+  width: 100%;
+  max-width: 480px;
+  flex: 0 1 calc(50% - 1rem); // two per row with gap
+
   display: flex;
   flex-direction: column;
-  text-align: left;
-`;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 
-const Title = styled.a`
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  text-align: left;
-`;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+  }
 
-const Subtitle = styled.p`
-  font-size: 1rem;
+  @media (max-width: 768px) {
+    flex: 1 1 100%;
+  }
 `;
 
 const ImageContainer = styled.div`
-  max-width: 500px;
   width: 100%;
   height: 250px;
-  background: white;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 2px solid #eee;
-  border-radius: 10px;
+  position: relative;
+`;
 
-  :hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+const Body = styled.div`
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Title = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+  text-align: left;
+  margin: 1rem 0 0.5rem 0;
+`;
+
+const Meta = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+
+  i {
+    color: #999;
+  }
+
+  span.author {
+    font-weight: 600;
+    color: #444;
   }
 `;
 
+const TagList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+`;
+
+const Tag = styled.div`
+  font-size: 0.75rem;
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 4px 10px;
+  border-radius: 2rem;
+  white-space: nowrap;
+`;
+
 const MediumCard = ({ article }) => {
-  const imageUrl = article["description"].match(/<img[^>]+src="([^">]+)"/)[1];
+  const imageUrl = article["description"].match(/<img[^>]+src="([^">]+)"/)?.[1];
 
   return (
-    <Card onClick={() => window.open(article.link)}>
+    <Card onClick={() => window.open(article.link, "_blank")}>
       {imageUrl && (
         <ImageContainer>
           <Image
@@ -98,42 +131,22 @@ const MediumCard = ({ article }) => {
         </ImageContainer>
       )}
       <Body>
-        <Title href={article.href}>{article.title}</Title>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            alignItems: "center",
-          }}
-        >
-          <i className={"fa fa-medium"} />
-          <Subtitle className="text-muted" style={{ color: "#888" }}>
+        <Title>{article.title}</Title>
+        <Meta>
+          <i className="fab fa-medium" />
+          <span>
             {DateTime.fromFormat(
               article.pubDate,
               "yyyy-MM-dd HH:mm:ss",
             ).toFormat("dd LLLL, yyyy")}
-          </Subtitle>
-          <div style={{ fontWeight: 500 }}>Mayank Bansal</div>
-        </div>
-
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.26rem" }}>
+          </span>
+          <span className="author">Mayank Bansal</span>
+        </Meta>
+        <TagList>
           {article.categories.map((category, index) => (
-            <div
-              style={{
-                display: "flex",
-                color: "#555",
-                fontSize: "0.75rem",
-                border: "1px solid #ccc",
-                padding: "0.25rem 0.5rem",
-                borderRadius: "2rem",
-                whiteSpace: "nowrap",
-              }}
-              key={index}
-            >
-              {category}
-            </div>
+            <Tag key={index}>{category}</Tag>
           ))}
-        </div>
+        </TagList>
       </Body>
     </Card>
   );
