@@ -16,7 +16,11 @@ import Education from "../components/Education";
 import { routes } from "../routes";
 import MediumArticles from "../components/MediumArticles";
 import { RandomFacts } from "../components/RandomFacts";
-import { SectionTitle, ShimmerButton } from "../components/Common";
+import {
+  GlassyButton,
+  SectionTitle,
+  ShimmerButton,
+} from "../components/Common";
 
 const ActionButtonRow = styled.div`
   display: flex;
@@ -423,9 +427,9 @@ const Home = () => {
           <ContentOverlay>
             <LandingName>Mayank Bansal</LandingName>
             <LandingTitle>Lead Frontend Engineer + Designer</LandingTitle>
-            <ShimmerButton href="#contact" style={{ marginTop: 48 }}>
-              Get In Touch
-            </ShimmerButton>
+            <GlassyButton href="#contact" style={{ marginTop: 48 }}>
+              <span> Get In Touch</span>
+            </GlassyButton>
           </ContentOverlay>
         </LandingCard>
       </LandingContainer>

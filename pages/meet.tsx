@@ -1,7 +1,8 @@
+// Enhanced Meet page with improved UX, animations, and stricter gating logic
+
 import { useState } from "react";
-import { useRouter } from "next/router";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 
 const RootContainer = styled.div`
   display: flex;
@@ -10,21 +11,49 @@ const RootContainer = styled.div`
   justify-content: center;
   min-height: 100vh;
   padding: 40px 12px;
+  background: linear-gradient(to bottom, #fffdf8, #f5f3ef);
+`;
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+const Intro = styled.div`
+  max-width: 700px;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #333;
+  animation: ${fadeIn} 0.6s ease forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+
+  p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
 `;
 
 const OptionGroup = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   max-width: 800px;
   align-items: center;
+  text-align: center;
+  opacity: ${({ dimmed }) => (dimmed ? 0.4 : 1)};
+  transition: opacity 0.3s ease;
 
   h1 {
-    color: #555;
+    color: #222;
+    font-weight: 600;
   }
 
   h4 {
-    color: #eb9a3f;
+    color: #666;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    max-width: 600px;
   }
 `;
 
@@ -33,25 +62,24 @@ const OptionsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 12px;
 `;
 
-const OptionButton = styled.button<{ isSelected?: boolean }>`
-  padding: 8px 32px;
-  line-height: normal;
-  font-size: 20px;
-  font-weight: 400;
-  color: black;
-  margin: 4px;
+const OptionButton = styled.button`
+  padding: 10px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
   background: transparent;
-  border-radius: 2rem;
-  width: fit-content;
-  border: 2px solid black;
-  transition: all ease 0.3s;
+  border-radius: 999px;
+  border: 2px solid #222;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    background: black;
+    background: #222;
     color: white;
-    border: 2px solid black;
+    transform: translateY(-1px);
   }
 
   ${({ isSelected }) =>
@@ -59,257 +87,241 @@ const OptionButton = styled.button<{ isSelected?: boolean }>`
     css`
       background: #eb9a3f;
       color: white;
-      border: 2px solid #eb9a3f;
+      border-color: #eb9a3f;
     `}
-
-  .fa {
-    margin: 0 8px;
-  }
 `;
 
 const Highlight = styled.span`
-  color: #000;
-  text-decoration: underline;
+  color: #eb9a3f;
+  font-weight: 600;
 `;
 
-type FormState = {
-  step1: "immigration" | "hiring" | "other" | undefined;
-  immigration: "hasWatched" | "hasNotWatched" | undefined;
-  hiring: "hireMayank" | "hireMe" | undefined;
-  hireMe:
-    | "hasOpenPosition"
-    | "hasNoOpenPosition"
-    | "differentCompany"
-    | undefined;
-};
+const VideoFrame = styled.iframe`
+  border: none;
+  width: 100%;
+  max-width: 500px;
+  height: 280px;
+  margin: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+`;
+
+const ScheduleButton = styled(OptionButton)`
+  font-size: 18px;
+  padding: 14px 32px;
+  margin-top: 24px;
+`;
 
 const Meet = () => {
-  const router = useRouter();
-
-  const [formState, setFormState] = useState<FormState>({
+  const [formState, setFormState] = useState({
     step1: undefined,
     immigration: undefined,
     hiring: undefined,
     hireMe: undefined,
   });
 
-  const handleClickMeet = () => {
-    router.replace("https://calend.ly/mankybansal");
+  const isAnswered = (step) => step !== undefined;
+
+  const handle = (key, value) => {
+    const newState = { ...formState };
+    newState[key] = value;
+    if (key === "step1") {
+      newState.immigration = undefined;
+      newState.hiring = undefined;
+      newState.hireMe = undefined;
+    }
+    if (key === "hiring") {
+      newState.hireMe = undefined;
+    }
+    setFormState(newState);
   };
 
-  const handleSelectStep1 = (value: FormState["step1"]) => {
-    setFormState((prevState) => ({
-      ...prevState,
-      step1: value,
-      immigration: undefined,
-      hiring: undefined,
-      hireMe: undefined,
-    }));
-  };
-
-  const handleSelectImmigration = (value: FormState["immigration"]) => {
-    setFormState((prevState) => ({
-      ...prevState,
-      immigration: value,
-    }));
-  };
-
-  const handleSelectHiring = (value: FormState["hiring"]) => {
-    setFormState((prevState) => ({
-      ...prevState,
-      hiring: value,
-      hireMe: undefined,
-    }));
-  };
-
-  const handleSelectHireMe = (value: FormState["hireMe"]) => {
-    setFormState((prevState) => ({
-      ...prevState,
-      hireMe: value,
-    }));
-  };
+  const shouldShowCalendar =
+    formState.step1 === "other" ||
+    formState.hireMe === "hasOpenPosition" ||
+    formState.hireMe === "differentCompany" ||
+    formState.immigration === "hasWatched";
 
   return (
     <RootContainer>
-      <OptionGroup>
-        <h1>What do you want to meet about?</h1>
+      <Intro>
+        <p>Hi — thanks for your interest in connecting!</p>
+        <p>
+          This form helps us both figure out what kind of conversation will be
+          most valuable. I can help with immigration, hiring, or anything in
+          between.
+        </p>
+        <p>
+          I often talk with founders, engineers, and immigrants navigating U.S.
+          opportunities. Let’s make this useful for both of us!
+        </p>
+      </Intro>
+
+      <OptionGroup dimmed={isAnswered(formState.step1)}>
+        <h1>What would you like to meet about?</h1>
         <OptionsContainer>
           <OptionButton
             isSelected={formState.step1 === "immigration"}
-            onClick={() => handleSelectStep1("immigration")}
+            onClick={() => handle("step1", "immigration")}
           >
             Immigration / Visas
           </OptionButton>
           <OptionButton
             isSelected={formState.step1 === "hiring"}
-            onClick={() => handleSelectStep1("hiring")}
+            onClick={() => handle("step1", "hiring")}
           >
             Hiring / Job Opportunities
           </OptionButton>
           <OptionButton
             isSelected={formState.step1 === "other"}
-            onClick={() => handleSelectStep1("other")}
+            onClick={() => handle("step1", "other")}
           >
-            Networking
+            Just Networking
           </OptionButton>
         </OptionsContainer>
       </OptionGroup>
+
       {formState.step1 === "immigration" && (
-        <OptionGroup>
-          <h1>
-            Have you watched my O-1A Visa / EB-1A Green Card videos where I
-            answer common questions? (Recommended)
-          </h1>
+        <OptionGroup dimmed={isAnswered(formState.immigration)}>
+          <h1>Have you already explored these?</h1>
           <h4>
-            These videos can answer common questions about the process of
-            getting an O-1A Visa and EB-1A Green Card. I recommend watching them
-            before scheduling a meeting with me.
+            I’ve put together answers to common O-1 / EB-1A questions. They’re
+            helpful even if you're just getting started — and many influencers
+            now quote them on LinkedIn.
           </h4>
+          <OptionsContainer>
+            <VideoFrame
+              src="https://www.youtube.com/embed/Ar_hijWPS5s"
+              title="Alternative Work Visa"
+              allowFullScreen
+            />
+            <VideoFrame
+              src="https://www.youtube.com/embed/0AzPlMJ6slQ"
+              title="Common O-1 Visa Questions"
+              allowFullScreen
+            />
+          </OptionsContainer>
           <OptionsContainer>
             <OptionButton
               isSelected={formState.immigration === "hasWatched"}
-              onClick={() => handleSelectImmigration("hasWatched")}
+              onClick={() => handle("immigration", "hasWatched")}
             >
-              Yes
+              Yep, already watched
             </OptionButton>
             <OptionButton
               isSelected={formState.immigration === "hasNotWatched"}
-              onClick={() => handleSelectImmigration("hasNotWatched")}
+              onClick={() => handle("immigration", "hasNotWatched")}
             >
-              No
+              Not yet
             </OptionButton>
           </OptionsContainer>
+          {formState.immigration === "hasNotWatched" && (
+            <h4>
+              You can find many of the most common answers in the videos above,
+              or by browsing LinkedIn where creators often summarize this
+              process. I recommend starting there before scheduling time
+              together. 🙏
+            </h4>
+          )}
         </OptionGroup>
       )}
-      {formState.immigration === "hasNotWatched" && (
-        <OptionGroup>
-          <h1>You can watch them here:</h1>
-          <OptionsContainer>
-            <OptionButton
-              onClick={() =>
-                window.open("https://www.youtube.com/watch?v=Ar_hijWPS5s")
-              }
-            >
-              <i className="fa fa-youtube" />
-              Alternative Work Visa In USA When H-1B Visa Fails
-              <i className="fa fa-link" />
-            </OptionButton>
-            <OptionButton
-              onClick={() =>
-                window.open("https://www.youtube.com/watch?v=0AzPlMJ6slQ")
-              }
-            >
-              <i className="fa fa-youtube" />
-              Most Common Question About O-1 Work Visa In USA
-              <i className="fa fa-link" />
-            </OptionButton>
-          </OptionsContainer>
-        </OptionGroup>
-      )}
+
       {formState.step1 === "hiring" && (
-        <OptionGroup>
-          <h1>Do you want to hire me?</h1>
+        <OptionGroup dimmed={isAnswered(formState.hiring)}>
+          <h1>Are you looking to hire me?</h1>
           <OptionsContainer>
             <OptionButton
               isSelected={formState.hiring === "hireMayank"}
-              onClick={() => handleSelectHiring("hireMayank")}
+              onClick={() => handle("hiring", "hireMayank")}
             >
               Yes, I want to hire you
             </OptionButton>
             <OptionButton
               isSelected={formState.hiring === "hireMe"}
-              onClick={() => handleSelectHiring("hireMe")}
+              onClick={() => handle("hiring", "hireMe")}
             >
               No, I am looking for a job
             </OptionButton>
           </OptionsContainer>
         </OptionGroup>
       )}
+
       {formState.hiring === "hireMayank" && (
         <OptionGroup>
           <h1>
-            I may not be looking for a job, but I am interested in learning what
-            you are creating.{" "}
-            <Highlight>Message me on LinkedIn first.</Highlight>
+            I’m not actively looking, but I love hearing about what you're
+            building. <Highlight>Message me on LinkedIn first.</Highlight>
           </h1>
           <OptionsContainer>
             <OptionButton
               onClick={() => window.open("https://linkedin.com/in/mankybansal")}
             >
-              <i className="fa fa-linkedin-square" />
-              Message me on LinkedIn
-              <i className="fa fa-link" />
+              💼 Message me on LinkedIn
             </OptionButton>
           </OptionsContainer>
         </OptionGroup>
       )}
+
       {formState.hiring === "hireMe" && (
-        <OptionGroup>
+        <OptionGroup dimmed={isAnswered(formState.hireMe)}>
           <h1>
-            Does <Highlight>Outgo</Highlight>, <Highlight>Convoy</Highlight>, or{" "}
-            <Highlight>Legalpad</Highlight> have an open position on their
-            website?
+            Do any of my current or past employers —{" "}
+            <Highlight>OpenAI</Highlight>,<Highlight>Outgo (DAT)</Highlight>,{" "}
+            <Highlight>Convoy (Flexport)</Highlight>,
+            <Highlight>Legalpad (Deel)</Highlight> — have an open role you're
+            applying to?
           </h1>
           <OptionsContainer>
             <OptionButton
               isSelected={formState.hireMe === "hasOpenPosition"}
-              onClick={() => handleSelectHireMe("hasOpenPosition")}
+              onClick={() => handle("hireMe", "hasOpenPosition")}
             >
-              Yes, there is an open position
+              Yes
             </OptionButton>
             <OptionButton
               isSelected={formState.hireMe === "hasNoOpenPosition"}
-              onClick={() => handleSelectHireMe("hasNoOpenPosition")}
+              onClick={() => handle("hireMe", "hasNoOpenPosition")}
             >
-              No, there isn&apos;t an open position
+              No, but I’m still interested
             </OptionButton>
-
             <OptionButton
               isSelected={formState.hireMe === "differentCompany"}
-              onClick={() => handleSelectHireMe("differentCompany")}
+              onClick={() => handle("hireMe", "differentCompany")}
             >
-              No, I want to talk about a different company
+              No, different company
             </OptionButton>
           </OptionsContainer>
         </OptionGroup>
       )}
+
       {formState.hireMe === "hasNoOpenPosition" && (
         <OptionGroup>
           <h1>
-            It&apos;s unlikely that we can hire you at the moment. Connect with
-            me on linkedin for future opportunities!
+            It’s unlikely I can help right now. Feel free to connect on LinkedIn
+            for future roles!
           </h1>
           <OptionsContainer>
             <OptionButton
               onClick={() => window.open("https://linkedin.com/in/mankybansal")}
             >
-              <i className="fa fa-linkedin-square" />
-              Connect with me on LinkedIn
-              <i className="fa fa-link" />
+              🔗 Connect on LinkedIn
             </OptionButton>
           </OptionsContainer>
         </OptionGroup>
       )}
-      {(formState.step1 === "other" ||
-        formState.hireMe === "differentCompany" ||
-        formState.hireMe === "hasOpenPosition" ||
-        formState.immigration === "hasWatched") && (
+
+      {shouldShowCalendar && (
         <OptionGroup>
-          <h1>Great! Let&apos;s talk.</h1>
+          <h1>Great — let's talk!</h1>
           <h4>
-            If you are present in North America at the time of the meeting,
-            please schedule our meeting on a weekday. Weekends are reserved for
-            people in other timezones.
+            If you're in North America, please schedule on a weekday. I reserve
+            weekends for international time zones. 🙏
           </h4>
-          <OptionsContainer>
-            <OptionButton
-              onClick={() => window.open("https://calendly.com/mankybansal")}
-            >
-              <i className="fa fa-calendar" />
-              Schedule a meeting
-              <i className="fa fa-link" />
-            </OptionButton>
-          </OptionsContainer>
+          <ScheduleButton
+            onClick={() => window.open("https://calendly.com/mankybansal")}
+          >
+            📅 Schedule a Meeting
+          </ScheduleButton>
         </OptionGroup>
       )}
     </RootContainer>
