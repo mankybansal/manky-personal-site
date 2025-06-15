@@ -351,8 +351,8 @@ const AlternatingBlock = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 64px 0;
-  max-width: 1000px;
+  margin: 32px 0;
+  max-width: 600px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -406,7 +406,7 @@ const Home = () => {
       <LandingContainer>
         <LandingCard className="tilt-card">
           <VideoBackground
-            src="https://www.w3schools.com/html/mov_bbb.mp4"
+            src="videos/856969-hd_1920_1080_25fps.mp4"
             autoPlay
             muted
             loop
@@ -427,7 +427,7 @@ const Home = () => {
         <SectionTitle>About Me</SectionTitle>
 
         <AlternatingBlock>
-          <ImageBlock align="left" src="images/first-robotics.jpg" />
+          {/*<ImageBlock align="left" src="images/first-robotics.jpg" />*/}
           <TextBlock>
             👋🏼 I&#39;m <strong>Mayank Bansal</strong>{" "}
             <span style={{ fontWeight: 500 }}>(मयंक बंसल)</span>, a{" "}
@@ -462,11 +462,11 @@ const Home = () => {
             </UnderlinedLink>
             — all of which have gotten acquired.
           </TextBlock>
-          <ImageBlock align="right" src="images/first-robotics.jpg" />
+          {/*<ImageBlock align="right" src="images/first-robotics.jpg" />*/}
         </AlternatingBlock>
 
         <AlternatingBlock>
-          <ImageBlock align="left" src="images/first-robotics.jpg" />
+          {/*<ImageBlock align="left" src="images/first-robotics.jpg" />*/}
 
           <TextBlock>
             When I’m not working, I’m usually mentoring, cooking, playing
