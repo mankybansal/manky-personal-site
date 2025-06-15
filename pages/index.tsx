@@ -279,18 +279,6 @@ const AboutMeText = styled.div`
   }
 `;
 
-const SkillGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  vertical-align: top;
-  text-align: left;
-
-  @media (max-width: 576px) {
-    width: 100%;
-  }
-`;
-
 const PronunciationTooltip = styled.div<{ visible: boolean }>`
   position: absolute;
   margin-left: 70px;
@@ -441,7 +429,7 @@ const Home = () => {
         <AlternatingBlock>
           <ImageBlock align="left" src="images/first-robotics.jpg" />
           <TextBlock>
-            👋🏼 I'm <strong>Mayank Bansal</strong>{" "}
+            👋🏼 I&#39;m <strong>Mayank Bansal</strong>{" "}
             <span style={{ fontWeight: 500 }}>(मयंक बंसल)</span>, a{" "}
             <strong>Lead Frontend Engineer</strong> and self-taught{" "}
             <strong>Designer</strong> with full-stack experience. I love
@@ -452,7 +440,7 @@ const Home = () => {
 
         <AlternatingBlock>
           <TextBlock>
-            I'm currently building AI products at{" "}
+            I&#39;m currently building AI products at{" "}
             <UnderlinedLink href="https://www.openai.com" target="_blank">
               OpenAI
             </UnderlinedLink>
@@ -659,8 +647,8 @@ const Home = () => {
         <SectionTitle>Get In Touch</SectionTitle>
 
         <TextContainer>
-          Whether you're exploring a collaboration, looking for advice, or just
-          want to say hello — I'd love to hear from you.
+          Whether you&#39;re exploring a collaboration, looking for advice, or
+          just want to say hello — I&#39;d love to hear from you.
         </TextContainer>
 
         <ActionButtonRow>

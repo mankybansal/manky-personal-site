@@ -186,8 +186,8 @@ const Meet = () => {
           <h1>Have you already explored these?</h1>
           <h4>
             I’ve put together answers to common O-1 / EB-1A questions. They’re
-            helpful even if you're just getting started — and many influencers
-            now quote them on LinkedIn.
+            helpful even if you&#39;re just getting started — and many
+            influencers now quote them on LinkedIn.
           </h4>
           <OptionsContainer>
             <VideoFrame
@@ -249,7 +249,7 @@ const Meet = () => {
       {formState.hiring === "hireMayank" && (
         <OptionGroup>
           <h1>
-            I’m not actively looking, but I love hearing about what you're
+            I’m not actively looking, but I love hearing about what you&#39;re
             building. <Highlight>Message me on LinkedIn first.</Highlight>
           </h1>
           <OptionsContainer>
@@ -268,8 +268,8 @@ const Meet = () => {
             Do any of my current or past employers —{" "}
             <Highlight>OpenAI</Highlight>,<Highlight>Outgo (DAT)</Highlight>,{" "}
             <Highlight>Convoy (Flexport)</Highlight>,
-            <Highlight>Legalpad (Deel)</Highlight> — have an open role you're
-            applying to?
+            <Highlight>Legalpad (Deel)</Highlight> — have an open role
+            you&#39;re applying to?
           </h1>
           <OptionsContainer>
             <OptionButton
@@ -312,10 +312,10 @@ const Meet = () => {
 
       {shouldShowCalendar && (
         <OptionGroup>
-          <h1>Great — let's talk!</h1>
+          <h1>Great — let&#39;s talk!</h1>
           <h4>
-            If you're in North America, please schedule on a weekday. I reserve
-            weekends for international time zones. 🙏
+            If you&#39;re in North America, please schedule on a weekday. I
+            reserve weekends for international time zones. 🙏
           </h4>
           <ScheduleButton
             onClick={() => window.open("https://calendly.com/mankybansal")}
