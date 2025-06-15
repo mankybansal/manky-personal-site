@@ -194,7 +194,7 @@ export const RandomFacts = () => {
                 👍 Like ({(voteCounts[idx]?.up || 0).toLocaleString()})
               </ReactionButton>
               <ReactionButton onClick={() => handleFeedback(idx, "down")}>
-                👎 Nope ({(voteCounts[idx]?.down || 0).toLocaleString()})
+                👎 Boo ({(voteCounts[idx]?.down || 0).toLocaleString()})
               </ReactionButton>
               <ReactionButton onClick={() => handleFeedback(idx, "me-too")}>
                 ✋ Me too ({(voteCounts[idx]?.["me-too"] || 0).toLocaleString()}

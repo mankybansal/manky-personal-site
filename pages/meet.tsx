@@ -1,4 +1,4 @@
-// Enhanced Meet page with improved UX, animations, and stricter gating logic
+// Enhanced Meet page with linked-list-style flow
 
 import { useState } from "react";
 import styled from "@emotion/styled";
@@ -19,17 +19,27 @@ const fadeIn = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const Intro = styled.div`
-  max-width: 700px;
+const IntroCard = styled.div`
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  max-width: 720px;
   text-align: center;
-  margin-bottom: 32px;
   color: #333;
   animation: ${fadeIn} 0.6s ease forwards;
   opacity: 0;
   animation-fill-mode: forwards;
 
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
   p {
     font-size: 16px;
+    font-weight: 400;
     margin-bottom: 8px;
   }
 `;
@@ -41,7 +51,6 @@ const OptionGroup = styled.div`
   max-width: 800px;
   align-items: center;
   text-align: center;
-  opacity: ${({ dimmed }) => (dimmed ? 0.4 : 1)};
   transition: opacity 0.3s ease;
 
   h1 {
@@ -63,6 +72,14 @@ const OptionsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
+`;
+
+const InnerContainer = styled.div`
+  display: flex;
+  max-width: 768px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const OptionButton = styled.button`
@@ -96,234 +113,218 @@ const Highlight = styled.span`
   font-weight: 600;
 `;
 
-const VideoFrame = styled.iframe`
-  border: none;
-  width: 100%;
-  max-width: 500px;
-  height: 280px;
-  margin: 12px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-`;
-
 const ScheduleButton = styled(OptionButton)`
   font-size: 18px;
   padding: 14px 32px;
   margin-top: 24px;
 `;
 
+const flow = {
+  step1: {
+    question: "What would you like to meet about?",
+    options: [
+      {
+        label: "Immigration / Visas",
+        value: "immigration",
+        next: "immigration",
+      },
+      { label: "Hiring / Job Opportunities", value: "hiring", next: "hiring" },
+      { label: "Just Networking", value: "other", next: "confirm" },
+    ],
+  },
+  immigration: {
+    question: (
+      <>
+        <h1>Have you already explored these?</h1>
+        <h4>
+          I’ve put together answers to common O-1 / EB-1A questions. They’re
+          helpful even if you&#39;re just getting started — and many influencers
+          now quote them on LinkedIn.
+        </h4>
+      </>
+    ),
+    custom: (
+      <OptionsContainer>
+        <iframe
+          src="https://www.youtube.com/embed/Ar_hijWPS5s"
+          title="Alternative Work Visa"
+          allowFullScreen
+          style={{
+            width: "100%",
+            maxWidth: 500,
+            height: 280,
+            border: "none",
+            borderRadius: 12,
+          }}
+        />
+        <iframe
+          src="https://www.youtube.com/embed/0AzPlMJ6slQ"
+          title="Common O-1 Visa Questions"
+          allowFullScreen
+          style={{
+            width: "100%",
+            maxWidth: 500,
+            height: 280,
+            border: "none",
+            borderRadius: 12,
+          }}
+        />
+      </OptionsContainer>
+    ),
+    options: [
+      { label: "Yep, already watched", value: "hasWatched", next: "confirm" },
+      { label: "Not yet", value: "hasNotWatched" },
+    ],
+  },
+  hiring: {
+    question: "Are you looking to hire me?",
+    options: [
+      {
+        label: "Yes, I want to hire you",
+        value: "hireMayank",
+        message: "linkedin",
+      },
+      { label: "No, I am looking for a job", value: "hireMe", next: "hireMe" },
+    ],
+  },
+  hireMe: {
+    question: (
+      <>
+        <h1>
+          Do any of my current or past employers — <Highlight>OpenAI</Highlight>
+          ,<Highlight>Outgo (DAT)</Highlight>,{" "}
+          <Highlight>Convoy (Flexport)</Highlight>,
+          <Highlight>Legalpad (Deel)</Highlight> — have an open role you&#39;re
+          applying to?
+        </h1>
+      </>
+    ),
+    options: [
+      { label: "Yes", value: "hasOpenPosition", next: "confirm" },
+      {
+        label: "No, but I’m still interested",
+        value: "hasNoOpenPosition",
+        message: "linkedin",
+      },
+      {
+        label: "No, different company",
+        value: "differentCompany",
+        next: "confirm",
+      },
+    ],
+  },
+  confirm: {
+    question: (
+      <>
+        <h1>Have we already agreed to meet?</h1>
+        <h4>
+          I get hundreds of requests each week and only take meetings I've
+          explicitly confirmed. If we haven’t chatted yet, I’ll have to cancel.
+          🙏
+        </h4>
+      </>
+    ),
+    options: [
+      { label: "Yes, we confirmed", value: true, message: "calendar" },
+      { label: "Not yet", value: "hasNotConfirmed" },
+    ],
+  },
+};
+
 const Meet = () => {
-  const [formState, setFormState] = useState({
-    step1: undefined,
-    immigration: undefined,
-    hiring: undefined,
-    hireMe: undefined,
-  });
+  const [step, setStep] = useState("intro");
+  const [formState, setFormState] = useState({});
 
-  const isAnswered = (step) => step !== undefined;
+  const node = flow[step] || null;
+  const currentValue = formState[step];
 
-  const handle = (key, value) => {
-    const newState = { ...formState };
-    newState[key] = value;
-    if (key === "step1") {
-      newState.immigration = undefined;
-      newState.hiring = undefined;
-      newState.hireMe = undefined;
+  const handle = (value, next, message) => {
+    setFormState({ ...formState, [step]: value });
+    if (message === "linkedin") {
+      window.open("https://linkedin.com/in/mankybansal");
+    } else if (message === "calendar") {
+      setStep("calendar");
+    } else if (next) {
+      setStep(next);
     }
-    if (key === "hiring") {
-      newState.hireMe = undefined;
-    }
-    setFormState(newState);
   };
-
-  const shouldShowCalendar =
-    formState.step1 === "other" ||
-    formState.hireMe === "hasOpenPosition" ||
-    formState.hireMe === "differentCompany" ||
-    formState.immigration === "hasWatched";
 
   return (
     <RootContainer>
-      <Intro>
-        <p>Hi — thanks for your interest in connecting!</p>
-        <p>
-          This form helps us both figure out what kind of conversation will be
-          most valuable. I can help with immigration, hiring, or anything in
-          between.
-        </p>
-        <p>
-          I often talk with founders, engineers, and immigrants navigating U.S.
-          opportunities. Let’s make this useful for both of us!
-        </p>
-      </Intro>
+      <InnerContainer>
+        {step === "intro" && (
+          <IntroCard>
+            <h2>Hi — thanks for your interest in connecting!</h2>
+            <p>
+              This form helps us both figure out what kind of conversation will
+              be most valuable. I can help with immigration, hiring, or anything
+              in between.
+            </p>
+            <p>
+              I often talk with founders, engineers, and immigrants navigating
+              U.S. opportunities. Let’s make this useful for both of us!
+            </p>
+            <OptionsContainer>
+              <OptionButton onClick={() => setStep("step1")}>
+                Get Started
+              </OptionButton>
+            </OptionsContainer>
+          </IntroCard>
+        )}
 
-      <OptionGroup dimmed={isAnswered(formState.step1)}>
-        <h1>What would you like to meet about?</h1>
-        <OptionsContainer>
-          <OptionButton
-            isSelected={formState.step1 === "immigration"}
-            onClick={() => handle("step1", "immigration")}
-          >
-            Immigration / Visas
-          </OptionButton>
-          <OptionButton
-            isSelected={formState.step1 === "hiring"}
-            onClick={() => handle("step1", "hiring")}
-          >
-            Hiring / Job Opportunities
-          </OptionButton>
-          <OptionButton
-            isSelected={formState.step1 === "other"}
-            onClick={() => handle("step1", "other")}
-          >
-            Just Networking
-          </OptionButton>
-        </OptionsContainer>
-      </OptionGroup>
+        {node && step !== "calendar" && (
+          <OptionGroup>
+            {typeof node.question === "string" ? (
+              <h1>{node.question}</h1>
+            ) : (
+              node.question
+            )}
+            {node.custom && node.custom}
+            <OptionsContainer>
+              {node.options.map(({ label, value, next, message }) => (
+                <OptionButton
+                  key={label}
+                  isSelected={currentValue === value}
+                  onClick={() => handle(value, next, message)}
+                >
+                  {label}
+                </OptionButton>
+              ))}
+            </OptionsContainer>
+          </OptionGroup>
+        )}
 
-      {formState.step1 === "immigration" && (
-        <OptionGroup dimmed={isAnswered(formState.immigration)}>
-          <h1>Have you already explored these?</h1>
-          <h4>
-            I’ve put together answers to common O-1 / EB-1A questions. They’re
-            helpful even if you&#39;re just getting started — and many
-            influencers now quote them on LinkedIn.
-          </h4>
-          <OptionsContainer>
-            <VideoFrame
-              src="https://www.youtube.com/embed/Ar_hijWPS5s"
-              title="Alternative Work Visa"
-              allowFullScreen
-            />
-            <VideoFrame
-              src="https://www.youtube.com/embed/0AzPlMJ6slQ"
-              title="Common O-1 Visa Questions"
-              allowFullScreen
-            />
-          </OptionsContainer>
-          <OptionsContainer>
-            <OptionButton
-              isSelected={formState.immigration === "hasWatched"}
-              onClick={() => handle("immigration", "hasWatched")}
-            >
-              Yep, already watched
-            </OptionButton>
-            <OptionButton
-              isSelected={formState.immigration === "hasNotWatched"}
-              onClick={() => handle("immigration", "hasNotWatched")}
-            >
-              Not yet
-            </OptionButton>
-          </OptionsContainer>
-          {formState.immigration === "hasNotWatched" && (
+        {step === "calendar" && (
+          <OptionGroup>
+            <h1>Great — let&#39;s talk!</h1>
             <h4>
-              You can find many of the most common answers in the videos above,
-              or by browsing LinkedIn where creators often summarize this
-              process. I recommend starting there before scheduling time
-              together. 🙏
+              If you&#39;re in North America, please schedule on a weekday. I
+              reserve weekends for international time zones. 🙏
             </h4>
-          )}
-        </OptionGroup>
-      )}
+            <ScheduleButton
+              onClick={() => window.open("https://calendly.com/mankybansal")}
+            >
+              📅 Schedule a Meeting
+            </ScheduleButton>
+          </OptionGroup>
+        )}
 
-      {formState.step1 === "hiring" && (
-        <OptionGroup dimmed={isAnswered(formState.hiring)}>
-          <h1>Are you looking to hire me?</h1>
-          <OptionsContainer>
-            <OptionButton
-              isSelected={formState.hiring === "hireMayank"}
-              onClick={() => handle("hiring", "hireMayank")}
-            >
-              Yes, I want to hire you
-            </OptionButton>
-            <OptionButton
-              isSelected={formState.hiring === "hireMe"}
-              onClick={() => handle("hiring", "hireMe")}
-            >
-              No, I am looking for a job
-            </OptionButton>
-          </OptionsContainer>
-        </OptionGroup>
-      )}
-
-      {formState.hiring === "hireMayank" && (
-        <OptionGroup>
-          <h1>
-            I’m not actively looking, but I love hearing about what you&#39;re
-            building. <Highlight>Message me on LinkedIn first.</Highlight>
-          </h1>
-          <OptionsContainer>
-            <OptionButton
-              onClick={() => window.open("https://linkedin.com/in/mankybansal")}
-            >
-              💼 Message me on LinkedIn
-            </OptionButton>
-          </OptionsContainer>
-        </OptionGroup>
-      )}
-
-      {formState.hiring === "hireMe" && (
-        <OptionGroup dimmed={isAnswered(formState.hireMe)}>
-          <h1>
-            Do any of my current or past employers —{" "}
-            <Highlight>OpenAI</Highlight>,<Highlight>Outgo (DAT)</Highlight>,{" "}
-            <Highlight>Convoy (Flexport)</Highlight>,
-            <Highlight>Legalpad (Deel)</Highlight> — have an open role
-            you&#39;re applying to?
-          </h1>
-          <OptionsContainer>
-            <OptionButton
-              isSelected={formState.hireMe === "hasOpenPosition"}
-              onClick={() => handle("hireMe", "hasOpenPosition")}
-            >
-              Yes
-            </OptionButton>
-            <OptionButton
-              isSelected={formState.hireMe === "hasNoOpenPosition"}
-              onClick={() => handle("hireMe", "hasNoOpenPosition")}
-            >
-              No, but I’m still interested
-            </OptionButton>
-            <OptionButton
-              isSelected={formState.hireMe === "differentCompany"}
-              onClick={() => handle("hireMe", "differentCompany")}
-            >
-              No, different company
-            </OptionButton>
-          </OptionsContainer>
-        </OptionGroup>
-      )}
-
-      {formState.hireMe === "hasNoOpenPosition" && (
-        <OptionGroup>
-          <h1>
-            It’s unlikely I can help right now. Feel free to connect on LinkedIn
-            for future roles!
-          </h1>
-          <OptionsContainer>
-            <OptionButton
-              onClick={() => window.open("https://linkedin.com/in/mankybansal")}
-            >
-              🔗 Connect on LinkedIn
-            </OptionButton>
-          </OptionsContainer>
-        </OptionGroup>
-      )}
-
-      {shouldShowCalendar && (
-        <OptionGroup>
-          <h1>Great — let&#39;s talk!</h1>
-          <h4>
-            If you&#39;re in North America, please schedule on a weekday. I
-            reserve weekends for international time zones. 🙏
+        {/* Extra message for "Not yet" in confirm step */}
+        {currentValue === "hasNotConfirmed" && (
+          <h4 style={{ marginTop: "1.5rem", color: "#aa0000" }}>
+            I can’t take meetings unless we’ve explicitly confirmed. But you can
+            still find answers to most questions on LinkedIn or YouTube!
           </h4>
-          <ScheduleButton
-            onClick={() => window.open("https://calendly.com/mankybansal")}
-          >
-            📅 Schedule a Meeting
-          </ScheduleButton>
-        </OptionGroup>
-      )}
+        )}
+
+        {/* Extra message for "Not yet" in immigration step */}
+        {currentValue === "hasNotConfirmed" && (
+          <h4 style={{ marginTop: "1.5rem", color: "#aa0000" }}>
+            I do not do informational calls. You can still find answers to most
+            questions on LinkedIn or YouTube.
+          </h4>
+        )}
+      </InnerContainer>
     </RootContainer>
   );
 };
